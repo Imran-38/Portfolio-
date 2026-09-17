@@ -3,53 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>মো: ইমরান হোসেন | পোর্টফোলিও</title>
-    <!-- Google Fonts -->
+    <title>মো: ইমরান হোসেন | প্রো পোর্টফোলিও</title>
+    <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- CSS ফাইল যুক্ত করার লিংক -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- হেডার বা পরিচিতি অংশ -->
-    <header>
-        <h1>মো: ইমরান হোসেন</h1>
-        <p>সেলস রিপ্রেজেন্টেটিভ (Sales Representative)</p>
-        <span class="company-badge">RFL Group</span>
-    </header>
-
-    <div class="container">
-        <!-- সংক্ষিপ্ত পরিচয় -->
-        <div class="card">
-            <h2>সংক্ষিপ্ত পরিচয়</h2>
-            <p>আমি মো: ইমরান হোসেন। দেশের শীর্ষস্থানীয় প্রতিষ্ঠান <strong>আরএফএল (RFL) গ্রুপে</strong> সফলতার সাথে সেলস বিভাগে কর্মরত আছি। নতুন গ্রাহক তৈরি, কোম্পানির পণ্য সঠিকভাবে বাজারে উপস্থাপন এবং গ্রাহকদের সাথে দীর্ঘস্থায়ী সুসম্পর্ক গড়ে তোলাই আমার মূল লক্ষ্য।</p>
+    <!-- নেভিগেশন মেনু -->
+    <nav class="navbar">
+        <div class="logo">ইমরান <span>হোসেন</span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">হোম</a></li>
+            <li><a href="#about">পরিচয়</a></li>
+            <li><a href="#skills">দক্ষতা</a></li>
+            <li><a href="#products">প্রোডাক্টস</a></li>
+            <li><a href="#contact">যোগাযোগ</a></li>
+        </ul>
+        <div class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
         </div>
+    </nav>
 
-        <!-- দক্ষতা -->
-        <div class="card">
-            <h2>আমার দক্ষতা (Skills)</h2>
-            <div class="skills-grid">
-                <div class="skill-item">বিক্রয় ও বিপণন</div>
-                <div class="skill-item">কাস্টমার রিলেশনশিপ</div>
-                <div class="skill-item">নেগোসিয়েশন</div>
-                <div class="skill-item">পণ্য উপস্থাপন</div>
-                <div class="skill-item">টার্গেট পূরণ</div>
-                <div class="skill-item">টাইম ম্যানেজমেন্ট</div>
+    <!-- হিরো সেকশন (Hero Section) -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-img-box">
+                <!-- এখানে আপনার ছবির ইউআরএল বা নাম বসাবেন -->
+                <img src="https://via.placeholder.com/150" alt="Md Imran Hossain" id="profileImg">
+            </div>
+            <h1>মো: ইমরান হোসেন</h1>
+            <p class="subtitle">আমি একজন <span class="typing-text"></span></p>
+            <span class="company-tag"><i class="fa-solid fa-building"></i> RFL Group</span>
+            
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> যোগাযোগ করুন</a>
+                <a href="tel:01517851338" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> 01517851338</a>
             </div>
         </div>
+    </section>
 
-        <!-- যোগাযোগ -->
-        <div class="card">
-            <h2>যোগাযোগ করুন</h2>
-            <p>যে কোনো প্রয়োজনে বা ব্যবসায়িক আলোচনার জন্য কল করুন অথবা হোয়াটসঅ্যাপে মেসেজ দিন:</p>
-            <a href="tel:01517851338" class="phone-link">📞 কল করুন: 01517851338</a>
-            <a href="https://wa.me/8801517851338" target="_blank" class="contact-btn">💬 WhatsApp-এ মেসেজ দিন</a>
-        </div>
+    <div class="container">
+        <!-- সংখ্যায় সাফল্য (Counter Section) -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h2>৫+</h2>
+                <p>বছরের অভিজ্ঞতা</p>
+            </div>
+            <div class="stat-card">
+                <h2>২০০+</h2>
+                <p>সন্তুষ্ট ডিলার/ক্লায়েন্ট</p>
+            </div>
+            <div class="stat-card">
+                <h2>১০০%</h2>
+                <p>সেলস টার্গেট পূরণ</p>
+            </div>
+        </section>
+
+        <!-- পরিচয় -->
+        <section id="about" class="card">
+            <h2><i class="fa-solid fa-user"></i> সংক্ষিপ্ত পরিচয়</h2>
+            <p>আমি মো: ইমরান হোসেন। দেশের শীর্ষস্থানীয় বহুজাতি ভিত্তিক প্রতিষ্ঠান <strong>আরএফএল (RFL) গ্রুপে</strong> সফলতার সাথে সেলস এক্সিকিউটিভ হিসেবে কর্মরত আছি। নতুন মার্কেট তৈরি, রিটেইলার ও ডিলারদের সাথে বাণিজ্যিক সুসম্পর্ক স্থাপন এবং প্রতিষ্ঠানের প্রোডাক্ট সেলস বৃদ্ধি করাই আমার মূল লক্ষ্য।</p>
+        </section>
+
+        <!-- দক্ষতা -->
+        <section id="skills" class="card">
+            <h2><i class="fa-solid fa-star"></i> পেশাগত দক্ষতা</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fa-solid fa-chart-line"></i> বিক্রয় ও বিপণন</div>
+                <div class="skill-item"><i class="fa-solid fa-handshake"></i> কাস্টমার রিলেশনশিপ</div>
+                <div class="skill-item"><i class="fa-solid fa-comments"></i> নেগোসিয়েশন</div>
+                <div class="skill-item"><i class="fa-solid fa-bullseye"></i> টার্গেট অর্জন</div>
+                <div class="skill-item"><i class="fa-solid fa-boxes-packing"></i> প্রোডাক্ট ডিস্ট্রিবিউশন</div>
+                <div class="skill-item"><i class="fa-solid fa-clock"></i> টাইম ম্যানেজমেন্ট</div>
+            </div>
+        </section>
+
+        <!-- ডাইনামিক প্রোডাক্ট ক্যাটাগরি -->
+        <section id="products" class="card">
+            <h2><i class="fa-solid fa-layer-group"></i> যে সকল প্রোডাক্ট ক্যাটাগরি নিয়ে কাজ করি</h2>
+            <div class="filter-btns">
+                <button class="filter-btn active" data-filter="all">সব</button>
+                <button class="filter-btn" data-filter="plastics">প্লাস্টিকস</button>
+                <button class="filter-btn" data-filter="hardware">হার্ডওয়্যার</button>
+            </div>
+            <div class="product-grid">
+                <div class="product-card plastics">
+                    <h3>RFL Household Plastics</h3>
+                    <p>গৃহস্থালি ব্যবহারের সেরা প্লাস্টিক সামগ্রী।</p>
+                </div>
+                <div class="product-card hardware">
+                    <h3>RFL Pipe & Fittings</h3>
+                    <p>উন্নত মানের টিউবওয়েল, পাইপ ও ফিটিংস।</p>
+                </div>
+                <div class="product-card plastics">
+                    <h3>RFL Furniture</h3>
+                    <p>আকর্ষণীয় ও টেকসই প্লাস্টিক ফার্নিচার।</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ডাইনামিক হোয়াটসঅ্যাপ মেসেজ ফর্ম -->
+        <section id="contact" class="card">
+            <h2><i class="fa-solid fa-envelope"></i> মেসেজ পাঠান (WhatsApp)</h2>
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <input type="text" id="custName" placeholder="আপনার নাম" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="custPhone" placeholder="আপনার ফোন নম্বর" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="custMsg" rows="4" placeholder="আপনার মেসেজ বা বিষয়..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে মেসেজ পাঠান</button>
+            </form>
+        </section>
     </div>
 
     <footer>
-        <p>© 2026 মো: ইমরান হোসেন | সর্বস্বত্ব সংরক্ষিত</p>
+        <p>© 2026 মো: ইমরান হোসেন | আরএফএল গ্রুপ</p>
     </footer>
 
+    <!-- JavaScript Link -->
+    <script src="script.js"></script>
 </body>
 </html>
