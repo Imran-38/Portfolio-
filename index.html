@@ -2,18 +2,19 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-<!-- Favicon / Tab Icon -->
-<link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/briefcase.png">
-<meta name="description" content="মো: ইমরান হোসেন - আরএফএল (RFL) গ্রুপ সেলস রিপ্রেজেন্টেটিভ। ডিলারশিপ ও প্রোডাক্ট সংক্রান্ত বিস্তারিত তথ্যের জন্য যোগাযোগ করুন।">
-<meta name="keywords" content="RFL Group, Md Imran Hossain, RFL Plastics, RFL Pipe, RFL Dealer, RFL Sales">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>মো: ইমরান হোসেন | প্রো পোর্টফোলিও</title>
-<!-- সোশ্যাল শেয়ারিং প্রিভিউ ট্যাগ -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="মো: ইমরান হোসেন | আরএফএল গ্রুপ সেলস পোর্টফোলিও">
-<meta property="og:description" content="RFL Group-এর প্রোডাক্ট ইনকোয়ারি ও ব্যবসায়ী ডিলারশিপের জন্য সরাসরি যোগাযোগ করুন।">
-<meta property="og:image" content="profile.jpg">
+
+    <!-- Favicon / Tab Icon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/briefcase.png">
+    <meta name="description" content="মো: ইমরান হোসেন - আরএফএল (RFL) গ্রুপ সেলস রিপ্রেজেন্টেটিভ। ডিলারশিপ ও প্রোডাক্ট সংক্রান্ত বিস্তারিত তথ্যের জন্য যোগাযোগ করুন।">
+    <meta name="keywords" content="RFL Group, Md Imran Hossain, RFL Plastics, RFL Pipe, RFL Dealer, RFL Sales">
+
+    <!-- সোশ্যাল শেয়ারিং প্রিভিউ ট্যাগ -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="মো: ইমরান হোসেন | আরএফএল গ্রুপ সেলস পোর্টফোলিও">
+    <meta property="og:description" content="RFL Group-এর প্রোডাক্ট ইনকোয়ারি ও ব্যবসায়ী ডিলারশিপের জন্য সরাসরি যোগাযোগ করুন।">
+    <meta property="og:image" content="img/profile.jpg">
 
     <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
@@ -24,13 +25,18 @@
 
     <!-- নেভিগেশন মেনু -->
     <nav class="navbar">
-<!-- গুগল ট্রান্সলেট বাটন -->
         <div class="logo">ইমরান <span>হোসেন</span></div>
+        
+        <!-- গুগল ট্রান্সলেট বাটন -->
+        <div id="google_translate_element"></div>
+
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">হোম</a></li>
             <li><a href="#about">পরিচয়</a></li>
             <li><a href="#skills">দক্ষতা</a></li>
             <li><a href="#products">প্রোডাক্টস</a></li>
+            <li><a href="#territory">সার্ভিস এলাকা</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">যোগাযোগ</a></li>
         </ul>
         <div class="menu-btn" id="menuBtn">
@@ -38,11 +44,10 @@
         </div>
     </nav>
 
-    <!-- হিরো সেকশন (Hero Section) -->
+    <!-- হিরো সেকশন -->
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="profile-img-box">
-                <!-- এখানে আপনার ছবির ইউআরএল বা নাম বসাবেন -->
                 <img src="img/profile.jpg" alt="Md Imran Hossain" id="profileImg">
             </div>
             <h1>মো: ইমরান হোসেন</h1>
@@ -50,16 +55,15 @@
             <span class="company-tag"><i class="fa-solid fa-building"></i> RFL Group</span>
             
             <div class="hero-buttons">
-    <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> যোগাযোগ করুন</a>
-    <button onclick="copyWebsiteLink()" class="btn btn-secondary"><i class="fa-solid fa-share-nodes"></i> লিংক শেয়ার করুন</button>
-    <a href="tel:01517851338" class="btn btn-primary" style="background: #ffffff; color: #0056b3;"><i class="fa-solid fa-phone"></i> 01517851338</a>
-</div>
-
+                <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> যোগাযোগ করুন</a>
+                <button onclick="copyWebsiteLink()" class="btn btn-secondary"><i class="fa-solid fa-share-nodes"></i> লিংক শেয়ার করুন</button>
+                <a href="tel:01517851338" class="btn btn-call"><i class="fa-solid fa-phone"></i> 01517851338</a>
+            </div>
         </div>
     </section>
 
     <div class="container">
-        <!-- সংখ্যায় সাফল্য (Counter Section) -->
+        <!-- সংখ্যায় সাফল্য -->
         <section class="stats-section">
             <div class="stat-card">
                 <h2>৫+</h2>
@@ -79,33 +83,7 @@
         <section id="about" class="card">
             <h2><i class="fa-solid fa-user"></i> সংক্ষিপ্ত পরিচয়</h2>
             <p>আমি মো: ইমরান হোসেন। দেশের শীর্ষস্থানীয় বহুজাতি ভিত্তিক প্রতিষ্ঠান <strong>আরএফএল (RFL) গ্রুপে</strong> সফলতার সাথে সেলস এক্সিকিউটিভ হিসেবে কর্মরত আছি। নতুন মার্কেট তৈরি, রিটেইলার ও ডিলারদের সাথে বাণিজ্যিক সুসম্পর্ক স্থাপন এবং প্রতিষ্ঠানের প্রোডাক্ট সেলস বৃদ্ধি করাই আমার মূল লক্ষ্য।</p>
-       
-<!-- সচরাচর জিজ্ঞাসিত প্রশ্ন (FAQ Section) -->
-<section id="faq" class="card">
-    <h2><i class="fa-solid fa-circle-question"></i> সচরাচর জিজ্ঞাসিত প্রশ্ন (FAQ)</h2>
-    <div class="faq-container">
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>ডিলারশিপ বা পাইকারি অর্ডারের নিয়ম কী?</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                <p>সরাসরি ওয়েবসাইট বা হোয়াটসঅ্যাপ মারফত আমার সাথে যোগাযোগ করে প্রোডাক্ট ক্যাটালগ ও সর্বনিম্ন অর্ডার পরিমাণ (MOQ) জেনে নিতে পারেন।</p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>পণ্য ডেলিভারি পেতে কত দিন সময় লাগে?</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                <p>অর্ডার কনফার্ম করার পর নির্দিষ্ট অঞ্চলের ওপর ভিত্তি করে সাধারণত ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ডেলিভারি প্রসেস করা হয়।</p>
-            </div>
-        </div>
-    </div>
-</section>
-
- </section>
+        </section>
 
         <!-- দক্ষতা -->
         <section id="skills" class="card">
@@ -129,31 +107,29 @@
                 <button class="filter-btn" data-filter="hardware">হার্ডওয়্যার</button>
             </div>
             <div class="product-grid">
-    <div class="product-card plastics">
-        <h3>RFL Household Plastics</h3>
-        <p>গৃহস্থালি ব্যবহারের সেরা প্লাস্টিক সামগ্রী।</p>
-        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20Household%20Plastics%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-            <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি করুন
-        </a>
-    </div>
+                <div class="product-card plastics">
+                    <h3>RFL Household Plastics</h3>
+                    <p>গৃহস্থালি ব্যবহারের সেরা প্লাস্টিক সামগ্রী।</p>
+                    <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20Household%20Plastics%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
+                        <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি করুন
+                    </a>
+                </div>
 
-    <div class="product-card hardware">
-        <h3>RFL Pipe & Fittings</h3>
-        <p>উন্নত মানের টিউবওয়েল, পাইপ ও ফিটিংস।</p>
-        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20Pipe%20%26%20Fittings%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-            <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি করুন
-        </a>
-    </div>
+                <div class="product-card hardware">
+                    <h3>RFL Pipe & Fittings</h3>
+                    <p>উন্নত মানের টিউবওয়েল, পাইপ ও ফিটিংস।</p>
+                    <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20Pipe%20%26%20Fittings%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
+                        <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি করুন
+                    </a>
+                </div>
 
-    <div class="product-card plastics">
-        <h3>RFL Furniture</h3>
-        <p>আকর্ষণীয় ও টেকসই প্লাস্টিক ফার্নিচার।</p>
-        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20Furniture%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-            <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি করুন
-        </a>
-    </div>
-</div>
-
+                <div class="product-card plastics">
+                    <h3>RFL Furniture</h3>
+                    <p>আকর্ষণীয় ও টেকসই প্লাস্টিক ফার্নিচার।</p>
+                    <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20Furniture%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
+                        <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি করুন
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -163,15 +139,15 @@
             <p>আমি নিম্নলিখিত এলাকাগুলোতে নিয়মিত ডিলার সার্ভিস ও প্রোডাক্ট সাপ্লাই নিশ্চিত করি:</p>
             <div class="territory-tags">
                 <span class="t-tag"><i class="fa-solid fa-location-dot"></i> খুলনা</span>
-                <span class="t-tag"><i class="fa-solid fa-location-dot"></i>দৌলতপুর</span>
+                <span class="t-tag"><i class="fa-solid fa-location-dot"></i> দৌলতপুর</span>
                 <span class="t-tag"><i class="fa-solid fa-location-dot"></i> শিরোমণি</span>
                 <span class="t-tag"><i class="fa-solid fa-location-dot"></i> ফুলতলা</span>
             </div>
         </section>
 
-        <!-- ডিলার ও ক্লায়েন্ট রিভিউ (Testimonials) -->
+        <!-- ডিলার ও ক্লায়েন্ট রিভিউ -->
         <section id="testimonials" class="card">
-            <h2><i class="fa-solid fa-comments"></i> রিটেলার ও ডিলারদের মতামত</h2>
+            <h2><i class="fa-solid fa-comments"></i> রিটেইলার ও ডিলারদের মতামত</h2>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <p>"ইমরান ভাই অত্যন্ত দ্রুত প্রোডাক্ট ডেলিভারি ও সাপোর্ট নিশ্চিত করেন। আরএফএল এর প্রোডাক্ট সার্ভিসে আমরা সন্তুষ্ট।"</p>
@@ -184,6 +160,30 @@
             </div>
         </section>
 
+        <!-- সচরাচর জিজ্ঞাসিত প্রশ্ন (FAQ Section) -->
+        <section id="faq" class="card">
+            <h2><i class="fa-solid fa-circle-question"></i> সচরাচর জিজ্ঞাসিত প্রশ্ন (FAQ)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>ডিলারশিপ বা পাইকারি অর্ডারের নিয়ম কী?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>সরাসরি ওয়েবসাইট বা হোয়াটসঅ্যাপ মারফত আমার সাথে যোগাযোগ করে প্রোডাক্ট ক্যাটালগ ও সর্বনিম্ন অর্ডার পরিমাণ (MOQ) জেনে নিতে পারেন।</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>পণ্য ডেলিভারি পেতে কত দিন সময় লাগে?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>অর্ডার কনফার্ম করার পর নির্দিষ্ট অঞ্চলের ওপর ভিত্তি করে সাধারণত ২৪ থেকে ৪৮ ঘণ্টার মধ্যে ডেলিভারি প্রসেস করা হয়।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- ডাইনামিক হোয়াটসঅ্যাপ মেসেজ ফর্ম -->
         <section id="contact" class="card">
@@ -204,35 +204,49 @@
     </div>
 
     <!-- প্রফেশনাল ফুটার -->
-<footer>
-    <div class="footer-content">
-        <h3>মো: ইমরান হোসেন</h3>
-        <p>সেলস রিপ্রেজেন্টেটিভ | আরএফএল গ্রুপ</p>
-        <div class="footer-links">
-            <a href="#home">হোম</a> | 
-            <a href="#about">পরিচয়</a> | 
-            <a href="#products">প্রোডাক্টস</a> | 
-            <a href="#faq">FAQ</a> | 
-            <a href="#contact">যোগাযোগ</a>
+    <footer>
+        <div class="footer-content">
+            <h3>মো: ইমরান হোসেন</h3>
+            <p>সেলস রিপ্রেজেন্টেটিভ | আরএফএল গ্রুপ</p>
+            <div class="footer-links">
+                <a href="#home">হোম</a> | 
+                <a href="#about">পরিচয়</a> | 
+                <a href="#products">প্রোডাক্টস</a> | 
+                <a href="#faq">FAQ</a> | 
+                <a href="#contact">যোগাযোগ</a>
+            </div>
         </div>
+        <p class="copyright">© 2026 মো: ইমরান হোসেন | সর্বস্বত্ব সংরক্ষিত</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="উপরে যান">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ফ্লোটিং হোয়াটসঅ্যাপ ও কল বাটন -->
+    <div class="floating-btn-group">
+        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20আপনার%20ওয়েবসাইট%20থেকে%20যোগাযোগ%20করছি।" class="float-btn float-wa" target="_blank" title="WhatsApp Message">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:01517851338" class="float-btn float-call" title="Direct Call">
+            <i class="fa-solid fa-phone"></i>
+        </a>
     </div>
-    <p class="copyright">© 2026 মো: ইমরান হোসেন | সর্বস্বত্ব সংরক্ষিত</p>
-</footer>
-<!-- Back to Top Button -->
-<button id="backToTop" title="উপরে যান">
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
 
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'bn', 
+                includedLanguages: 'en,bn,hi,ar',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- ফ্লোটিং হোয়াটসঅ্যাপ ও কল বাটন -->
-<div class="floating-btn-group">
-    <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20আপনার%20ওয়েবসাইট%20থেকে%20যোগাযোগ%20করছি।" class="float-btn float-wa" target="_blank" title="WhatsApp Message">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    <a href="tel:01517851338" class="float-btn float-call" title="Direct Call">
-        <i class="fa-solid fa-phone"></i>
-    </a>
-</div>
-
+    <!-- Main JavaScript Link -->
+    <script src="script.js"></script>
 </body>
 </html>
