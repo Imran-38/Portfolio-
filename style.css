@@ -407,3 +407,202 @@ footer {
     .nav-links.active { display: flex !important; }
     .nav-links li a { display: block; padding: 10px 0; }
 }
+/* ==========================================
+   Modern Ultra Gallery & Lightbox Popup
+   ========================================== */
+
+.gallery-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 86, 179, 0.08);
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 320px; /* নির্দিষ্ট আধুনিক উচ্চতা */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 40, 133, 0.12);
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slide-item {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* সব ধরনের সাইজের ছবি সুন্দরভাবে ফিট করবে */
+    transition: transform 0.5s ease;
+}
+
+.slide-item:hover img {
+    transform: scale(1.05); /* মাউস নিলে হালকা জুম ইফেক্ট */
+}
+
+/* স্লাইডার নেভিগেশন বাটন */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: #0056b3;
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn { left: 14px; }
+.next-btn { right: 14px; }
+
+/* ডট ইন্ডিকেটর */
+.carousel-dots {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #ffc107;
+    width: 24px;
+    border-radius: 10px;
+}
+
+/* ==========================================
+   Full-Screen Lightbox Popup
+   ========================================== */
+
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 10, 26, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 99999;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 85%;
+    max-height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    object-fit: contain;
+    user-select: none;
+}
+
+.lightbox-counter {
+    color: #e0e0e0;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 14px;
+    border-radius: 12px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 100001;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover { color: #ffc107; }
+
+.lightbox-nav {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.lightbox-nav:hover {
+    background: #ffc107;
+    color: #000;
+}
+
+@media (max-width: 600px) {
+    .carousel-container { height: 230px; }
+    .lightbox-nav { width: 40px; height: 40px; font-size: 16px; }
+    .lightbox-content { max-width: 95%; }
+}
