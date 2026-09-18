@@ -25,26 +25,8 @@
 
     <!-- নেভিগেশন মেনু -->
     <nav class="navbar">
-        <div class="logo">ইমরান <span>হোসেন</span></div>
+        <a href="#home" class="logo">ইমরান <span>হোসেন</span></a>
         
-        <!-- কাস্টম আকর্ষণীয় ভাষা নির্বাচন ড্রপডাউন -->
-        <div class="custom-lang-dropdown">
-            <button class="lang-btn" id="langBtn">
-                <i class="fa-solid fa-globe"></i>
-                <span id="currentLang">ভাষা</span>
-                <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
-            </button>
-            <ul class="lang-menu" id="langMenu">
-                <li onclick="translatePage('bn', '🇧🇩 বাংলা')"><span>🇧🇩</span> বাংলা</li>
-                <li onclick="translatePage('en', '🇬🇧 English')"><span>🇬🇧</span> English</li>
-                <li onclick="translatePage('ar', '🇸🇦 العربية')"><span>🇸🇦</span> العربية</li>
-                <li onclick="translatePage('hi', '🇮🇳 हिन्दी')"><span>🇮🇳</span> हिन्दी</li>
-            </ul>
-        </div>
-
-        <!-- ব্যাকগ্রাউন্ড হিডেন গুগল ট্রান্সলেট এলিমেন্ট -->
-        <div id="google_translate_element"></div>
-
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">হোম</a></li>
             <li><a href="#about">পরিচয়</a></li>
@@ -54,6 +36,7 @@
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">যোগাযোগ</a></li>
         </ul>
+
         <div class="menu-btn" id="menuBtn">
             <i class="fa-solid fa-bars"></i>
         </div>
@@ -248,18 +231,6 @@
             <i class="fa-solid fa-phone"></i>
         </a>
     </div>
-
-    <!-- Google Translate Engine Init -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'bn', 
-                includedLanguages: 'en,bn,hi,ar',
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <!-- Main JavaScript Link -->
     <script src="script.js"></script>
