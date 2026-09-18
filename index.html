@@ -193,6 +193,42 @@
                 </div>
             </div>
         </section>
+        <!-- আধুনিক স্লাইডার ও ফটো গ্যালারি -->
+<section id="gallery" class="card gallery-card">
+    <h2><i class="fa-solid fa-wand-magic-sparkles"></i> ফটো গ্যালারি</h2>
+    
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <!-- ছবিতে ক্লিক করলে পপ-আপ খুলবে -->
+            <div class="slide-item"><img src="img/photo1.jpg" alt="ছবি ১" onclick="openLightbox(0)"></div>
+            <div class="slide-item"><img src="img/photo2.jpg" alt="ছবি ২" onclick="openLightbox(1)"></div>
+            <div class="slide-item"><img src="img/photo3.jpg" alt="ছবি ৩" onclick="openLightbox(2)"></div>
+            <div class="slide-item"><img src="img/photo4.jpg" alt="ছবি ৪" onclick="openLightbox(3)"></div>
+        </div>
+
+        <!-- প্রিমিয়াম কন্ট্রোল বাটন -->
+        <button class="carousel-btn prev-btn" aria-label="Previous"><i class="fa-solid fa-arrow-left-long"></i></button>
+        <button class="carousel-btn next-btn" aria-label="Next"><i class="fa-solid fa-arrow-right-long"></i></button>
+        
+        <!-- প্রগ্রেস ডট -->
+        <div class="carousel-dots"></div>
+    </div>
+</section>
+
+<!-- ফুল-স্ক্রিন পপ-আপ লাইটবক্স (Lightbox Modal) -->
+<div id="lightboxModal" class="lightbox-modal">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    
+    <button class="lightbox-nav lb-prev" onclick="changeLbSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+    
+    <div class="lightbox-content">
+        <img id="lightboxImg" src="" alt="Popup Image">
+        <div id="lightboxCounter" class="lightbox-counter">১ / ৪</div>
+    </div>
+
+    <button class="lightbox-nav lb-next" onclick="changeLbSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+        
 
         <!-- ডাইনামিক হোয়াটসঅ্যাপ মেসেজ ফর্ম -->
         <section id="contact" class="card">
