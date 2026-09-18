@@ -1,19 +1,48 @@
-// ১. মোবাইল নেভিগেশন মেনু টগল ও অটো ক্লোজ
+// ১. মোবাইল নেভিগেশন মেনু টগল
 const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
 
-menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-// লিঙ্ক ক্লিক করলে মোবাইল মেনু নিজে থেকেই বন্ধ হবে
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+if(menuBtn && navLinks) {
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
     });
-});
 
-// ২. টাইপিং এনিমেশন
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+}
+
+// ২. কাস্টম ভাষা নির্বাচন ও ট্রান্সলেট লজিক
+const langBtn = document.getElementById('langBtn');
+const langMenu = document.getElementById('langMenu');
+
+if(langBtn && langMenu) {
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', () => {
+        langMenu.classList.remove('show');
+    });
+}
+
+function translatePage(langCode, langText) {
+    const googleCombo = document.querySelector('.goog-te-combo');
+    if (googleCombo) {
+        googleCombo.value = langCode;
+        googleCombo.dispatchEvent(new Event('change'));
+        document.getElementById('currentLang').innerText = langText.split(' ')[1] || langText;
+    } else {
+        document.cookie = "googtrans=/bn/" + langCode + "; path=/;";
+        location.reload();
+    }
+    if(langMenu) langMenu.classList.remove('show');
+}
+
+// ৩. টাইপিং এনিমেশন
 const words = ["সেলস রিপ্রেজেন্টেটিভ", "বিজনেস ডেভেলপার", "কাস্টমার এক্সপার্ট"];
 let i = 0;
 let timer;
@@ -54,7 +83,7 @@ function deletingEffect() {
 
 typingEffect();
 
-// ৩. প্রোডাক্ট ফিল্টার
+// ৪. প্রোডাক্ট ফিল্টার
 const filterBtns = document.querySelectorAll('.filter-btn');
 const productCards = document.querySelectorAll('.product-card');
 
@@ -75,7 +104,7 @@ filterBtns.forEach(btn => {
     });
 });
 
-// ৪. হোয়াটসঅ্যাপ মেসেজিং ফর্ম
+// ৫. হোয়াটসঅ্যাপ মেসেজিং ফর্ম
 document.getElementById('whatsappForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -88,7 +117,7 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
     window.open(whatsappURL, '_blank');
 });
 
-// ৫. মোবাইল শেয়ারিং ও কপি লিংক (Web Share API)
+// ৬. মোবাইল শেয়ারিং ও কপি লিংক
 function copyWebsiteLink() {
     if (navigator.share) {
         navigator.share({
@@ -100,12 +129,12 @@ function copyWebsiteLink() {
         navigator.clipboard.writeText(window.location.href).then(() => {
             alert("আপনার পোর্টফোলিও লিংকটি কপি হয়েছে!");
         }).catch(err => {
-            alert("লিংক কপি করতে সমস্যা হয়েছে। ব্রাউজারের অ্যাড্রেস বার থেকে কপি করুন।");
+            alert("লিংক কপি করতে সমস্যা হয়েছে।");
         });
     }
 }
 
-// ৬. FAQ Accordion Toggle
+// ৭. FAQ Accordion Toggle
 const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
@@ -115,7 +144,7 @@ faqItems.forEach(item => {
     });
 });
 
-// ৭. Back to Top Button
+// ৮. Back to Top Button
 const backToTopBtn = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {
