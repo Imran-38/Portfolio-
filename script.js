@@ -1,5 +1,4 @@
-
-// ১. মোবাইল নেভিগেশন মেনু টগল
+// ১. মোবাইল নেভিগেশন মেনু টগল ও অটো ক্লোজ
 const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
 
@@ -7,7 +6,14 @@ menuBtn.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// ২. ডাইনামিক টাইপিং এনিমেশন
+// লিঙ্ক ক্লিক করলে মোবাইল মেনু নিজে থেকেই বন্ধ হবে
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
+
+// ২. টাইপিং এনিমেশন
 const words = ["সেলস রিপ্রেজেন্টেটিভ", "বিজনেস ডেভেলপার", "কাস্টমার এক্সপার্ট"];
 let i = 0;
 let timer;
@@ -48,7 +54,7 @@ function deletingEffect() {
 
 typingEffect();
 
-// ৩. ডাইনামিক প্রোডাক্ট ফিল্টার
+// ৩. প্রোডাক্ট ফিল্টার
 const filterBtns = document.querySelectorAll('.filter-btn');
 const productCards = document.querySelectorAll('.product-card');
 
@@ -56,9 +62,9 @@ filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        
+
         const filter = btn.dataset.filter;
-        
+
         productCards.forEach(card => {
             if (filter === 'all' || card.classList.contains(filter)) {
                 card.style.display = 'block';
@@ -69,27 +75,37 @@ filterBtns.forEach(btn => {
     });
 });
 
-// ৪. ডাইনামিক হোয়াটসঅ্যাপ মেসজিং ফাংশন
+// ৪. হোয়াটসঅ্যাপ মেসেজিং ফর্ম
 document.getElementById('whatsappForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     let name = document.getElementById('custName').value;
     let phone = document.getElementById('custPhone').value;
     let message = document.getElementById('custMsg').value;
-    
+
     let whatsappURL = `https://wa.me/8801517851338?text=হ্যালো ইমরান ভাই, আমি %0Aনাম: ${name} %0Aফোন: ${phone} %0Aমেসেজ: ${message}`;
-    
+
     window.open(whatsappURL, '_blank');
 });
-// ওয়েবসাইট লিংক কপি করার ফাংশন
+
+// ৫. মোবাইল শেয়ারিং ও কপি লিংক (Web Share API)
 function copyWebsiteLink() {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-        alert("আপনার পোর্টফোলিও লিংকটি কপি হয়েছে! এখন যে কাউকে পাঠাতে পারবেন।");
-    }).catch(err => {
-        console.error('কপি করতে সমস্যা হয়েছে: ', err);
-    });
+    if (navigator.share) {
+        navigator.share({
+            title: 'মো: ইমরান হোসেন | আরএফএল গ্রুপ',
+            text: 'মো: ইমরান হোসেন - আরএফএল গ্রুপ সেলস পোর্টফোলিও',
+            url: window.location.href
+        }).catch(console.error);
+    } else {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert("আপনার পোর্টফোলিও লিংকটি কপি হয়েছে!");
+        }).catch(err => {
+            alert("লিংক কপি করতে সমস্যা হয়েছে। ব্রাউজারের অ্যাড্রেস বার থেকে কপি করুন।");
+        });
+    }
 }
-// FAQ Accordion Toggle
+
+// ৬. FAQ Accordion Toggle
 const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
@@ -98,7 +114,8 @@ faqItems.forEach(item => {
         item.classList.toggle('active');
     });
 });
-// Back to Top Button Scroll Logic
+
+// ৭. Back to Top Button
 const backToTopBtn = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {
@@ -115,4 +132,3 @@ backToTopBtn.addEventListener("click", () => {
         behavior: "smooth"
     });
 });
-
