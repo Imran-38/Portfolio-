@@ -251,4 +251,23 @@ footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
 .float-call {
     background-color: #0056b3;
 }
+/* Product Card Button Styling */
+.product-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 8px 14px;
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.product-btn:hover {
+    background-color: #1ebd56;
+}
 
