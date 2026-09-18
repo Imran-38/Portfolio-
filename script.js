@@ -269,3 +269,118 @@ document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') changeLbSlide(1);
     if (e.key === 'ArrowLeft') changeLbSlide(-1);
 });
+// আল্ট্রা-মডার্ন সেলস চার্ট (Glow Gradient Effect)
+const modernCtx = document.getElementById('modernSalesChart');
+
+if (modernCtx) {
+    const chartCtx = modernCtx.getContext('2d');
+
+    // কালার গ্র্যাডিয়েন্ট তৈরি (Gradient Fills)
+    const grad2024 = chartCtx.createLinearGradient(0, 0, 0, 350);
+    grad2024.addColorStop(0, 'rgba(148, 163, 184, 0.35)');
+    grad2024.addColorStop(1, 'rgba(148, 163, 184, 0.0)');
+
+    const grad2025 = chartCtx.createLinearGradient(0, 0, 0, 350);
+    grad2025.addColorStop(0, 'rgba(2, 132, 199, 0.45)');
+    grad2025.addColorStop(1, 'rgba(2, 132, 199, 0.0)');
+
+    const grad2026 = chartCtx.createLinearGradient(0, 0, 0, 350);
+    grad2026.addColorStop(0, 'rgba(16, 185, 129, 0.45)');
+    grad2026.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
+
+    new Chart(modernCtx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [
+                {
+                    label: '২০২৪ সেলস',
+                    data: [194, 242, 86, 250, 165, 200, 315, 442, 332, 452, 273, 490],
+                    borderColor: '#94a3b8',
+                    backgroundColor: grad2024,
+                    borderWidth: 2,
+                    pointBackgroundColor: '#94a3b8',
+                    pointHoverRadius: 7,
+                    tension: 0.4,
+                    fill: true
+                },
+                {
+                    label: '২০২৫ সেলস',
+                    data: [600, 505, 458, 460, 505, 486, 551, 634, 331, 747, 656, 667],
+                    borderColor: '#0284c7',
+                    backgroundColor: grad2025,
+                    borderWidth: 3,
+                    pointBackgroundColor: '#0284c7',
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 8,
+                    tension: 0.4,
+                    fill: true
+                },
+                {
+                    label: '২০২৬ সেলস (চলতি বছর)',
+                    data: [660, 601, 601, 601, 603, 716, 715, 653, null, null, null, null],
+                    borderColor: '#10b981',
+                    backgroundColor: grad2026,
+                    borderWidth: 3.5,
+                    pointBackgroundColor: '#10b981',
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 9,
+                    tension: 0.4,
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                    align: 'end',
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        font: { size: 13, weight: '600' },
+                        padding: 18
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                    titleFont: { size: 14, weight: 'bold' },
+                    bodyFont: { size: 13 },
+                    padding: 12,
+                    cornerRadius: 12,
+                    displayColors: true,
+                    boxPadding: 6
+                }
+            },
+            scales: {
+                y: {
+                    grid: {
+                        color: 'rgba(226, 232, 240, 0.7)',
+                        drawBorder: false
+                    },
+                    ticks: {
+                        font: { size: 12 },
+                        color: '#64748b'
+                    }
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: {
+                        font: { size: 12 },
+                        color: '#64748b'
+                    }
+                }
+            }
+        }
+    });
+}
