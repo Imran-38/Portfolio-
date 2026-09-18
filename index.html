@@ -27,7 +27,22 @@
     <nav class="navbar">
         <div class="logo">ইমরান <span>হোসেন</span></div>
         
-        <!-- গুগল ট্রান্সলেট বাটন -->
+        <!-- কাস্টম আকর্ষণীয় ভাষা নির্বাচন ড্রপডাউন -->
+        <div class="custom-lang-dropdown">
+            <button class="lang-btn" id="langBtn">
+                <i class="fa-solid fa-globe"></i>
+                <span id="currentLang">ভাষা</span>
+                <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+            </button>
+            <ul class="lang-menu" id="langMenu">
+                <li onclick="translatePage('bn', '🇧🇩 বাংলা')"><span>🇧🇩</span> বাংলা</li>
+                <li onclick="translatePage('en', '🇬🇧 English')"><span>🇬🇧</span> English</li>
+                <li onclick="translatePage('ar', '🇸🇦 العربية')"><span>🇸🇦</span> العربية</li>
+                <li onclick="translatePage('hi', '🇮🇳 हिन्दी')"><span>🇮🇳</span> हिन्दी</li>
+            </ul>
+        </div>
+
+        <!-- ব্যাকগ্রাউন্ড হিডেন গুগল ট্রান্সলেট এলিমেন্ট -->
         <div id="google_translate_element"></div>
 
         <ul class="nav-links" id="navLinks">
@@ -234,13 +249,13 @@
         </a>
     </div>
 
-    <!-- Google Translate Script -->
+    <!-- Google Translate Engine Init -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'bn', 
                 includedLanguages: 'en,bn,hi,ar',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                autoDisplay: false
             }, 'google_translate_element');
         }
     </script>
