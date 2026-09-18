@@ -11,6 +11,135 @@ body {
     color: #333;
     line-height: 1.6;
 }
+/* আল্ট্রা-মডার্ন সেলস চার্ট ডিজাইন */
+.modern-chart-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.live-status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(25, 135, 84, 0.1);
+    color: #198754;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #198754;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(25, 135, 84, 0.7);
+    animation: pulse-animation 1.6s infinite;
+}
+
+@keyframes pulse-animation {
+    0% { box-shadow: 0 0 0 0 rgba(25, 135, 84, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(25, 135, 84, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(25, 135, 84, 0); }
+}
+
+.modern-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.m-stat-card {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 18px;
+    border: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+}
+
+.m-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.m-stat-card.highlight-card {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
+}
+
+.m-stat-card.highlight-card .m-stat-label,
+.m-stat-card.highlight-card .m-stat-sub {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.m-stat-card.highlight-card .m-stat-value {
+    color: #ffffff;
+}
+
+.m-stat-label {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.m-stat-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.m-stat-sub {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.m-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.m-stat-badge.positive {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+}
+
+.m-stat-badge.neutral {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.modern-chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    margin-top: 10px;
+}
 
 /* Navbar */
 .navbar {
