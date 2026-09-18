@@ -6,11 +6,31 @@
     scroll-behavior: smooth;
 }
 
+/* Google Translate-এর অগোছালো ওপরের বার বন্ধ করা */
 body {
     background-color: #f0f4f8;
     color: #333;
     line-height: 1.6;
     top: 0 !important;
+    position: static !important;
+}
+
+.goog-te-banner-frame,
+.VIpgJd-yA0sfb-r4n21b-sA214d,
+iframe.goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.goog-text-highlight {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+#google_translate_element {
+    display: none !important;
 }
 
 /* Navbar */
@@ -56,27 +76,71 @@ body {
     cursor: pointer;
 }
 
-/* Google Translate Styling */
-#google_translate_element {
-    margin: 0 10px;
+/* 🌐 কাস্টম ও আকর্ষণীয় ল্যাঙ্গুয়েজ ড্রপডাউন স্টাইল */
+.custom-lang-dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.goog-te-gadget-simple {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    padding: 4px 8px !important;
-    border-radius: 15px !important;
-    font-size: 12px !important;
-    cursor: pointer;
-}
-
-.goog-te-gadget-simple span, .goog-te-menu-value span {
-    color: #ffffff !important;
+.lang-btn {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
     font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
 }
 
-.goog-te-gadget-icon, .goog-te-banner-frame {
-    display: none !important;
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.lang-menu {
+    position: absolute;
+    top: 115%;
+    right: 0;
+    background: #ffffff;
+    min-width: 135px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    list-style: none;
+    padding: 6px 0;
+    display: none;
+    z-index: 10001;
+    overflow: hidden;
+}
+
+.lang-menu.show {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.lang-menu li {
+    padding: 8px 14px;
+    color: #333333;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+}
+
+.lang-menu li:hover {
+    background: #f0f4f8;
+    color: #0056b3;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Hero Section */
