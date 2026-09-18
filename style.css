@@ -215,4 +215,40 @@ footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
     }
     .nav-links.active { display: flex; }
 }
+/* Floating Quick Action Buttons */
+.floating-btn-group {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+}
+
+.float-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.float-btn:hover {
+    transform: scale(1.1);
+}
+
+.float-wa {
+    background-color: #25d366;
+}
+
+.float-call {
+    background-color: #0056b3;
+}
 
