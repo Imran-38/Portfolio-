@@ -81,3 +81,11 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
     
     window.open(whatsappURL, '_blank');
 });
+// ওয়েবসাইট লিংক কপি করার ফাংশন
+function copyWebsiteLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+        alert("আপনার পোর্টফোলিও লিংকটি কপি হয়েছে! এখন যে কাউকে পাঠাতে পারবেন।");
+    }).catch(err => {
+        console.error('কপি করতে সমস্যা হয়েছে: ', err);
+    });
+}
