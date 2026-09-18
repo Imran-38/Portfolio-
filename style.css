@@ -215,3 +215,36 @@ footer { text-align: center; padding: 20px; color: #666; font-size: 14px; }
     }
     .nav-links.active { display: flex; }
 }
+/* Google Translate Styling */
+#google_translate_element {
+    margin-left: 10px;
+}
+
+.goog-te-gadget-simple {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    font-family: 'Hind Siliguri', sans-serif !important;
+    font-size: 13px !important;
+    cursor: pointer;
+}
+
+.goog-te-gadget-simple span, 
+.goog-te-menu-value span {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.goog-te-gadget-icon {
+    display: none !important;
+}
+
+/* উপরে গিটহাব/গুগলের বাড়তি ব্যানার হাইড করা */
+body {
+    top: 0 !important;
+}
+
+.goog-te-banner-frame {
+    display: none !important;
+}
