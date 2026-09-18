@@ -144,3 +144,128 @@ if (backToTopBtn) {
         });
     });
 }
+
+// ==========================================
+// Modern Carousel & Lightbox Implementation
+// ==========================================
+
+const carouselSlide = document.querySelector('.carousel-slide');
+const slideItems = document.querySelectorAll('.slide-item');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const dotsContainer = document.querySelector('.carousel-dots');
+
+let counter = 0;
+const totalSlides = slideItems.length;
+
+// ইমেজ ইউআরএল লিস্ট নেওয়া
+const imagesList = Array.from(document.querySelectorAll('.slide-item img')).map(img => img.src);
+
+if (carouselSlide && totalSlides > 0) {
+    // ডট তৈরি
+    slideItems.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function updateCarousel() {
+        carouselSlide.style.transform = `translateX(${-counter * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        if (dots[counter]) dots[counter].classList.add('active');
+    }
+
+    function nextSlide() {
+        counter = (counter + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        counter = (counter - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    function goToSlide(index) {
+        counter = index;
+        updateCarousel();
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // অটো স্লাইড
+    let autoSlide = setInterval(nextSlide, 3500);
+
+    const container = document.querySelector('.carousel-container');
+    container.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    container.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 3500));
+
+    // মোবাইলে স্লাইডার সোয়াইপ (Touch Swipe for Main Carousel)
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    container.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
+    container.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleCarouselSwipe();
+    }, {passive: true});
+
+    function handleCarouselSwipe() {
+        if (touchEndX < touchStartX - 40) nextSlide();
+        if (touchEndX > touchStartX + 40) prevSlide();
+    }
+}
+
+// ==========================================
+// Lightbox Modal Functions
+// ==========================================
+
+let currentLbIndex = 0;
+const lightboxModal = document.getElementById('lightboxModal');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCounter = document.getElementById('lightboxCounter');
+
+function openLightbox(index) {
+    currentLbIndex = index;
+    updateLightbox();
+    lightboxModal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // ব্যাকগ্রাউন্ড স্ক্রোল বন্ধ
+}
+
+function closeLightbox() {
+    lightboxModal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+}
+
+function changeLbSlide(direction) {
+    currentLbIndex = (currentLbIndex + direction + imagesList.length) % imagesList.length;
+    updateLightbox();
+}
+
+function updateLightbox() {
+    lightboxImg.src = imagesList[currentLbIndex];
+    lightboxCounter.textContent = `${currentLbIndex + 1} / ${imagesList.length}`;
+}
+
+// লাইটবক্সের মোবাইল সোয়াইপ সাপোর্ট (Swipe Inside Lightbox)
+let lbTouchStartX = 0;
+let lbTouchEndX = 0;
+
+lightboxModal.addEventListener('touchstart', e => { lbTouchStartX = e.changedTouches[0].screenX; }, {passive: true});
+lightboxModal.addEventListener('touchend', e => {
+    lbTouchEndX = e.changedTouches[0].screenX;
+    if (lbTouchEndX < lbTouchStartX - 40) changeLbSlide(1);
+    if (lbTouchEndX > lbTouchStartX + 40) changeLbSlide(-1);
+}, {passive: true});
+
+// কীবোর্ড নেভিগেশন (Left, Right & Escape Key)
+document.addEventListener('keydown', e => {
+    if (!lightboxModal.classList.contains('show')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') changeLbSlide(1);
+    if (e.key === 'ArrowLeft') changeLbSlide(-1);
+});
