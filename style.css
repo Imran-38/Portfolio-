@@ -1010,3 +1010,106 @@ footer .social-links a:hover {
 .footer-home-link:hover {
     text-decoration: underline;
 }
+
+/* ==========================================
+   Updated High-Contrast Footer & Social Links
+   ========================================== */
+footer {
+    background: #002752;
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 15px 20px;
+    margin-top: 40px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+footer .footer-content h3 {
+    font-size: 20px;
+    margin-bottom: 6px;
+    color: #ffc107; /* স্পষ্ট গোল্ডেন ইয়েলো */
+}
+
+footer .social-links {
+    margin: 18px 0;
+}
+
+/* ফেসবুক বাটন দৃশ্যমান করার জন্য আপডেট */
+footer .social-links a {
+    color: #ffffff;
+    background-color: #1877f2; /* ব্রাইট ফেসবুক ব্লু */
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid #ffffff; /* হোয়াইট হাইলাইট বর্ডার */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+footer .social-links a:hover {
+    background-color: #ffffff;
+    color: #1877f2;
+    transform: translateY(-2px);
+}
+
+/* হোম পেজে ফিরে যান লিংকের ব্রাইট গোল্ডেন কালার */
+.footer-home-link {
+    color: #ffc107; /* স্পষ্ট উজ্জ্বল হলুদ */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
+}
+
+.footer-home-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #cbd5e1;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 14px;
+    margin-top: 20px;
+}
+
+/* ==========================================
+   Strict Fix for Author Avatar Image Sizes
+   ========================================== */
+.quotes-section .author-avatar,
+.quote-card .author-avatar,
+.author-box img {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    max-width: 50px !important;
+    max-height: 50px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid #0284c7 !important;
+    display: block !important;
+}
+
+.author-box {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 12px;
+    margin-top: 15px;
+}
