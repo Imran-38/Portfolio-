@@ -11,6 +11,7 @@ body {
     color: #333;
     line-height: 1.6;
 }
+
 /* আল্ট্রা-মডার্ন সেলস চার্ট ডিজাইন */
 .modern-chart-card {
     background: #ffffff;
@@ -536,6 +537,7 @@ footer {
     .nav-links.active { display: flex !important; }
     .nav-links li a { display: block; padding: 10px 0; }
 }
+
 /* ==========================================
    Modern Ultra Gallery & Lightbox Popup
    ========================================== */
@@ -548,7 +550,7 @@ footer {
 .carousel-container {
     position: relative;
     width: 100%;
-    height: 320px; /* নির্দিষ্ট আধুনিক উচ্চতা */
+    height: 320px;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 12px 30px rgba(0, 40, 133, 0.12);
@@ -572,15 +574,14 @@ footer {
 .slide-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* সব ধরনের সাইজের ছবি সুন্দরভাবে ফিট করবে */
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
 .slide-item:hover img {
-    transform: scale(1.05); /* মাউস নিলে হালকা জুম ইফেক্ট */
+    transform: scale(1.05);
 }
 
-/* স্লাইডার নেভিগেশন বাটন */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -611,7 +612,6 @@ footer {
 .prev-btn { left: 14px; }
 .next-btn { right: 14px; }
 
-/* ডট ইন্ডিকেটর */
 .carousel-dots {
     position: absolute;
     bottom: 14px;
@@ -641,10 +641,7 @@ footer {
     border-radius: 10px;
 }
 
-/* ==========================================
-   Full-Screen Lightbox Popup
-   ========================================== */
-
+/* Lightbox Popup */
 .lightbox-modal {
     display: none;
     position: fixed;
@@ -735,8 +732,6 @@ footer {
     .lightbox-nav { width: 40px; height: 40px; font-size: 16px; }
     .lightbox-content { max-width: 95%; }
 }
-
-
 
 /* আল্ট্রা-মডার্ন রুট প্ল্যান সেকশন ডিজাইন */
 .main-route-card {
@@ -873,10 +868,13 @@ footer {
     color: #0284c7;
 }
 
-
-
-
 /* Creativity Page Mobile Responsive Fix */
+.nav-logo-img {
+    height: 45px;
+    width: auto;
+    vertical-align: middle;
+}
+
 .creativity-hero {
     padding: 100px 20px 40px;
     min-height: auto;
@@ -905,3 +903,110 @@ footer {
     margin-top: 5px;
 }
 
+/* Quotes Section Styles */
+.quotes-section {
+    margin: 40px 0;
+}
+
+.quotes-section .section-title {
+    font-size: 1.5rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.quote-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #0284c7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.quote-icon {
+    font-size: 1.5rem;
+    color: #0284c7;
+    margin-bottom: 12px;
+}
+
+.quote-text {
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.author-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 12px;
+}
+
+.author-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #0284c7;
+}
+
+.quote-author {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0284c7;
+}
+
+/* Footer Social Links & Back Link */
+footer .social-links {
+    margin: 15px 0;
+}
+
+footer .social-links a {
+    color: #ffffff;
+    background-color: #1877f2;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+footer .social-links a:hover {
+    background-color: #145dbf;
+    transform: translateY(-2px);
+}
+
+.footer-home-link {
+    color: #cbd5e1;
+    text-decoration: none;
+}
+
+.footer-home-link:hover {
+    text-decoration: underline;
+}
