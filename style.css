@@ -1470,6 +1470,86 @@ footer .social-links a:hover {
     gap: 8px;
 }
 
+/* Multi-step Checkout & Radio Card Styles */
+.btn-next-step {
+    width: 100%;
+    background-color: #002752;
+    color: white;
+    border: none;
+    padding: 11px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-back-step {
+    background: transparent;
+    border: none;
+    color: #002752;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.checkout-box {
+    background: #f8f9fa;
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.checkout-box h4 {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    color: #002752;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.radio-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.final-total-box {
+    background: #eef2f7;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.total-row-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 4px;
+}
+
+.final-price {
+    font-weight: bold;
+    font-size: 15px;
+    color: #d9534f;
+}
 
 
 
