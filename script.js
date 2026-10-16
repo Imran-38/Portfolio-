@@ -483,6 +483,49 @@ function renderCartItems() {
     document.getElementById('subTotalAmount').innerText = '৳' + total;
 }
 
+/* ==========================================
+   ডাইনামিক স্বাগতম পপ-আপ (সব পেজের জন্য কমন)
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    // পপ-আপের এইচটিএমএল কাঠামো স্বয়ংক্রিয়ভাবে তৈরি করা
+    if (!document.getElementById('welcomePopupModal')) {
+        const popupHTML = `
+            <div id="welcomePopupModal" class="welcome-popup-overlay">
+                <div class="welcome-popup-box">
+                    <span class="welcome-close-btn" onclick="closeWelcomePopup()">&times;</span>
+                    <h3><i class="fa-solid fa-hand-holding-heart" style="color: #0284c7;"></i> স্বাগতম!</h3>
+                    <p>আমাদের অফিসিয়াল সেলস পোর্টফোলিওতে আপনাকে জানাই আন্তরিক অভিনন্দন।</p>
+                    <p>সেরা মানের আরএফএল পণ্যগুলো ব্রাউজ করুন এবং সহজেই আপনার অর্ডারটি সম্পন্ন করুন।</p>
+                    <p style="margin-top: 10px; font-weight: 600; color: #16a34a;">
+                        <i class="fa-brands fa-whatsapp"></i> পাইকারি মূল্যে প্রোডাক্ট ক্রয় করতে সরাসরি 
+                        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20পাইকারি%20মূল্যে%20প্রোডাক্ট%20ক্রয়%20করতে%20চাই।" target="_blank" style="color: #25d366; text-decoration: underline;">WhatsApp-এ এসএমএস অথবা কল করুন</a>
+                    </p>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', popupHTML);
+    }
+
+    // পপ-আপ শো এবং অটো ক্লোজ লজিক
+    const modal = document.getElementById('welcomePopupModal');
+    if (modal) {
+        setTimeout(() => {
+            modal.classList.add('show-welcome');
+        }, 500); // ০.৫ সেকেন্ড পর পপ-আপ ভেসে উঠবে
+
+        setTimeout(() => {
+            closeWelcomePopup();
+        }, 5000); // নতুন লাইন যোগ হওয়ায় সময় একটু বাড়িয়ে ৫ সেকেন্ড করা হয়েছে
+    }
+});
+
+function closeWelcomePopup() {
+    const modal = document.getElementById('welcomePopupModal');
+    if (modal) {
+        modal.classList.remove('show-welcome');
+    }
+}
+
 
 
 
