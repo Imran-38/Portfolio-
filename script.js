@@ -93,7 +93,7 @@ faqItems.forEach(item => {
 
 
 /* ==========================================
-   ৩. ই-কমার্স কার্ট ও মাল্টি-স্টেপ চেকআউট সিস্টেম
+   ৩. ই-কমার্স কার্ট ও মর্ডান সিঙ্গেল-পেজ চেকআউট সিস্টেম
    ========================================== */
 
 // কার্ট ডেটা লোকালস্টোরেজ থেকে নেওয়া
@@ -116,19 +116,50 @@ function updateCartCount() {
     }
 }
 
-// প্রোডাক্ট কার্টে যোগ করা
+// কাস্টম টোস্ট নোটিফিকেশন দেখানোর ফাংশন
+function showToast(message, type = 'success') {
+    const existingToast = document.getElementById('customToastMessage');
+    if (existingToast) existingToast.remove();
+
+    const toast = document.createElement('div');
+    toast.id = 'customToastMessage';
+    toast.innerText = message;
+
+    toast.style.position = 'fixed';
+    toast.style.top = '20px';
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
+    toast.style.backgroundColor = type === 'exists' ? '#e67e22' : '#27ae60';
+    toast.style.color = '#fff';
+    toast.style.padding = '10px 20px';
+    toast.style.borderRadius = '6px';
+    toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+    toast.style.zIndex = '99999';
+    toast.style.fontSize = '14px';
+    toast.style.fontWeight = '600';
+    toast.style.transition = 'opacity 0.3s ease';
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+// প্রোডাক্ট কার্টে যোগ করা (ডুপ্লিকেট রোধ ও টোস্ট নোটিফিকেশন সহ)
 function addToCart(name, price) {
     let cart = getCart();
     let existingItem = cart.find(item => item.name === name);
 
     if (existingItem) {
-        existingItem.qty += 1;
+        showToast(`⚠️ এই পছন্দের প্রোডাক্টটি ইতিমধ্যেই কার্টে আছে!`, 'exists');
     } else {
         cart.push({ name: name, price: price, qty: 1 });
+        saveCart(cart);
+        showToast(`✅ সফলভাবে কার্টে যুক্ত হয়েছে: ${name}`, 'success');
+        toggleCartModal();
     }
-
-    saveCart(cart);
-    toggleCartModal(); // কার্টে যোগ করার পর পপ-আপ ওপেন হবে
 }
 
 // কার্টের পণ্যের পরিমাণ বাড়ানো বা কমানো
@@ -140,7 +171,7 @@ function updateQuantity(index, change) {
             cart.splice(index, 1);
         }
         saveCart(cart);
-        renderCartItems();
+        renderCartAndCheckout();
     }
 }
 
@@ -149,41 +180,49 @@ function removeItem(index) {
     let cart = getCart();
     cart.splice(index, 1);
     saveCart(cart);
-    renderCartItems();
+    renderCartAndCheckout();
 }
 
 // কার্ট পপ-আপ মোডাল ওপেন/ক্লোজ করা
 function toggleCartModal() {
     const modal = document.getElementById('cartModal');
     if (modal) {
-        modal.classList.toggle('show');
-        goToStep1();
-        renderCartItems();
+        if (modal.style.display === 'flex') {
+            modal.style.display = 'none';
+        } else {
+            modal.style.display = 'flex';
+            renderCartAndCheckout();
+        }
     }
 }
 
-// কার্টের আইটেমগুলো স্ক্রিনে রেন্ডার করা
-function renderCartItems() {
+// কার্টের আইটেমগুলো স্ক্রিনে রেন্ডার করা ও চেকআউট সামারি আপডেট করা
+function renderCartAndCheckout() {
     const container = document.getElementById('cartItemsContainer');
-    const summary = document.getElementById('cartSummary');
+    const checkoutArea = document.getElementById('fullCheckoutArea');
     if (!container) return;
 
     let cart = getCart();
 
     if (cart.length === 0) {
-        container.innerHTML = `<p style="text-align:center; padding: 20px; color: #777;">আপনার কার্ট খালি আছে!</p>`;
-        if (summary) summary.style.display = 'none';
+        container.innerHTML = `
+            <div style="text-align:center; padding: 30px 15px;">
+                <p style="color: #666; font-size: 15px; margin-bottom: 6px;">আপনার কার্ট খালি আছে!</p>
+                <p style="color: #0056b3; font-size: 14px; font-weight: 600; margin-bottom: 15px;">কার্ট লিস্টে প্রোডাক্ট অ্যাড করতে প্রোডাক্ট পেজে যান</p>
+                <a href="products.html" style="display: inline-block; background-color: #0056b3; color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
+                    <i class="fa-solid fa-box-open"></i> প্রোডাক্ট পেজে যান
+                </a>
+            </div>
+        `;
+        if (checkoutArea) checkoutArea.style.display = 'none';
         return;
     }
 
-    if (summary) summary.style.display = 'block';
+    if (checkoutArea) checkoutArea.style.display = 'block';
 
     let html = '';
-    let total = 0;
-
     cart.forEach((item, index) => {
         let subtotal = item.price * item.qty;
-        total += subtotal;
         html += `
             <div class="cart-item-card">
                 <div class="cart-item-info">
@@ -201,27 +240,6 @@ function renderCartItems() {
     });
 
     container.innerHTML = html;
-    document.getElementById('subTotalAmount').innerText = '৳' + total;
-}
-
-// চেকআউট ধাপ ১ থেকে ধাপ ২ তে যাওয়া
-function goToStep1() {
-    document.getElementById('checkoutStep1').style.display = 'block';
-    document.getElementById('checkoutStep2').style.display = 'none';
-}
-
-function goToStep2() {
-    const name = document.getElementById('custName').value.trim();
-    const phone = document.getElementById('custPhone').value.trim();
-    const address = document.getElementById('custAddress').value.trim();
-
-    if (!name || !phone || !address) {
-        alert('অনুগ্রহ করে আপনার নাম, মোবাইল নম্বর এবং সম্পূর্ণ ঠিকানা পূরণ করুন।');
-        return;
-    }
-
-    document.getElementById('checkoutStep1').style.display = 'none';
-    document.getElementById('checkoutStep2').style.display = 'block';
     calculateFinalTotal();
 }
 
@@ -233,7 +251,6 @@ function togglePaymentDetails() {
         mbDetails.style.display = 'block';
     } else {
         mbDetails.style.display = 'none';
-        // COD সিলেক্ট করলে অগ্রিম ফিল্ড রিসেট হবে
         const advInput = document.getElementById('advanceAmount');
         if (advInput) advInput.value = '';
     }
@@ -244,12 +261,12 @@ function togglePaymentDetails() {
 function calculateFinalTotal() {
     let cart = getCart();
     let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-    
+
     let selectedDelivery = document.querySelector('input[name="deliveryArea"]:checked');
-    let deliveryCharge = parseInt(selectedDelivery.getAttribute('price')) || 60;
+    let deliveryCharge = selectedDelivery ? parseInt(selectedDelivery.getAttribute('price')) : 60;
 
     let grandTotal = subtotal + deliveryCharge;
-    
+
     let payMethodRadio = document.querySelector('input[name="paymentMethod"]:checked');
     let advanceInput = document.getElementById('advanceAmount');
     let advanceAmount = 0;
@@ -261,23 +278,31 @@ function calculateFinalTotal() {
     let dueAmount = grandTotal - advanceAmount;
     if (dueAmount < 0) dueAmount = 0;
 
-    document.getElementById('finalSubtotal').innerText = '৳' + subtotal;
-    document.getElementById('finalDelivery').innerText = '৳' + deliveryCharge;
-    document.getElementById('grandTotal').innerText = '৳' + grandTotal;
+    const subTotalEl = document.getElementById('subTotalAmount');
+    const finalSubEl = document.getElementById('finalSubtotal');
+    const finalDelEl = document.getElementById('finalDelivery');
+    const grandTotalEl = document.getElementById('grandTotal');
+
+    if (subTotalEl) subTotalEl.innerText = '৳' + subtotal;
+    if (finalSubEl) finalSubEl.innerText = '৳' + subtotal;
+    if (finalDelEl) finalDelEl.innerText = '৳' + deliveryCharge;
+    if (grandTotalEl) grandTotalEl.innerText = '৳' + grandTotal;
 
     const totalBox = document.querySelector('.final-total-box');
     let extraRows = document.getElementById('advanceDueRows');
-    
+
     if (payMethodRadio && payMethodRadio.value === 'MobileBanking') {
-        if (!extraRows) {
+        if (!extraRows && totalBox) {
             extraRows = document.createElement('div');
             extraRows.id = 'advanceDueRows';
             totalBox.appendChild(extraRows);
         }
-        extraRows.innerHTML = `
-            <div class="total-row-item" style="color: #27ae60; margin-top: 5px;"><span>অগ্রিম পরিশোধিত:</span> <span>- ৳${advanceAmount}</span></div>
-            <div class="total-row-item final-price" style="color: #d9534f; font-size: 16px; margin-top: 4px;"><span>বাকি প্রদেয় (COD):</span> <span>৳${dueAmount}</span></div>
-        `;
+        if (extraRows) {
+            extraRows.innerHTML = `
+                <div class="total-row-item" style="color: #27ae60; margin-top: 5px;"><span>অগ্রিম পরিশোধিত:</span> <span>- ৳${advanceAmount}</span></div>
+                <div class="total-row-item final-price" style="color: #d9534f; font-size: 16px; margin-top: 4px;"><span>বাকি প্রদেয় (COD):</span> <span>৳${dueAmount}</span></div>
+            `;
+        }
     } else if (extraRows) {
         extraRows.remove();
     }
@@ -291,6 +316,11 @@ function sendWhatsAppOrder() {
     const name = document.getElementById('custName').value.trim();
     const phone = document.getElementById('custPhone').value.trim();
     const address = document.getElementById('custAddress').value.trim();
+
+    if (!name || !phone || !address) {
+        alert('দয়া করে আপনার নাম, মোবাইল নম্বর এবং সম্পূর্ণ ডেলিভারি ঠিকানা পূরণ করুন!');
+        return;
+    }
 
     const deliveryAreaRadio = document.querySelector('input[name="deliveryArea"]:checked');
     const deliveryAreaName = deliveryAreaRadio.value === 'Khulna Sadar' ? 'খুলনা সদর' : 'খুলনার বাহিরে';
@@ -345,7 +375,7 @@ function sendWhatsAppOrder() {
     }
 
     const waUrl = `https://wa.me/8801517851338?text=${message}`;
-    
+
     localStorage.removeItem('myCart');
     updateCartCount();
     toggleCartModal();
@@ -353,10 +383,6 @@ function sendWhatsAppOrder() {
     window.open(waUrl, '_blank');
 }
 
-// পেজ লোড হওয়ার সাথে সাথে কার্ট কাউন্ট আপডেট করা
-document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount();
-});
 
 /* ==========================================
    ৪. ইমেজ জুম পপ-আপ মোডাল
@@ -366,128 +392,20 @@ function openImageZoom(src) {
     const img = document.getElementById('zoomedImg');
     if (modal && img) {
         img.src = src;
-        modal.classList.add('show');
+        modal.style.display = 'flex';
     }
 }
 
 function closeImageZoom() {
     const modal = document.getElementById('imageZoomModal');
-    if (modal) modal.classList.remove('show');
+    if (modal) modal.style.display = 'none';
 }
 
-// ==========================================
-// কাস্টম টোস্ট নোটিফিকেশন দেখানোর ফাংশন
-// ==========================================
-function showToast(message, type = 'success') {
-    // পুরোনো কোনো টোস্ট থাকলে রিমুভ করে দেওয়া
-    const existingToast = document.getElementById('customToastMessage');
-    if (existingToast) existingToast.remove();
-
-    const toast = document.createElement('div');
-    toast.id = 'customToastMessage';
-    toast.innerText = message;
-    
-    // টোস্ট নোটিফিকেশনের স্টাইল
-    toast.style.position = 'fixed';
-    toast.style.top = '20px';
-    toast.style.left = '50%';
-    toast.style.transform = 'translateX(-50%)';
-    toast.style.backgroundColor = type === 'exists' ? '#e67e22' : '#27ae60';
-    toast.style.color = '#fff';
-    toast.style.padding = '10px 20px';
-    toast.style.borderRadius = '6px';
-    toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
-    toast.style.zIndex = '99999';
-    toast.style.fontSize = '14px';
-    toast.style.fontWeight = '600';
-    toast.style.transition = 'opacity 0.3s ease';
-
-    document.body.appendChild(toast);
-
-    // ৩ সেকেন্ড পর অটোমেটিক ক্লোজ বা রিমুভ হবে
-    setTimeout(() => {
-        toast.style.opacity = '0';
-        setTimeout(() => toast.remove(), 300);
-    }, 3000);
-}
-
-// ==========================================
-// প্রোডাক্ট কার্টে যোগ করার নতুন লজিক
-// ==========================================
-function addToCart(name, price) {
-    let cart = getCart();
-    let existingItem = cart.find(item => item.name === name);
-
-    if (existingItem) {
-        // অলরেডি যোগ থাকলে পরিমাণ বাড়ানো হবে না, শুধু নোটিফিকেশন দেখাবে
-        showToast(`⚠️ এই পছন্দের প্রোডাক্টটি ইতিমধ্যেই কার্টে আছে!`, 'exists');
-    } else {
-        // প্রথমবার যোগ হলে কার্টে যুক্ত হবে
-        cart.push({ name: name, price: price, qty: 1 });
-        saveCart(cart);
-        showToast(`✅ সফলভাবে কার্টে যুক্ত হয়েছে: ${name}`, 'success');
-        
-        // কার্টে নতুন আইটেম যোগ হলেই কেবল মোডাল ওপেন হবে (ঐচ্ছিক)
-        toggleCartModal();
-    }
-}
-
-
-// কার্টের আইটেমগুলো স্ক্রিনে রেন্ডার করা (খালি থাকলে মেসেজ ও বাটনের লিংকসহ)
-function renderCartItems() {
-    const container = document.getElementById('cartItemsContainer');
-    const summary = document.getElementById('cartSummary');
-    if (!container) return;
-
-    let cart = getCart();
-
-    if (cart.length === 0) {
-        container.innerHTML = `
-            <div style="text-align:center; padding: 25px 15px;">
-                <p style="color: #666; font-size: 15px; margin-bottom: 6px;">আপনার কার্ট খালি আছে!</p>
-                <p style="color: #0056b3; font-size: 14px; font-weight: 600; margin-bottom: 15px;">কার্ট লিস্ট প্রোডাক্ট অ্যাড করতে প্রোডাক্ট পেজে যান </p>
-                <a href="products.html" style="display: inline-block; background-color: #0056b3; color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
-                    <i class="fa-solid fa-box-open"></i> প্রোডাক্ট পেজে যান
-                </a>
-            </div>
-        `;
-        if (summary) summary.style.display = 'none';
-        return;
-    }
-
-    if (summary) summary.style.display = 'block';
-
-    let html = '';
-    let total = 0;
-
-    cart.forEach((item, index) => {
-        let subtotal = item.price * item.qty;
-        total += subtotal;
-        html += `
-            <div class="cart-item-card">
-                <div class="cart-item-info">
-                    <h4>${item.name}</h4>
-                    <span class="cart-item-price">৳${item.price} × ${item.qty} = ৳${subtotal}</span>
-                </div>
-                <div class="cart-qty-ctrl">
-                    <button onclick="updateQuantity(${index}, -1)">-</button>
-                    <span>${item.qty}</span>
-                    <button onclick="updateQuantity(${index}, 1)">+</button>
-                    <button class="btn-remove" onclick="removeItem(${index})"><i class="fa-solid fa-trash"></i></button>
-                </div>
-            </div>
-        `;
-    });
-
-    container.innerHTML = html;
-    document.getElementById('subTotalAmount').innerText = '৳' + total;
-}
 
 /* ==========================================
-   ডাইনামিক স্বাগতম পপ-আপ (প্রতি সেসনে ১ বার দেখাবে)
+   ৫. ডাইনামিক স্বাগতম পপ-আপ (প্রতি সেসনে ১ বার)
    ========================================== */
 function showWelcomeModal() {
-    // সেসন স্টোরেজ চেক করা: আগে পপ-আপ দেখানো হয়ে থাকলে আর দেখাবে না
     if (sessionStorage.getItem('welcomePopupShown') === 'true') {
         return;
     }
@@ -514,7 +432,6 @@ function showWelcomeModal() {
     if (modal) {
         setTimeout(() => {
             modal.classList.add('show-welcome');
-            // পপ-আপ দেখানোর পর স্টোরেজে সেভ করে রাখা হলো
             sessionStorage.setItem('welcomePopupShown', 'true');
         }, 300);
 
@@ -524,16 +441,22 @@ function showWelcomeModal() {
     }
 }
 
+function closeWelcomePopup() {
+    const modal = document.getElementById('welcomePopupModal');
+    if (modal) {
+        modal.classList.remove('show-welcome');
+    }
+}
+
+
 /* ==========================================
-   হেলমেট ফিল্টারিং লজিক (Half Face & Full Face)
+   ৬. হেলমেট ফিল্টারিং লজিক (Half Face & Full Face)
    ========================================== */
 function filterHelmets(category, btnElement) {
-    // সব ফিল্টার বাটনের একটিভ ক্লাস সরিয়ে দেওয়া
     const buttons = document.querySelectorAll('.filter-btns .filter-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     btnElement.classList.add('active');
 
-    // ক্যাটাগরি অনুযায়ী প্রোডাক্ট শো/হাইড করা
     const items = document.querySelectorAll('.catalog-item');
     items.forEach(item => {
         if (category === 'all' || item.classList.contains(category)) {
@@ -544,3 +467,9 @@ function filterHelmets(category, btnElement) {
     });
 }
 
+// পেজ লোড হওয়ার সাথে সাথে কার্ট কাউন্ট ও পপ-আপ কল করা
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+});
+
+window.addEventListener('load', showWelcomeModal);
