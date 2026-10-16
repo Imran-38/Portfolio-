@@ -1,0 +1,71 @@
+/* ==========================================
+   প্রোডাক্ট পেজ - কাস্টম স্টাইলস (products.css)
+   ========================================== */
+
+/* ১. প্রোডাক্ট কার্ডে রিলেটিভ পজিশন (ব্যাজ বসানোর জন্য) */
+.catalog-item {
+    position: relative;
+}
+
+/* ২. অফার, নতুন আইটেম ও স্টক ব্যাজ (Product Badges) */
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #e11d48; /* লালচে প্রিমিয়াম কালার */
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    z-index: 5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.product-badge.badge-new {
+    background: #0284c7; /* নীল কালার */
+}
+
+.product-badge.badge-stock {
+    background: #d97706; /* অরেঞ্জ কালার */
+}
+
+/* ৩. ক্যাটাগরি নাম লেবেল (ছবি নিচে ছোট ট্যাগ) */
+.category-tag {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    width: fit-content;
+}
+
+/* ৪. মাল্টি-ক্যাটাগরি ফিল্টার বাটন (আইকন ও হাইলাইট স্টাইল) */
+.filter-btn i {
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.filter-btn.active {
+    background: #002b5b !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(0, 43, 91, 0.25);
+}
+
+/* ৫. প্রোডাক্টের স্টক স্ট্যাটাস */
+.stock-status {
+    font-size: 12px;
+    font-weight: 600;
+    color: #16a34a;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.stock-status.out-of-stock {
+    color: #dc2626;
+}
