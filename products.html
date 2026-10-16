@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -40,7 +40,7 @@
             <li><a href="index.html#contact">যোগাযোগ</a></li>
         </ul>
 
-        <!-- ১. মেনু বারের পাশে কার্ট আইকন পরিবর্তন -->
+        <!-- হেডার কার্ট আইকন -->
         <div class="nav-cart-wrapper" onclick="toggleCartModal()">
             <button class="cart-icon-btn" aria-label="শপিং কার্ট">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -57,7 +57,7 @@
     <section class="hero creativity-hero">
         <div class="hero-content">
             <h1><i class="fa-solid fa-boxes-stacked"></i> প্রোডাক্ট ক্যাটালগ</h1>
-            <p class="subtitle">আপনার পছন্দের পণ্যটি কার্টে যোগ করুন অথবা সরাসরি WhatsApp-এ ইনকোয়ারি করুন।</p>
+            <p class="subtitle">আপনার পছন্দের পণ্যটি কার্টে যোগ করুন এবং সরাসরি অনলাইন থেকে অর্ডার সম্পন্ন করুন।</p>
             <a href="index.html" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> মূল পেজে ফিরে যান</a>
         </div>
     </section>
@@ -72,7 +72,7 @@
                 
                 <!-- প্রোডাক্ট ১ -->
                 <div class="catalog-item">
-                    <img src="img/product/Helmet_1.png" alt="RFL সেফটি হেলমেট ১" loading="lazy">
+                    <img src="img/product/Helmet_1.png" alt="RFL সেফটি হেলমেট ১" loading="lazy" onclick="openImageZoom('img/product/Helmet_1.png')">
                     <div class="catalog-info">
                         <h3>RFL সেফটি হেলমেট (মডেল ১)</h3>
                         <div class="price-box">
@@ -80,17 +80,14 @@
                             <span class="sales-price">৳৫৫০</span>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-cart" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ১)', 550)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20সেফটি%20হেলমেট%20(মডেল%20১)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-                                <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি
-                            </a>
+                            <button class="btn-cart btn-full" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ১)', 550)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- প্রোডাক্ট ২ -->
                 <div class="catalog-item">
-                    <img src="img/product/Helmet_2.png" alt="RFL সেফটি হেলমেট ২" loading="lazy">
+                    <img src="img/product/Helmet_2.png" alt="RFL সেফটি হেলমেট ২" loading="lazy" onclick="openImageZoom('img/product/Helmet_2.png')">
                     <div class="catalog-info">
                         <h3>RFL সেফটি হেলমেট (মডেল ২)</h3>
                         <div class="price-box">
@@ -98,17 +95,14 @@
                             <span class="sales-price">৳৫৮০</span>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-cart" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ২)', 580)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20সেফটি%20হেলমেট%20(মডেল%20২)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-                                <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি
-                            </a>
+                            <button class="btn-cart btn-full" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ২)', 580)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- প্রোডাক্ট ৩ -->
                 <div class="catalog-item">
-                    <img src="img/product/Helmet_3.png" alt="RFL সেফটি হেলমেট ৩" loading="lazy">
+                    <img src="img/product/Helmet_3.png" alt="RFL সেফটি হেলমেট ৩" loading="lazy" onclick="openImageZoom('img/product/Helmet_3.png')">
                     <div class="catalog-info">
                         <h3>RFL সেফটি হেলমেট (মডেল ৩)</h3>
                         <div class="price-box">
@@ -116,17 +110,14 @@
                             <span class="sales-price">৳৫৬০</span>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-cart" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৩)', 560)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20সেফটি%20হেলমেট%20(মডেল%20৩)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-                                <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি
-                            </a>
+                            <button class="btn-cart btn-full" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৩)', 560)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- প্রোডাক্ট ৪ -->
                 <div class="catalog-item">
-                    <img src="img/product/Helmet_4.png" alt="RFL সেফটি হেলমেট ৪" loading="lazy">
+                    <img src="img/product/Helmet_4.png" alt="RFL সেফটি হেলমেট ৪" loading="lazy" onclick="openImageZoom('img/product/Helmet_4.png')">
                     <div class="catalog-info">
                         <h3>RFL সেফটি হেলমেট (মডেল ৪)</h3>
                         <div class="price-box">
@@ -134,17 +125,14 @@
                             <span class="sales-price">৳৬২০</span>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-cart" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৪)', 620)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20সেফটি%20হেলমেট%20(মডেল%20৪)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-                                <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি
-                            </a>
+                            <button class="btn-cart btn-full" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৪)', 620)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- প্রোডাক্ট ৫ -->
                 <div class="catalog-item">
-                    <img src="img/product/Helmet_5.png" alt="RFL সেফটি হেলমেট ৫" loading="lazy">
+                    <img src="img/product/Helmet_5.png" alt="RFL সেফটি হেলমেট ৫" loading="lazy" onclick="openImageZoom('img/product/Helmet_5.png')">
                     <div class="catalog-info">
                         <h3>RFL সেফটি হেলমেট (মডেল ৫)</h3>
                         <div class="price-box">
@@ -152,17 +140,14 @@
                             <span class="sales-price">৳৫২০</span>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-cart" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৫)', 520)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20সেফটি%20হেলমেট%20(মডেল%20৫)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-                                <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি
-                            </a>
+                            <button class="btn-cart btn-full" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৫)', 520)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- প্রোডাক্ট ৬ -->
                 <div class="catalog-item">
-                    <img src="img/product/Helmet_6.png" alt="RFL সেফটি হেলমেট ৬" loading="lazy">
+                    <img src="img/product/Helmet_6.png" alt="RFL সেফটি হেলমেট ৬" loading="lazy" onclick="openImageZoom('img/product/Helmet_6.png')">
                     <div class="catalog-info">
                         <h3>RFL সেফটি হেলমেট (মডেল ৬)</h3>
                         <div class="price-box">
@@ -170,17 +155,14 @@
                             <span class="sales-price">৳৬৫০</span>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-cart" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৬)', 650)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20সেফটি%20হেলমেট%20(মডেল%20৬)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-                                <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি
-                            </a>
+                            <button class="btn-cart btn-full" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৬)', 650)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- প্রোডাক্ট ৭ -->
                 <div class="catalog-item">
-                    <img src="img/product/Helmet_7.png" alt="RFL সেফটি হেলমেট ৭" loading="lazy">
+                    <img src="img/product/Helmet_7.png" alt="RFL সেফটি হেলমেট ৭" loading="lazy" onclick="openImageZoom('img/product/Helmet_7.png')">
                     <div class="catalog-info">
                         <h3>RFL সেফটি হেলমেট (মডেল ৭)</h3>
                         <div class="price-box">
@@ -188,17 +170,14 @@
                             <span class="sales-price">৳৫৯০</span>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-cart" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৭)', 590)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20সেফটি%20হেলমেট%20(মডেল%20৭)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-                                <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি
-                            </a>
+                            <button class="btn-cart btn-full" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৭)', 590)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- প্রোডাক্ট ৮ -->
                 <div class="catalog-item">
-                    <img src="img/product/Helmet_8.png" alt="RFL সেফটি হেলমেট ৮" loading="lazy">
+                    <img src="img/product/Helmet_8.png" alt="RFL সেফটি হেলমেট ৮" loading="lazy" onclick="openImageZoom('img/product/Helmet_8.png')">
                     <div class="catalog-info">
                         <h3>RFL সেফটি হেলমেট (মডেল ৮)</h3>
                         <div class="price-box">
@@ -206,17 +185,14 @@
                             <span class="sales-price">৳৫৪০</span>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-cart" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৮)', 540)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20সেফটি%20হেলমেট%20(মডেল%20৮)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-                                <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি
-                            </a>
+                            <button class="btn-cart btn-full" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৮)', 540)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- প্রোডাক্ট ৯ -->
                 <div class="catalog-item">
-                    <img src="img/product/Helmet_9.png" alt="RFL সেফটি হেলমেট ৯" loading="lazy">
+                    <img src="img/product/Helmet_9.png" alt="RFL সেফটি হেলমেট ৯" loading="lazy" onclick="openImageZoom('img/product/Helmet_9.png')">
                     <div class="catalog-info">
                         <h3>RFL সেফটি হেলমেট (মডেল ৯)</h3>
                         <div class="price-box">
@@ -224,17 +200,14 @@
                             <span class="sales-price">৳৫৭০</span>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-cart" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৯)', 570)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20সেফটি%20হেলমেট%20(মডেল%20৯)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-                                <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি
-                            </a>
+                            <button class="btn-cart btn-full" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ৯)', 570)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- প্রোডাক্ট ১০ -->
                 <div class="catalog-item">
-                    <img src="img/product/Helmet_10.png" alt="RFL সেফটি হেলমেট ১০" loading="lazy">
+                    <img src="img/product/Helmet_10.png" alt="RFL সেফটি হেলমেট ১০" loading="lazy" onclick="openImageZoom('img/product/Helmet_10.png')">
                     <div class="catalog-info">
                         <h3>RFL সেফটি হেলমেট (মডেল ১০)</h3>
                         <div class="price-box">
@@ -242,16 +215,19 @@
                             <span class="sales-price">৳৭০০</span>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn-cart" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ১০)', 700)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20RFL%20সেফটি%20হেলমেট%20(মডেল%20১০)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
-                                <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি
-                            </a>
+                            <button class="btn-cart btn-full" onclick="addToCart('RFL সেফটি হেলমেট (মডেল ১০)', 700)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                         </div>
                     </div>
                 </div>
 
             </div>
         </section>
+    </div>
+
+    <!-- ইমেজ জুম পপ-আপ মোডাল -->
+    <div id="imageZoomModal" class="cart-modal" onclick="closeImageZoom()">
+        <span class="close-modal" style="position: absolute; top: 20px; right: 25px; font-size: 35px;">&times;</span>
+        <img id="zoomedImg" src="" style="max-width: 90%; max-height: 85vh; border-radius: 8px; box-shadow: 0 5px 25px rgba(255,255,255,0.2);">
     </div>
 
     <!-- ফুটার সেকশন -->
@@ -273,7 +249,7 @@
         <p class="copyright">© 2026 মো: ইমরান হোসেন | প্রাণ-আরএফএল গ্রুপ</p>
     </footer>
 
-    <!-- ২. কার্ট পপ-আপ মোডালের সম্পূর্ণ পরিবর্তন (Footer-এর নিচে) -->
+    <!-- কার্ট পপ-আপ মোডাল -->
     <div id="cartModal" class="cart-modal">
         <div class="cart-modal-content">
             <div class="cart-modal-header">
@@ -299,11 +275,11 @@
                         <h4><i class="fa-solid fa-user"></i> গ্রাহকের ডেলিভারি তথ্য</h4>
                         <div class="form-group">
                             <label for="custName">আপনার নাম *</label>
-                            <input type="text" id="custName" placeholder="আপনার নাম লিখুন">
+                            <input type="text" id="custName" placeholder="যেমন: মো: রহিম হোসেন">
                         </div>
                         <div class="form-group">
                             <label for="custPhone">মোবাইল নম্বর *</label>
-                            <input type="tel" id="custPhone" placeholder="আপনার নম্বর লিখুন: 01500000000">
+                            <input type="tel" id="custPhone" placeholder="যেমন: 01700000000">
                         </div>
                         <div class="form-group">
                             <label for="custAddress">সম্পূর্ণ ঠিকানা *</label>
@@ -311,12 +287,12 @@
                         </div>
 
                         <button type="button" class="btn-next-step" onclick="goToStep2()">
-                             অর্ডার নিশ্চিত করতে এগিয়ে যান <i class="fa-solid fa-arrow-right"></i>
+                            পেমেন্ট ও ডেলিভারি অপশনে যান <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- ধাপ ২: ডেলিভারি চার্জ ও পেমেন্ট অপশন (ক্যাশ অন ডেলিভারি / বিকাশ / নগদ / রকেট) -->
+                <!-- ধাপ ২: ডেলিভারি চার্জ ও পেমেন্ট অপশন -->
                 <div id="checkoutStep2" style="display: none;">
                     <button type="button" class="btn-back-step" onclick="goToStep1()">
                         <i class="fa-solid fa-arrow-left"></i> পেছনে যান
@@ -349,24 +325,22 @@
                             </label>
                         </div>
 
-                       <!-- মোবাইল ব্যাংকিং পেমেন্ট বিস্তারিত -->
-<div id="mobileBankingDetails" style="display: none; margin-top: 10px; background: #fff3cd; padding: 12px; border-radius: 8px; font-size: 13px;">
-    <p style="margin: 0 0 6px 0; color: #856404; font-weight: bold;">
-        <i class="fa-solid fa-mobile-screen"></i> টাকা পাঠানোর নম্বর: <span style="color: #d9534f; font-size: 15px;">01517851338</span>
-    </p>
-    <p style="margin: 0 0 8px 0; color: #666; font-size: 12px;">টাকা পাঠানোর পর নিচের তথ্যগুলো সঠিক তথ্য দিন:</p>
-    
-    <div class="form-group">
-        <label for="senderPhone">প্রেরক মোবাইল নম্বর (Sender Number) *</label>
-        <input type="tel" id="senderPhone" placeholder="যে নম্বর থেকে টাকা পাঠিয়েছেন">
-    </div>
-
-    <div class="form-group">
-        <label for="advanceAmount">অগ্রিম পাঠোনো টাকার পরিমাণ (টাকা) *</label>
-        <input type="number" id="advanceAmount" placeholder="যেমন: ২০০" oninput="calculateFinalTotal()">
-    </div>
-</div>
-
+                        <!-- মোবাইল ব্যাংকিং পেমেন্ট বিস্তারিত -->
+                        <div id="mobileBankingDetails" style="display: none; margin-top: 10px; background: #fff3cd; padding: 10px; border-radius: 6px; font-size: 13px;">
+                            <p style="margin: 0 0 6px 0; color: #856404; font-weight: bold;">
+                                <i class="fa-solid fa-mobile-screen"></i> টাকা পাঠানোর নম্বর: <span style="color: #d9534f; font-size: 15px;">01517851338</span>
+                            </p>
+                            <p style="margin: 0 0 8px 0; color: #666; font-size: 12px;">টাকা পাঠানোর পর নিচের তথ্যগুলো দিন:</p>
+                            <div class="form-group">
+                                <label for="senderPhone">প্রেরক মোবাইল নম্বর (Sender Number) *</label>
+                                <input type="tel" id="senderPhone" placeholder="যে নম্বর থেকে টাকা পাঠিয়েছেন">
+                            </div>
+                            <div class="form-group">
+                                <label for="advanceAmount">অগ্রিম পাঠোনো টাকার পরিমাণ (টাকা) *</label>
+                                <input type="number" id="advanceAmount" placeholder="যেমন: ২০০" oninput="calculateFinalTotal()">
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- সর্বমোট হিসেব -->
                     <div class="final-total-box">
@@ -385,6 +359,6 @@
     </div>
 
     <!-- JavaScript Link -->
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>
