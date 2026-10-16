@@ -1607,6 +1607,36 @@ footer .social-links a:hover {
 }
 
 
+.filter-btns {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: nowrap; /* বাটনগুলোকে এক লাইনে রাখতে বাধ্য করবে */
+    overflow-x: auto;   /* জায়গা কম হলে স্ক্রিন ছোট থাকলে স্ক্রোল করা যাবে */
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+    white-space: nowrap;
+}
+
+.filter-btn {
+    background: #e2e8f0;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px; /* মোবাইল স্ক্রিনের জন্য ফন্ট সাইজ একটু মানানসই করা হলো */
+    color: #475569;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: #002b5b;
+    color: #fff;
+}
+
+
 
 
 
