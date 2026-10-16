@@ -3,189 +3,486 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Imran Hossen - Portfolio</title>
-    
-    <!-- Google Fonts & FontAwesome Icons -->
+    <title>Md Imran Hossen - RFL Sales Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom Stylesheet -->
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- ==========================================
+       ১. নেভিগেশন বার (Navbar)
+       ========================================== -->
     <nav class="navbar">
-        <a href="#" class="logo">Imran <span>Portfolio</span></a>
-        
-        <div class="nav-cart-wrapper" onclick="toggleCart()">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="RFL Logo" class="nav-logo-img" onerror="this.style.display='none'">
+            <span>RFL</span> Sales Portfolio
+        </a>
+        <div class="nav-cart-wrapper" onclick="toggleCartModal()">
             <button class="cart-icon-btn">
-                <i class="fas fa-shopping-cart"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-badge" id="cartCount">0</span>
             </button>
         </div>
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#about"><i class="fas fa-user"></i> পরিচিতি</a></li>
-            <li><a href="#stats"><i class="fas fa-chart-line"></i> পরিসংখ্যান</a></li>
-            <li><a href="#gallery"><i class="fas fa-images"></i> গ্যালারি</a></li>
-            <li><a href="#catalog"><i class="fas fa-box"></i> প্রোডাক্টস</a></li>
-            <li><a href="#contact"><i class="fas fa-envelope"></i> যোগাযোগ</a></li>
-        </ul>
-
-        <div class="menu-btn" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
+        <div class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
         </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">হোম</a></li>
+            <li><a href="products.html">প্রোডাক্টস</a></li>
+            <li><a href="#salesChart">সেলস রিপোর্ট</a></li>
+            <li><a href="#routePlan">রুট প্ল্যান</a></li>
+            <li><a href="#gallery">গ্যালারি</a></li>
+            <li><a href="#contact">যোগাযোগ</a></li>
+        </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="about">
+    <!-- ==========================================
+       ২. হিরো সেকশন (Hero Section)
+       ========================================== -->
+    <header class="hero">
         <div class="profile-img-box">
             <img src="images/profile.jpg" alt="Md Imran Hossen" onerror="this.src='https://via.placeholder.com/130'">
         </div>
-        <h1>Md Imran Hossen</h1>
-        <p class="subtitle"><span class="typing-text">RFL Merchant & Sales Specialist</span></p>
-        <span class="company-tag"><i class="fas fa-briefcase"></i> RFL Group</span>
-
-        <div class="hero-buttons">
-            <a href="tel:+8801700000000" class="btn btn-call"><i class="fas fa-phone"></i> কল করুন</a>
-            <a href="#catalog" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> ক্যাটালগ</a>
+        <h1>মোঃ ইমরান হোসেন</h1>
+        <div class="subtitle">
+            আমি একজন <span class="typing-text"></span>
         </div>
-    </section>
+        <div class="company-tag">
+            <i class="fa-solid fa-briefcase"></i> আরএফএল এক্সক্লুসিভ সেলস উইং
+        </div>
+        <div class="hero-buttons">
+            <a href="tel:01517851338" class="btn btn-call"><i class="fa-solid fa-phone"></i> কল করুন</a>
+            <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আপনার%20সাথে%20যোগাযোগ%20করতে%20চাই।" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপ</a>
+        </div>
+    </header>
 
-    <!-- Main Container -->
     <div class="container">
 
-        <!-- Sales Stats Section -->
-        <section class="stats-section" id="stats">
-            <div class="stat-card">
-                <h2>১,০০০+</h2>
-                <p>মোট প্রোডাক্ট</p>
+        <!-- ==========================================
+           ৩. আল্ট্রা-মডার্ন সেলস চার্ট ও স্ট্যাটস ড্যাশবোর্ড
+           ========================================== -->
+        <section id="salesChart" class="modern-chart-card card">
+            <div class="chart-header">
+                <div>
+                    <h2><i class="fa-solid fa-chart-line"></i> সেলস পারফরম্যান্স ড্যাশবোর্ড</h2>
+                    <p style="color: #64748b; font-size: 13px;">মাসিক বিক্রয় লক্ষ্যমাত্রা ও অর্জনের রিয়েল-টাইম গ্রাফ</p>
+                </div>
+                <div class="live-status-tag">
+                    <span class="pulse-dot"></span> লাইভ আপডেট
+                </div>
             </div>
-            <div class="stat-card">
-                <h2>১০০%</h2>
-                <p>ডেলিভারি সাফল্য</p>
+
+            <!-- স্ট্যাটস কার্ড গ্রিড -->
+            <div class="modern-stats-grid">
+                <div class="m-stat-card highlight-card">
+                    <span class="m-stat-label">মোট বিক্রয় (চলতি বছর)</span>
+                    <div class="m-stat-value">৳ ১২.৫ লক্ষ+</div>
+                    <div class="m-stat-sub"><span class="m-stat-badge positive"><i class="fa-solid fa-arrow-trend-up"></i> +১৮%</span> গত মাসের চেয়ে বেশি</div>
+                </div>
+                <div class="m-stat-card">
+                    <span class="m-stat-label">মাসিক গড় অর্জিত টার্গেট</span>
+                    <div class="m-stat-value">৯৪.৫%</div>
+                    <div class="m-stat-sub"><span class="m-stat-badge positive" style="background:#dcfce7; color:#15803d;"><i class="fa-solid fa-check"></i> নিয়মিত</span> টার্গেট ফুলফিলমেন্ট</div>
+                </div>
+                <div class="m-stat-card">
+                    <span class="m-stat-label">অ্যাক্টিভ রিটেইল আউটলেট</span>
+                    <div class="m-stat-value">১,০০০+</div>
+                    <div class="m-stat-sub"><span class="m-stat-badge neutral"><i class="fa-solid fa-store"></i> খুলনা রিজিওন</span></div>
+                </div>
             </div>
-            <div class="stat-card">
-                <h2>২৪/৭</h2>
-                <p>গ্রাহক সেবা</p>
+
+            <!-- চার্ট ক্যানভাস -->
+            <div class="modern-chart-wrapper">
+                <canvas id="mySalesChart"></canvas>
             </div>
         </section>
 
-        <!-- Modern Ultra Gallery Section (Photo Gallery) -->
-        <section class="card gallery-card" id="gallery">
-            <h2><i class="fas fa-images"></i> ফটো গ্যালারি</h2>
-            
-            <div class="carousel-container">
-                <!-- Carousel Slides -->
-                <div class="carousel-slide" id="carouselSlide">
-                    <div class="slide-item">
-                        <img src="images/gallery1.jpg" alt="RFL Product 1" onerror="this.src='https://via.placeholder.com/800x400?text=RFL+Product+1'">
+        <!-- ==========================================
+           ৪. আল্ট্রা-মডার্ন রুট প্ল্যান সেকশন
+           ========================================== -->
+        <section id="routePlan" class="main-route-card card">
+            <div class="route-header-area">
+                <h2><i class="fa-solid fa-map-location-dot"></i> সাপ্তাহিক ভিজিট ও রুট প্ল্যান</h2>
+                <p class="route-subtitle">খুলনা সদরের বিভিন্ন মার্কেটে নিয়মিত কাস্টমার সার্ভিস ও অর্ডারিং শেডিউল</p>
+            </div>
+
+            <div class="location-tags-wrapper">
+                <span class="loc-badge"><i class="fa-solid fa-location-dot"></i> খুলনা সদর</span>
+                <span class="loc-badge"><i class="fa-solid fa-location-dot"></i> ডাকবাংলা</span>
+                <span class="loc-badge"><i class="fa-solid fa-location-dot"></i> রূপসা</span>
+                <span class="loc-badge"><i class="fa-solid fa-location-dot"></i> দৌলতপুর</span>
+                <span class="loc-badge"><i class="fa-solid fa-location-dot"></i> বয়রা</span>
+                <span class="loc-badge"><i class="fa-solid fa-location-dot"></i> সোনাডাঙ্গা</span>
+            </div>
+
+            <div class="route-cards-container">
+                <div class="day-route-card">
+                    <div class="card-top-bar">
+                        <span class="day-pill sat-pill">শনিবার</span>
+                        <h3 class="route-title">ডাকবাংলা ও পিকচার প্যালেস মার্কেট</h3>
                     </div>
-                    <div class="slide-item">
-                        <img src="images/gallery2.jpg" alt="RFL Product 2" onerror="this.src='https://via.placeholder.com/800x400?text=RFL+Product+2'">
-                    </div>
-                    <div class="slide-item">
-                        <img src="images/gallery3.jpg" alt="RFL Product 3" onerror="this.src='https://via.placeholder.com/800x400?text=RFL+Product+3'">
-                    </div>
+                    <p class="route-detail"><i class="fa-solid fa-store"></i> ক্রোকারিজ, প্লাস্টিক অ্যান্ড গিফট শপসমূহ</p>
                 </div>
 
-                <!-- Navigation Controls -->
-                <button class="carousel-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-                <button class="carousel-btn next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                <div class="day-route-card">
+                    <div class="card-top-bar">
+                        <span class="day-pill sun-pill">রবিবার</span>
+                        <h3 class="route-title">রূপসা স্ট্যান্ড ও ইষ্ট মেট রোড</h3>
+                    </div>
+                    <p class="route-detail"><i class="fa-solid fa-store"></i> হাউসহোল্ড অ্যান্ড মেটাল ডিলার হাব</p>
+                </div>
 
-                <!-- Indicator Dots -->
+                <div class="day-route-card">
+                    <div class="card-top-bar">
+                        <span class="day-pill mon-pill">সোমবার</span>
+                        <h3 class="route-title">দৌলতপুর ও খালিশপুর বাজার</h3>
+                    </div>
+                    <p class="route-detail"><i class="fa-solid fa-store"></i> পাইকারি প্লাস্টিক অ্যান্ড হোম অ্যাপ্লায়েন্স আউটলেট</p>
+                </div>
+
+                <div class="day-route-card">
+                    <div class="card-top-bar">
+                        <span class="day-pill tue-pill">মঙ্গলবার</span>
+                        <h3 class="route-title">বয়রা বাজার ও রায়পাড়া সেকশন</h3>
+                    </div>
+                    <p class="route-detail"><i class="fa-solid fa-store"></i> রিটেইল শপ অ্যান্ড নিউ ডিলার পয়েন্ট</p>
+                </div>
+
+                <div class="day-route-card">
+                    <div class="card-top-bar">
+                        <span class="day-pill wed-pill">বুধবার</span>
+                        <h3 class="route-title">সোনাডাঙ্গা বাস স্ট্যান্ড ও নিউ মার্কেট</h3>
+                    </div>
+                    <p class="route-detail"><i class="fa-solid fa-store"></i> চিলড্রেন ফার্নিচার অ্যান্ড প্লাস্টিক কর্নার</p>
+                </div>
+
+                <div class="day-route-card">
+                    <div class="card-top-bar">
+                        <span class="day-pill thu-pill">বৃহস্পতিবার</span>
+                        <h3 class="route-title">খুলনা মোটরসাইকেল পার্টস মার্কেট</h3>
+                    </div>
+                    <p class="route-detail"><i class="fa-solid fa-store"></i> সেফটি হেলমেট অ্যান্ড বাইক এক্সেসরিজ ডিলার</p>
+                </div>
+            </div>
+
+            <div class="route-footer-note">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>জরুরি প্রয়োজনে যেকোনা দিনে রুটের বাইরে সরাসরি স্পট ডেলিভারি সেবা প্রদান করা হয়।</span>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           ৫. গ্যালারি কারোসেল ও লাইটবক্স
+           ========================================== -->
+        <section id="gallery" class="gallery-card card">
+            <h2><i class="fa-solid fa-images"></i> অ্যাক্টিভিটি গ্যালারি</h2>
+            <div class="carousel-container">
+                <div class="carousel-slide" id="carouselSlide">
+                    <div class="slide-item" onclick="openLightbox(0)">
+                        <img src="images/gallery1.jpg" alt="ফিল্ড ভিজিট" onerror="this.src='https://via.placeholder.com/600x320?text=Field+Visit'">
+                    </div>
+                    <div class="slide-item" onclick="openLightbox(1)">
+                        <img src="images/gallery2.jpg" alt="ডিলার মিটিং" onerror="this.src='https://via.placeholder.com/600x320?text=Dealer+Meeting'">
+                    </div>
+                    <div class="slide-item" onclick="openLightbox(2)">
+                        <img src="images/gallery3.jpg" alt="প্রোডাক্ট ডিসপ্লে" onerror="this.src='https://via.placeholder.com/600x320?text=Product+Display'">
+                    </div>
+                </div>
+                <button class="carousel-btn prev-btn" onclick="moveSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
                 <div class="carousel-dots" id="carouselDots"></div>
             </div>
         </section>
 
-        <!-- Product Catalog Section -->
-        <section class="card" id="catalog">
-            <h2><i class="fas fa-store"></i> প্রোডাক্ট ক্যাটালগ</h2>
-            
-            <div class="product-catalog-grid">
-                <div class="catalog-item">
-                    <img src="images/p1.jpg" alt="Product 1" onerror="this.src='https://via.placeholder.com/300x200?text=Product+1'">
-                    <div class="catalog-info">
-                        <h3>RFL Premium Container</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳৫০০</span>
-                            <span class="sales-price">৳৪৫০</span>
-                        </div>
-                        <button class="btn-cart" onclick="addToCart('RFL Premium Container', 450)"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button>
+        <!-- ==========================================
+           ৬. ইন্সপায়ারিং কোটস সেকশন
+           ========================================== -->
+        <section class="quotes-section">
+            <h2 class="section-title"><i class="fa-solid fa-quote-left"></i> সেলস অ্যান্ড বিজনেস মোটো</h2>
+            <div class="quotes-grid">
+                <div class="quote-card">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="quote-text">"কাস্টমারের আস্থা অর্জন করা অর্ডারের চেয়েও বড় সাফল্য।"</p>
+                    <div class="author-box">
+                        <span style="font-weight:700; font-size:13px; color:#0284c7;">- ইমরান হোসেন</span>
                     </div>
                 </div>
-
-                <div class="catalog-item">
-                    <img src="images/p2.jpg" alt="Product 2" onerror="this.src='https://via.placeholder.com/300x200?text=Product+2'">
-                    <div class="catalog-info">
-                        <h3>RFL Smart Chair</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳১২০০</span>
-                            <span class="sales-price">৳১০৫০</span>
-                        </div>
-                        <button class="btn-cart" onclick="addToCart('RFL Smart Chair', 1050)"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                <div class="quote-card">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="quote-text">"সঠিক সময়ে সঠিক পণ্য পৌঁছে দেওয়ার নামই পেশাদারিত্ব।"</p>
+                    <div class="author-box">
+                        <span style="font-weight:700; font-size:13px; color:#0284c7;">- সেলস প্রিন্সিপল</span>
                     </div>
                 </div>
             </div>
         </section>
 
-    </div>
-
-    <!-- Lightbox Modal (For Fullscreen Image View) -->
-    <div class="lightbox-modal" id="lightboxModal">
-        <span class="lightbox-close" id="lightboxClose">&times;</span>
-        <button class="lightbox-nav" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
-        <div class="lightbox-content">
-            <img id="lightboxImg" src="" alt="Gallery Image">
-            <div class="lightbox-counter" id="lightboxCounter">1 / 3</div>
-        </div>
-        <button class="lightbox-nav" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
-    </div>
-
-    <!-- Slide-over Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-modal-content">
-            <div class="cart-modal-header">
-                <h3><i class="fas fa-shopping-basket"></i> আপনার কার্ট</h3>
-                <span class="close-modal" onclick="toggleCart()">&times;</span>
-            </div>
-            <div class="cart-modal-body">
-                <div id="cartItemsContainer">
-                    <p style="text-align: center; color: #666; margin-top: 20px;">আপনার কার্ট খালি রয়েছে</p>
-                </div>
-                <div class="final-total-box">
-                    <div class="total-row-item final-price">
-                        <span>সর্বমোট:</span>
-                        <span id="cartTotalPrice">৳০</span>
+        <!-- ==========================================
+           ৭. এফএকিউ (FAQ) সেকশন
+           ========================================== -->
+        <section class="card">
+            <h2><i class="fa-circle-question fa-solid"></i> সাধারণ জিজ্ঞাসাসমূহ</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>কীভাবে পাইকারি অর্ডারের জন্য বুকিং দেব?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>সরাসরি প্রোডাক্ট পেজ থেকে কার্টে যোগ করে অথবা আমাদের হোয়াটসঅ্যাপ নম্বরে কল/মেসেজ দিয়ে অর্ডার বুক করতে পারেন।</p>
                     </div>
                 </div>
-                <button class="btn-whatsapp-order" onclick="sendWhatsAppOrder()">
-                    <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে অর্ডার করুন
-                </button>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>খুলনার বাইরে ডেলিভারি নেওয়ার সুবিধা আছে কি?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>হ্যাঁ, সুন্দরবন ও পাঠাও কুরিয়ার সার্ভিসের মাধ্যমে সারা বাংলাদেশে কন্ডিশনে পণ্য পাঠানো হয়।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           ৮. কন্টাক্ট ফরম
+           ========================================== -->
+        <section id="contact" class="card">
+            <h2><i class="fa-envelope fa-solid"></i> সরাসরি বার্তা পাঠান</h2>
+            <form onsubmit="event.preventDefault(); alert('ধন্যবাদ! আপনার বার্তাটি সফলভাবে পাঠানো হয়েছে।');">
+                <div class="form-group">
+                    <input type="text" placeholder="আপনার নাম" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="মোবাইল নম্বর" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="আপনার মেসেজ লিখুন..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">মেসেজ পাঠান</button>
+            </form>
+        </section>
+
+    </div>
+
+    <!-- ==========================================
+       ৯. স্লাইড-ওভার কার্ট ও চেকআউট মোডাল
+       ========================================== -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3><i class="fa-solid fa-cart-shopping"></i> শপিং কার্ট ও চেকআউট</h3>
+                <span class="close-modal" onclick="toggleCartModal()">&times;</span>
+            </div>
+            <div class="cart-modal-body">
+                <div id="cartItemsContainer"></div>
+                
+                <div id="fullCheckoutArea" style="display:none;">
+                    <div class="checkout-section-box">
+                        <h4><i class="fa-solid fa-user"></i> গ্রাহকের তথ্য</h4>
+                        <div class="form-group">
+                            <label>আপনার নাম *</label>
+                            <input type="text" id="custName" placeholder="যেমন: মোঃ রফিকুল ইসলাম">
+                        </div>
+                        <div class="form-group">
+                            <label>মোবাইল নম্বর *</label>
+                            <input type="tel" id="custPhone" placeholder="017XXXXXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>সম্পূর্ণ ঠিকানা *</label>
+                            <textarea id="custAddress" rows="2" placeholder="বাসা/দোকান নং, রোড, এলাকা..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="checkout-section-box">
+                        <h4><i class="fa-solid fa-truck"></i> ডেলিভারি এরিয়া</h4>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="deliveryArea" value="Khulna Sadar" price="60" checked onclick="calculateFinalTotal()">
+                                <span>খুলনা সদর (৳৬০)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="deliveryArea" value="Outside Khulna" price="120" onclick="calculateFinalTotal()">
+                                <span>খুলনার বাহিরে (৳১২০)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="checkout-section-box">
+                        <h4><i class="fa-solid fa-credit-card"></i> পেমেন্ট মেথড</h4>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="paymentMethod" value="COD" checked onclick="togglePaymentDetails()">
+                                <span>ক্যাশ অন ডেলিভারি (COD)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="paymentMethod" value="MobileBanking" onclick="togglePaymentDetails()">
+                                <span>বিকাশ / নগদ / রকেট</span>
+                            </label>
+                        </div>
+
+                        <div id="mobileBankingDetails" style="display:none; margin-top:10px; background:#f0fdf4; padding:10px; border-radius:6px; border:1px solid #bbf7d0;">
+                            <p style="font-size:12px; color:#166534; margin-bottom:8px;">পার্সোনাল বিকাশ/নগদ নম্বর: <strong>01517851338</strong></p>
+                            <div class="form-group">
+                                <input type="tel" id="senderPhone" placeholder="প্রেরক নম্বর (Sender Phone)">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" id="advanceAmount" placeholder="অগ্রিম টাকার পরিমাণ" oninput="calculateFinalTotal()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="final-total-box">
+                        <div class="total-row-item"><span>পণ্যমূল্য:</span> <span id="finalSubtotal">৳0</span></div>
+                        <div class="total-row-item"><span>ডেলিভারি চার্জ:</span> <span id="finalDelivery">৳60</span></div>
+                        <div class="total-row-item final-price"><span>সর্বমোট বিল:</span> <span id="grandTotal">৳60</span></div>
+                    </div>
+
+                    <button class="btn-whatsapp-order" onclick="sendWhatsAppOrder()">
+                        <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে অর্ডার পাঠান
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Floating Action Buttons -->
-    <div class="floating-btn-group">
-        <a href="https://wa.me/8801700000000" class="float-btn float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="tel:+8801700000000" class="float-btn float-call"><i class="fas fa-phone"></i></a>
+    <!-- ==========================================
+       ১০. গ্যালারি লাইটবক্স মোডাল
+       ========================================== -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <button class="lightbox-nav" onclick="changeLightboxImg(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Zoomed Image">
+            <div id="lightboxCounter" class="lightbox-counter">1 / 3</div>
+        </div>
+        <button class="lightbox-nav" onclick="changeLightboxImg(1)"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+    <!-- ==========================================
+       ১১. ফ্লটিং বাটন ও ব্যাক টু টপ
+       ========================================== -->
+    <button id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <!-- Footer -->
+    <div class="floating-btn-group">
+        <a href="https://wa.me/8801517851338" target="_blank" class="float-btn float-wa"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="tel:01517851338" class="float-btn float-call"><i class="fa-solid fa-phone"></i></a>
+    </div>
+
+    <!-- ==========================================
+       ১২. ফুটার
+       ========================================== -->
     <footer>
         <div class="footer-content">
-            <h3>Md Imran Hossen</h3>
-            <p>RFL Portfolio & Order Management System</p>
+            <h3>মোঃ ইমরান হোসেন</h3>
+            <p>আরএফএল সেলস রিপ্রেজেন্টেティブ - খুলনা রিজিয়ন</p>
+            <div class="footer-links">
+                <a href="index.html">হোম</a> | 
+                <a href="products.html">প্রোডাক্টস</a> | 
+                <a href="#salesChart">রিপোর্ট</a> | 
+                <a href="#contact">যোগাযোগ</a>
+            </div>
         </div>
-        <p class="copyright">&copy; 2026 Md Imran Hossen. All Rights Reserved.</p>
+        <div class="copyright">
+            &copy; 2026 Md Imran Hossen. All Rights Reserved.
+        </div>
     </footer>
 
-    <!-- JavaScript File -->
+    <!-- JS Files -->
     <script src="script.js"></script>
+    <script>
+        // কাস্টম সেলস চার্ট স্ক্রিপ্ট
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document.getElementById('mySalesChart');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর'],
+                        datasets: [{
+                            label: 'মাসিক সেলস (টাকায়)',
+                            data: [85000, 92000, 110000, 105000, 125000, 130000, 140000, 135000, 150000, 165000],
+                            borderColor: '#0284c7',
+                            backgroundColor: 'rgba(2, 132, 199, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+            }
+        });
+
+        // গ্যালারি কারোসেল ও লাইটবক্স লজিক
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide-item');
+        const dotsContainer = document.getElementById('carouselDots');
+
+        if(slides.length > 0) {
+            slides.forEach((_, idx) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if(idx === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(idx));
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateCarousel() {
+            const slideBox = document.getElementById('carouselSlide');
+            if(slideBox) {
+                slideBox.style.transform = `translateX(-${currentSlide * 100}%)`;
+                document.querySelectorAll('.dot').forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === currentSlide);
+                });
+            }
+        }
+
+        function moveSlide(dir) {
+            currentSlide = (currentSlide + dir + slides.length) % slides.length;
+            updateCarousel();
+        }
+
+        function goToSlide(idx) {
+            currentSlide = idx;
+            updateCarousel();
+        }
+
+        // লাইটবক্স
+        let lbIndex = 0;
+        function openLightbox(idx) {
+            lbIndex = idx;
+            const modal = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImg');
+            const counter = document.getElementById('lightboxCounter');
+            if(modal && slides[idx]) {
+                img.src = slides[idx].querySelector('img').src;
+                counter.innerText = `${lbIndex + 1} / ${slides.length}`;
+                modal.classList.add('show');
+            }
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            if(modal) modal.classList.remove('show');
+        }
+
+        function changeLightboxImg(dir) {
+            lbIndex = (lbIndex + dir + slides.length) % slides.length;
+            openLightbox(lbIndex);
+        }
+    </script>
 </body>
 </html>
