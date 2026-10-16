@@ -1113,3 +1113,61 @@ footer .social-links a:hover {
     padding-top: 12px;
     margin-top: 15px;
 }
+
+
+/* ==========================================
+   Product Catalog Page Styles
+   ========================================== */
+
+.product-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.catalog-item {
+    background: #f8f9fa;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.catalog-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.catalog-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.catalog-info {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.catalog-info h3 {
+    font-size: 15px;
+    color: #002752;
+    margin: 0;
+}
+
+.cat-price {
+    font-size: 13px;
+    color: #e67e22;
+    font-weight: 700;
+}
+
+
