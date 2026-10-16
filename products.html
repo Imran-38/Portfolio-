@@ -18,41 +18,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
     <!-- নেভিগেশন মেনু -->
     <nav class="navbar">
-    <a href="index.html#home" class="logo">
-        <img src="logo.svg" alt="মো: ইমরান হোসেন লোগো" style="height: 45px; width: auto; vertical-align: middle;">
-    </a>
+        <a href="index.html#home" class="logo">
+            <img src="logo.svg" alt="মো: ইমরান হোসেন লোগো" style="height: 45px; width: auto; vertical-align: middle;">
+        </a>
 
-    <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#home">হোম</a></li>
-        <li><a href="index.html#about">পরিচয়</a></li>
-        <li><a href="index.html#skills">দক্ষতা</a></li>
-        <li><a href="products.html" class="active">প্রোডাক্টস</a></li>
-        <li><a href="index.html#territory">সার্ভিস এলাকা</a></li>
-        <li><a href="index.html#route-map">রুট প্ল্যান</a></li>
-        <li><a href="creativity.html">ক্রিয়েটিভিটি</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
-        <li><a href="index.html#contact">যোগাযোগ</a></li>
-    </ul>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#home">হোম</a></li>
+            <li><a href="index.html#about">পরিচয়</a></li>
+            <li><a href="index.html#skills">দক্ষতা</a></li>
+            <li><a href="products.html" class="active">প্রোডাক্টস</a></li>
+            <li><a href="index.html#territory">সার্ভিস এলাকা</a></li>
+            <li><a href="index.html#route-map">রুট প্ল্যান</a></li>
+            <li><a href="creativity.html">ক্রিয়েটিভিটি</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="index.html#contact">যোগাযোগ</a></li>
+        </ul>
 
-    <!-- Header Cart Button (Modal Trigger) -->
-    <div class="nav-cart-wrapper" onclick="toggleCartModal()">
-        <button class="cart-icon-btn" aria-label="শপিং কার্ট">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span id="cartCount" class="cart-badge">0</span>
-        </button>
-    </div>
+        <!-- ১. মেনু বারের পাশে কার্ট আইকন পরিবর্তন -->
+        <div class="nav-cart-wrapper" onclick="toggleCartModal()">
+            <button class="cart-icon-btn" aria-label="শপিং কার্ট">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartCount" class="cart-badge">0</span>
+            </button>
+        </div>
 
-    <div class="menu-btn" id="menuBtn">
-        <i class="fa-solid fa-bars"></i>
-    </div>
-</nav>
-
+        <div class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
 
     <!-- হিরো / হেডার সেকশন -->
     <section class="hero creativity-hero">
@@ -274,57 +273,112 @@
         <p class="copyright">© 2026 মো: ইমরান হোসেন | প্রাণ-আরএফএল গ্রুপ</p>
     </footer>
 
-    <!-- JavaScript Link -->
-    <script src="script.js"></script>
-<!-- Cart Pop-up Modal Structure -->
-<div id="cartModal" class="cart-modal">
-    <div class="cart-modal-content">
-        <div class="cart-modal-header">
-            <h3><i class="fa-solid fa-cart-flatbed"></i> আপনার শপিং কার্ট</h3>
-            <span class="close-modal" onclick="toggleCartModal()">&times;</span>
-        </div>
-        
-        <div class="cart-modal-body">
-            <div id="cartItemsContainer">
-                <!-- Cart items JS diye ekhane dynamically load hobe -->
+    <!-- ২. কার্ট পপ-আপ মোডালের সম্পূর্ণ পরিবর্তন (Footer-এর নিচে) -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3><i class="fa-solid fa-cart-flatbed"></i> আপনার শপিং কার্ট</h3>
+                <span class="close-modal" onclick="toggleCartModal()">&times;</span>
             </div>
+            
+            <div class="cart-modal-body">
+                <!-- ধাপ ১: কার্ট আইটেম ও কাস্টমার ডিটেইলস -->
+                <div id="checkoutStep1">
+                    <div id="cartItemsContainer">
+                        <!-- Cart items JS দিয়ে এখানে লোড হবে -->
+                    </div>
 
-            <div class="cart-summary" id="cartSummary" style="display: none;">
-                <div class="total-row">
-                    <span>সর্বমোট মূল্য:</span>
-                    <span id="totalAmount">৳০</span>
+                    <div class="cart-summary" id="cartSummary" style="display: none;">
+                        <div class="total-row">
+                            <span>পণ্যসমূহের মূল্য:</span>
+                            <span id="subTotalAmount">৳০</span>
+                        </div>
+
+                        <hr class="divider">
+
+                        <h4><i class="fa-solid fa-user"></i> গ্রাহকের ডেলিভারি তথ্য</h4>
+                        <div class="form-group">
+                            <label for="custName">আপনার নাম *</label>
+                            <input type="text" id="custName" placeholder="যেমন: মো: রহিম হোসেন">
+                        </div>
+                        <div class="form-group">
+                            <label for="custPhone">মোবাইল নম্বর *</label>
+                            <input type="tel" id="custPhone" placeholder="যেমন: 01700000000">
+                        </div>
+                        <div class="form-group">
+                            <label for="custAddress">সম্পূর্ণ ঠিকানা *</label>
+                            <textarea id="custAddress" rows="2" placeholder="গ্রাম/রাস্তা, থানা, জেলা"></textarea>
+                        </div>
+
+                        <button type="button" class="btn-next-step" onclick="goToStep2()">
+                            পেমেন্ট ও ডেলিভারি অপশনে যান <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
 
-                <hr class="divider">
-
-                <!-- Customer Delivery Form -->
-                <h4><i class="fa-solid fa-truck-ramps"></i> ডেলিভারি তথ্য প্রদান করুন</h4>
-                <form id="orderForm" onsubmit="sendWhatsAppOrder(event)">
-                    <div class="form-group">
-                        <label for="custName">আপনার নাম *</label>
-                        <input type="text" id="custName" required placeholder="যেমন: মো: রহিম হোসেন">
-                    </div>
-                    <div class="form-group">
-                        <label for="custPhone">মোবাইল নম্বর *</label>
-                        <input type="tel" id="custPhone" required placeholder="যেমন: 01700000000">
-                    </div>
-                    <div class="form-group">
-                        <label for="custAddress">সম্পূর্ণ ঠিকানা *</label>
-                        <textarea id="custAddress" rows="2" required placeholder="গ্রাম/রাস্তা, থানা, জেলা"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="custNote">নোট (ঐচ্ছিক)</label>
-                        <input type="text" id="custNote" placeholder="যেমন: বিকেল ৪টার পর কল দিবেন">
-                    </div>
-
-                    <button type="submit" class="btn-whatsapp-order">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার কনফার্ম করুন
+                <!-- ধাপ ২: ডেলিভারি চার্জ ও পেমেন্ট অপশন (ক্যাশ অন ডেলিভারি / বিকাশ / নগদ / রকেট) -->
+                <div id="checkoutStep2" style="display: none;">
+                    <button type="button" class="btn-back-step" onclick="goToStep1()">
+                        <i class="fa-solid fa-arrow-left"></i> পেছনে যান
                     </button>
-                </form>
+
+                    <div class="checkout-box">
+                        <h4><i class="fa-solid fa-truck-fast"></i> ডেলিভারি এরিয়া নির্বাচন করুন</h4>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="deliveryArea" value="Khulna Sadar" price="60" checked onchange="calculateFinalTotal()">
+                                <span>খুলনা সদর (৳৬০)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="deliveryArea" value="Outside Khulna" price="140" onchange="calculateFinalTotal()">
+                                <span>খুলনার বাহিরে (৳১৪০)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="checkout-box">
+                        <h4><i class="fa-solid fa-wallet"></i> পেমেন্ট মেথড নির্বাচন করুন</h4>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="paymentMethod" value="COD" checked onchange="togglePaymentDetails()">
+                                <span>ক্যাশ অন ডেলিভারি (Cash on Delivery)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="paymentMethod" value="MobileBanking" onchange="togglePaymentDetails()">
+                                <span>বিকাশ / নগদ / রকেট</span>
+                            </label>
+                        </div>
+
+                        <!-- মোবাইল ব্যাংকিং পেমেন্ট বিস্তারিত -->
+                        <div id="mobileBankingDetails" style="display: none; margin-top: 10px; background: #fff3cd; padding: 10px; border-radius: 6px; font-size: 13px;">
+                            <p style="margin: 0 0 6px 0; color: #856404; font-weight: bold;">
+                                <i class="fa-solid fa-mobile-screen"></i> টাকা পাঠানোর নম্বর: <span style="color: #d9534f; font-size: 15px;">01517851338</span>
+                            </p>
+                            <p style="margin: 0 0 8px 0; color: #666; font-size: 12px;">টাকা পাঠানোর পর যে নম্বর থেকে টাকা পাঠিয়েছেন তা নিচে লিখুন:</p>
+                            <div class="form-group">
+                                <label for="senderPhone">প্রেরক মোবাইল নম্বর (Sender Number) *</label>
+                                <input type="tel" id="senderPhone" placeholder="যে নম্বর থেকে টাকা পাঠিয়েছেন">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- সর্বমোট হিসেব -->
+                    <div class="final-total-box">
+                        <div class="total-row-item"><span>পণ্যের দাম:</span> <span id="finalSubtotal">৳০</span></div>
+                        <div class="total-row-item"><span>ডেলিভারি চার্জ:</span> <span id="finalDelivery">৳৬০</span></div>
+                        <hr class="divider">
+                        <div class="total-row-item final-price"><span>সর্বমোট প্রদেয়:</span> <span id="grandTotal">৳০</span></div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp-order" onclick="sendWhatsAppOrder()">
+                        <i class="fa-brands fa-whatsapp"></i> অর্ডার কনফার্ম করুন
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
+    <!-- JavaScript Link -->
+    <script src="script.js?v=3"></script>
 </body>
 </html>
