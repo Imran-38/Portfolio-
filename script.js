@@ -357,3 +357,20 @@ function sendWhatsAppOrder() {
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 });
+
+/* ==========================================
+   ৪. ইমেজ জুম পপ-আপ মোডাল
+   ========================================== */
+function openImageZoom(src) {
+    const modal = document.getElementById('imageZoomModal');
+    const img = document.getElementById('zoomedImg');
+    if (modal && img) {
+        img.src = src;
+        modal.classList.add('show');
+    }
+}
+
+function closeImageZoom() {
+    const modal = document.getElementById('imageZoomModal');
+    if (modal) modal.classList.remove('show');
+}
