@@ -184,6 +184,42 @@ body {
     color: #ffc107;
 }
 
+/* কার্ট আইকন বাটন */
+.nav-cart-wrapper {
+    position: relative;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.cart-icon-btn {
+    background: #ffc107;
+    border: none;
+    color: #002b5b;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.cart-icon-btn:hover {
+    transform: scale(1.08);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
 .menu-btn {
     color: white;
     font-size: 24px;
@@ -325,10 +361,29 @@ body {
     gap: 8px;
 }
 
-/* Filter Products */
-.filter-btns { display: flex; gap: 8px; margin-bottom: 15px; }
+/* Filter Products (মোবাইলে এক লাইনে স্ক্রোলটেবল) */
+.filter-btns {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.filter-btns::-webkit-scrollbar {
+    height: 4px;
+}
+.filter-btns::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
 .filter-btn {
-    padding: 6px 16px;
+    padding: 8px 16px;
     border: 1px solid #0056b3;
     background: transparent;
     color: #0056b3;
@@ -337,21 +392,91 @@ body {
     font-weight: 600;
     font-size: 13px;
     transition: all 0.2s ease;
+    flex-shrink: 0;
 }
 
 .filter-btn.active, .filter-btn:hover { background: #0056b3; color: white; }
 
-.product-grid { display: grid; gap: 14px; }
+/* Product Grid & Catalog Items */
+.product-grid, .product-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.catalog-item, .product-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.catalog-item:hover, .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.catalog-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.catalog-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.catalog-info h3 {
+    font-size: 16px;
+    color: #1e293b;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+.price-box {
+    margin-bottom: 15px;
+}
+
+.regular-price {
+    text-decoration: line-through;
+    color: #94a3b8;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.sales-price {
+    color: #16a34a;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.btn-cart {
+    background: #002b5b;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.btn-cart:hover {
+    background: #004080;
+}
+
 .product-card {
     background: #f8f9fa;
     padding: 16px;
     border-left: 4px solid #0056b3;
-    border-radius: 8px;
-    transition: transform 0.2s ease;
-}
-
-.product-card:hover {
-    transform: translateX(3px);
 }
 
 .product-card h3 { font-size: 16px; color: #002752; margin-bottom: 4px; }
@@ -431,18 +556,304 @@ body {
 
 /* Form Inputs */
 .form-group { margin-bottom: 12px; }
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #475569;
+}
 .form-group input, .form-group textarea {
     width: 100%;
-    padding: 12px;
+    padding: 10px 12px;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     outline: none;
     font-size: 14px;
+    background: #fff;
     transition: border-color 0.2s ease;
 }
 
 .form-group input:focus, .form-group textarea:focus {
     border-color: #0056b3;
+}
+
+/* ==========================================
+   মর্ডান স্লাইড-ওভার কার্ট ও চেকআউট মোডাল
+   ========================================== */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: flex-end; /* ডান পাশ থেকে স্লাইড হয়ে আসবে */
+    z-index: 99999;
+    backdrop-filter: blur(3px);
+    transition: all 0.3s ease;
+}
+
+.cart-modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.cart-modal-header {
+    background: #002b5b;
+    color: #fff;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-modal-header h3 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.close-modal {
+    font-size: 26px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #ffc107;
+}
+
+.cart-modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+    background: #f8fafc;
+}
+
+/* কার্ট আইটেম কার্ড */
+.cart-item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.cart-item-info h4 {
+    font-size: 14px;
+    color: #1e293b;
+    margin-bottom: 3px;
+}
+
+.cart-item-price {
+    font-size: 13px;
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.cart-qty-ctrl {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-qty-ctrl button {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #334155;
+    transition: background 0.2s;
+}
+
+.cart-qty-ctrl button:hover {
+    background: #e2e8f0;
+}
+
+.cart-qty-ctrl button.btn-remove {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #dc2626;
+}
+
+/* চেকআউট সেকশন বক্স */
+.checkout-section-box {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    padding: 16px;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.checkout-section-box h4 {
+    font-size: 15px;
+    color: #0f172a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 8px;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.radio-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #f8fafc;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    transition: background 0.2s;
+}
+
+.radio-card:hover {
+    background: #f1f5f9;
+}
+
+.final-total-box {
+    background: #e2e8f0;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.total-row-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #334155;
+}
+
+.total-row-item.final-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 8px;
+    margin-top: 6px;
+}
+
+.btn-whatsapp-order {
+    background: #16a34a;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.btn-whatsapp-order:hover {
+    background: #15803d;
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   স্বাগতম পপ-আপ মোডাল
+   ========================================== */
+.welcome-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.welcome-popup-overlay.show-welcome {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.welcome-popup-box {
+    background: #ffffff;
+    width: 90%;
+    max-width: 380px;
+    padding: 25px 20px 20px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    animation: popupScale 0.4s ease;
+}
+
+@keyframes popupScale {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.welcome-popup-box h3 {
+    margin-bottom: 10px;
+    color: #0f172a;
+    font-size: 20px;
+}
+
+.welcome-popup-box p {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.welcome-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 26px;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.welcome-close-btn:hover {
+    color: #ef4444;
 }
 
 /* Back to Top Button */
@@ -971,673 +1382,3 @@ footer {
     object-fit: cover;
     border: 2px solid #0284c7;
 }
-
-.quote-author {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #0284c7;
-}
-
-/* Footer Social Links & Back Link */
-footer .social-links {
-    margin: 15px 0;
-}
-
-footer .social-links a {
-    color: #ffffff;
-    background-color: #1877f2;
-    padding: 8px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-footer .social-links a:hover {
-    background-color: #145dbf;
-    transform: translateY(-2px);
-}
-
-.footer-home-link {
-    color: #cbd5e1;
-    text-decoration: none;
-}
-
-.footer-home-link:hover {
-    text-decoration: underline;
-}
-
-/* ==========================================
-   Updated High-Contrast Footer & Social Links
-   ========================================== */
-footer {
-    background: #002752;
-    color: #ffffff;
-    text-align: center;
-    padding: 35px 15px 20px;
-    margin-top: 40px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-footer .footer-content h3 {
-    font-size: 20px;
-    margin-bottom: 6px;
-    color: #ffc107; /* স্পষ্ট গোল্ডেন ইয়েলো */
-}
-
-footer .social-links {
-    margin: 18px 0;
-}
-
-/* ফেসবুক বাটন দৃশ্যমান করার জন্য আপডেট */
-footer .social-links a {
-    color: #ffffff;
-    background-color: #1877f2; /* ব্রাইট ফেসবুক ব্লু */
-    padding: 10px 22px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1.5px solid #ffffff; /* হোয়াইট হাইলাইট বর্ডার */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-footer .social-links a:hover {
-    background-color: #ffffff;
-    color: #1877f2;
-    transform: translateY(-2px);
-}
-
-/* হোম পেজে ফিরে যান লিংকের ব্রাইট গোল্ডেন কালার */
-.footer-home-link {
-    color: #ffc107; /* স্পষ্ট উজ্জ্বল হলুদ */
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.95rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    transition: all 0.2s ease;
-}
-
-.footer-home-link:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.2);
-    text-decoration: underline;
-}
-
-.copyright {
-    font-size: 12px;
-    color: #cbd5e1;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding-top: 14px;
-    margin-top: 20px;
-}
-
-/* ==========================================
-   Strict Fix for Author Avatar Image Sizes
-   ========================================== */
-.quotes-section .author-avatar,
-.quote-card .author-avatar,
-.author-box img {
-    width: 50px !important;
-    height: 50px !important;
-    min-width: 50px !important;
-    min-height: 50px !important;
-    max-width: 50px !important;
-    max-height: 50px !important;
-    border-radius: 50% !important;
-    object-fit: cover !important;
-    border: 2px solid #0284c7 !important;
-    display: block !important;
-}
-
-.author-box {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 12px !important;
-    border-top: 1px solid #f1f5f9;
-    padding-top: 12px;
-    margin-top: 15px;
-}
-
-
-/* ==========================================
-   Product Catalog Page Styles
-   ========================================== */
-
-.product-catalog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-    margin-top: 15px;
-}
-
-.catalog-item {
-    background: #f8f9fa;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.catalog-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-}
-
-.catalog-item img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    background-color: #fff;
-    border-bottom: 1px solid #eee;
-}
-
-.catalog-info {
-    padding: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: left;
-}
-
-.catalog-info h3 {
-    font-size: 15px;
-    color: #002752;
-    margin: 0;
-}
-
-.cat-price {
-    font-size: 13px;
-    color: #e67e22;
-    font-weight: 700;
-}
-
-
-
-
-/* ==========================================
-   Product Catalog & Price Box Styles
-   ========================================== */
-
-.product-catalog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-    margin-top: 15px;
-}
-
-.catalog-item {
-    background: #f8f9fa;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.catalog-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-.catalog-item img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    background-color: #fff;
-    border-bottom: 1px solid #eee;
-}
-
-.catalog-info {
-    padding: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.catalog-info h3 {
-    font-size: 15px;
-    color: #002752;
-    margin: 0;
-    font-weight: 700;
-}
-
-.price-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.regular-price {
-    font-size: 13px;
-    color: #888;
-    text-decoration: line-through;
-}
-
-.sales-price {
-    font-size: 16px;
-    color: #d9534f;
-    font-weight: 700;
-}
-
-.action-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.btn-cart {
-    background-color: #0056b3;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    transition: background 0.2s ease;
-}
-
-.btn-cart:hover {
-    background-color: #003d80;
-}
-
-
-/* ==========================================
-   Header Cart Icon & Pop-up Modal CSS
-   ========================================== */
-
-.nav-cart-wrapper {
-    position: relative;
-    margin-left: auto;
-    margin-right: 15px;
-    cursor: pointer;
-}
-
-.cart-icon-btn {
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 20px;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.cart-badge {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-    background-color: #e74c3c;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 2px 6px;
-    min-width: 18px;
-    text-align: center;
-}
-
-/* Modal Popup Background */
-.cart-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
-    justify-content: center;
-    align-items: center;
-}
-
-.cart-modal.show {
-    display: flex;
-}
-
-/* Modal Content Box */
-.cart-modal-content {
-    background-color: #ffffff;
-    width: 90%;
-    max-width: 450px;
-    max-height: 85vh;
-    border-radius: 12px;
-    overflow-y: auto;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.cart-modal-header {
-    padding: 15px 20px;
-    background: #002752;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cart-modal-header h3 {
-    margin: 0;
-    font-size: 16px;
-}
-
-.close-modal {
-    font-size: 24px;
-    cursor: pointer;
-    color: #fff;
-}
-
-.cart-modal-body {
-    padding: 15px;
-}
-
-.cart-item-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f8f9fa;
-    border: 1px solid #e2e8f0;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.cart-item-info h4 {
-    margin: 0 0 4px 0;
-    font-size: 14px;
-    color: #002752;
-}
-
-.cart-item-price {
-    font-size: 13px;
-    color: #27ae60;
-    font-weight: bold;
-}
-
-.cart-qty-ctrl {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.cart-qty-ctrl button {
-    background: #e2e8f0;
-    border: none;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-remove {
-    background: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 4px 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 11px;
-}
-
-.cart-summary {
-    margin-top: 15px;
-    border-top: 1px solid #eee;
-    padding-top: 10px;
-}
-
-.total-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    font-weight: bold;
-    color: #002752;
-}
-
-.divider {
-    margin: 10px 0;
-    border: 0;
-    border-top: 1px dashed #ccc;
-}
-
-.form-group {
-    margin-bottom: 10px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 3px;
-    color: #333;
-}
-
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 13px;
-    box-sizing: border-box;
-}
-
-.btn-whatsapp-order {
-    width: 100%;
-    background-color: #25d366;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-/* Multi-step Checkout & Radio Card Styles */
-.btn-next-step {
-    width: 100%;
-    background-color: #002752;
-    color: white;
-    border: none;
-    padding: 11px;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.btn-back-step {
-    background: transparent;
-    border: none;
-    color: #002752;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 10px;
-    font-size: 13px;
-}
-
-.checkout-box {
-    background: #f8f9fa;
-    border: 1px solid #e2e8f0;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-}
-
-.checkout-box h4 {
-    margin: 0 0 8px 0;
-    font-size: 13px;
-    color: #002752;
-}
-
-.radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.radio-card {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #ffffff;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.final-total-box {
-    background: #eef2f7;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-}
-
-.total-row-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    color: #444;
-    margin-bottom: 4px;
-}
-
-.final-price {
-    font-weight: bold;
-    font-size: 15px;
-    color: #d9534f;
-}
-
-
-
-/* Full Width Cart Button Style */
-.catalog-item img {
-    cursor: pointer; /* ছবি যে ক্লিকেবল তা বোঝাতে */
-}
-
-.btn-full {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    background-color: #0056b3;
-}
-
-/* ==========================================
-   স্বাগতম পপ-আপ মোডাল স্টাইল
-   ========================================== */
-.welcome-popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-}
-
-.welcome-popup-overlay.show-welcome {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-.welcome-popup-box {
-    background: #ffffff;
-    width: 90%;
-    max-width: 380px;
-    padding: 25px 20px 20px 20px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    position: relative;
-    animation: popupScale 0.4s ease;
-}
-
-@keyframes popupScale {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-
-.filter-btns {
-    Align: left;
-    display: flex;
-    justify-content: right;
-    gap: 8px;
-    flex-wrap: nowrap; /* বাটনগুলোকে এক লাইনে রাখতে বাধ্য করবে */
-    overflow-x: auto;   /* জায়গা কম হলে স্ক্রিন ছোট থাকলে স্ক্রোল করা যাবে */
-    padding-bottom: 5px;
-    margin-bottom: 25px;
-    white-space: nowrap;
-}
-
-.filter-btn {
-    background: #e2e8f0;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 13px; /* মোবাইল স্ক্রিনের জন্য ফন্ট সাইজ একটু মানানসই করা হলো */
-    color: #475569;
-    transition: all 0.3s;
-    flex-shrink: 0;
-}
-
-.filter-btn.active, .filter-btn:hover {
-    background: #002b5b;
-    color: #fff;
-}
-
-
-
-
-
