@@ -30,9 +30,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css?v=4">
 
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <!-- Schema.org JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -67,11 +64,11 @@
             <li><a href="#home">হোম</a></li>
             <li><a href="#about">পরিচয়</a></li>
             <li><a href="#skills">দক্ষতা</a></li>
-            <li><a href="#products">প্রোডাক্টস</a></li>
+            <li><a href="products.html">প্রোডাক্টস</a></li>
             <li><a href="#territory">সার্ভিস এলাকা</a></li>
             <li><a href="#route-map">রুট প্ল্যান</a></li>
-            <li><a href="#faq">FAQ</a></li>
             <li><a href="creativity.html">ক্রিয়েটিভিটি</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">যোগাযোগ</a></li>
         </ul>
 
@@ -414,4 +411,114 @@
     <div id="cartModal" class="cart-modal">
         <div class="cart-modal-content">
             <div class="cart-modal-header">
-                <h3><i class="fa-solid
+                <h3><i class="fa-solid fa-cart-flatbed"></i> আপনার শপিং কার্ট</h3>
+                <span class="close-modal" onclick="toggleCartModal()">&times;</span>
+            </div>
+            
+            <div class="cart-modal-body">
+                <!-- ধাপ ১: কার্ট আইটেম ও কাস্টমার ডিটেইলস -->
+                <div id="checkoutStep1">
+                    <div id="cartItemsContainer">
+                        <!-- Cart items JS দিয়ে এখানে লোড হবে -->
+                    </div>
+
+                    <div class="cart-summary" id="cartSummary" style="display: none;">
+                        <div class="total-row">
+                            <span>পণ্যসমূহের মূল্য:</span>
+                            <span id="subTotalAmount">৳০</span>
+                        </div>
+
+                        <hr class="divider">
+
+                        <h4><i class="fa-solid fa-user"></i> গ্রাহকের ডেলিভারি তথ্য</h4>
+                        <div class="form-group">
+                            <label for="custName">আপনার নাম *</label>
+                            <input type="text" id="custName" placeholder="যেমন: মো: রহিম হোসেন">
+                        </div>
+                        <div class="form-group">
+                            <label for="custPhone">মোবাইল নম্বর *</label>
+                            <input type="tel" id="custPhone" placeholder="যেমন: 01700000000">
+                        </div>
+                        <div class="form-group">
+                            <label for="custAddress">সম্পূর্ণ ঠিকানা *</label>
+                            <textarea id="custAddress" rows="2" placeholder="গ্রাম/রাস্তা, থানা, জেলা"></textarea>
+                        </div>
+
+                        <button type="button" class="btn-next-step" onclick="goToStep2()">
+                            পেমেন্ট ও ডেলিভারি অপশনে যান <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ধাপ ২: ডেলিভারি চার্জ ও পেমেন্ট অপশন -->
+                <div id="checkoutStep2" style="display: none;">
+                    <button type="button" class="btn-back-step" onclick="goToStep1()">
+                        <i class="fa-solid fa-arrow-left"></i> পেছনে যান
+                    </button>
+
+                    <div class="checkout-box">
+                        <h4><i class="fa-solid fa-truck-fast"></i> ডেলিভারি এরিয়া নির্বাচন করুন</h4>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="deliveryArea" value="Khulna Sadar" price="60" checked onchange="calculateFinalTotal()">
+                                <span>খুলনা সদর (৳৬০)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="deliveryArea" value="Outside Khulna" price="140" onchange="calculateFinalTotal()">
+                                <span>খুলনার বাহিরে (৳১৪০)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="checkout-box">
+                        <h4><i class="fa-solid fa-wallet"></i> পেমেন্ট মেথড নির্বাচন করুন</h4>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="paymentMethod" value="COD" checked onchange="togglePaymentDetails()">
+                                <span>ক্যাশ অন ডেলিভারি (Cash on Delivery)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="paymentMethod" value="MobileBanking" onchange="togglePaymentDetails()">
+                                <span>বিকাশ / নগদ / রকেট</span>
+                            </label>
+                        </div>
+
+                        <!-- মোবাইল ব্যাংকিং পেমেন্ট বিস্তারিত -->
+                        <div id="mobileBankingDetails" style="display: none; margin-top: 10px; background: #fff3cd; padding: 10px; border-radius: 6px; font-size: 13px;">
+                            <p style="margin: 0 0 6px 0; color: #856404; font-weight: bold;">
+                                <i class="fa-solid fa-mobile-screen"></i> টাকা পাঠানোর নম্বর: <span style="color: #d9534f; font-size: 15px;">01517851338</span>
+                            </p>
+                            <p style="margin: 0 0 8px 0; color: #666; font-size: 12px;">টাকা পাঠানোর পর নিচের তথ্যগুলো দিন:</p>
+                            <div class="form-group">
+                                <label for="senderPhone">প্রেরক মোবাইল নম্বর (Sender Number) *</label>
+                                <input type="tel" id="senderPhone" placeholder="যে নম্বর থেকে টাকা পাঠিয়েছেন">
+                            </div>
+                            <div class="form-group">
+                                <label for="advanceAmount">অগ্রিম পাঠোনো টাকার পরিমাণ (টাকা) *</label>
+                                <input type="number" id="advanceAmount" placeholder="যেমন: ২০০" oninput="calculateFinalTotal()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- সর্বমোট হিসেব -->
+                    <div class="final-total-box">
+                        <div class="total-row-item"><span>পণ্যের দাম:</span> <span id="finalSubtotal">৳০</span></div>
+                        <div class="total-row-item"><span>ডেলিভারি চার্জ:</span> <span id="finalDelivery">৳৬০</span></div>
+                        <hr class="divider">
+                        <div class="total-row-item final-price"><span>সর্বমোট প্রদেয়:</span> <span id="grandTotal">৳০</span></div>
+                    </div>
+
+                    <button type="button" class="btn-whatsapp-order" onclick="sendWhatsAppOrder()">
+                        <i class="fa-brands fa-whatsapp"></i> অর্ডার কনফার্ম করুন
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js CDN (Placing before main script) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- JavaScript Link -->
+    <script src="script.js?v=4"></script>
+</body>
+</html>
