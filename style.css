@@ -1608,8 +1608,9 @@ footer .social-links a:hover {
 
 
 .filter-btns {
+    Align: left;
     display: flex;
-    justify-content: left;
+    justify-content: right;
     gap: 8px;
     flex-wrap: nowrap; /* বাটনগুলোকে এক লাইনে রাখতে বাধ্য করবে */
     overflow-x: auto;   /* জায়গা কম হলে স্ক্রিন ছোট থাকলে স্ক্রোল করা যাবে */
