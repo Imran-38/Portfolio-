@@ -375,22 +375,60 @@ function closeImageZoom() {
     if (modal) modal.classList.remove('show');
 }
 
-// প্রোডাক্ট কার্টে যোগ করা (সতর্কবার্তা সহ)
+// ==========================================
+// কাস্টম টোস্ট নোটিফিকেশন দেখানোর ফাংশন
+// ==========================================
+function showToast(message, type = 'success') {
+    // পুরোনো কোনো টোস্ট থাকলে রিমুভ করে দেওয়া
+    const existingToast = document.getElementById('customToastMessage');
+    if (existingToast) existingToast.remove();
+
+    const toast = document.createElement('div');
+    toast.id = 'customToastMessage';
+    toast.innerText = message;
+    
+    // টোস্ট নোটিফিকেশনের স্টাইল
+    toast.style.position = 'fixed';
+    toast.style.top = '20px';
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
+    toast.style.backgroundColor = type === 'exists' ? '#e67e22' : '#27ae60';
+    toast.style.color = '#fff';
+    toast.style.padding = '10px 20px';
+    toast.style.borderRadius = '6px';
+    toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+    toast.style.zIndex = '99999';
+    toast.style.fontSize = '14px';
+    toast.style.fontWeight = '600';
+    toast.style.transition = 'opacity 0.3s ease';
+
+    document.body.appendChild(toast);
+
+    // ৩ সেকেন্ড পর অটোমেটিক ক্লোজ বা রিমুভ হবে
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+// ==========================================
+// প্রোডাক্ট কার্টে যোগ করার নতুন লজিক
+// ==========================================
 function addToCart(name, price) {
     let cart = getCart();
     let existingItem = cart.find(item => item.name === name);
 
     if (existingItem) {
-        existingItem.qty += 1;
-        saveCart(cart);
-        alert(`⚠️ ${name} - এই পছন্দের প্রোডাক্টটি ইতিমধ্যেই আপনার কার্টে যুক্ত করা আছে! (পরিমাণ বাড়ানো হয়েছে)`);
+        // অলরেডি যোগ থাকলে পরিমাণ বাড়ানো হবে না, শুধু নোটিফিকেশন দেখাবে
+        showToast(`⚠️ এই পছন্দের প্রোডাক্টটি ইতিমধ্যেই কার্টে আছে!`, 'exists');
     } else {
+        // প্রথমবার যোগ হলে কার্টে যুক্ত হবে
         cart.push({ name: name, price: price, qty: 1 });
         saveCart(cart);
-        alert(`✅ সফলভাবে! আপনার পছন্দের প্রোডাক্টটি কার্টে যুক্ত হয়েছে: ${name}`);
+        showToast(`✅ সফলভাবে কার্টে যুক্ত হয়েছে: ${name}`, 'success');
+        
+        // কার্টে নতুন আইটেম যোগ হলেই কেবল মোডাল ওপেন হবে (ঐচ্ছিক)
+        toggleCartModal();
     }
-
-    toggleCartModal(); // কার্টে যোগ করার পর পপ-আপ ওপেন হবে
 }
-
 
