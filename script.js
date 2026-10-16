@@ -484,10 +484,14 @@ function renderCartItems() {
 }
 
 /* ==========================================
-   ডাইনামিক স্বাগতম পপ-আপ (সব পেজের জন্য কমন)
+   ডাইনামিক স্বাগতম পপ-আপ (প্রতি সেসনে ১ বার দেখাবে)
    ========================================== */
-document.addEventListener('DOMContentLoaded', () => {
-    // পপ-আপের এইচটিএমএল কাঠামো স্বয়ংক্রিয়ভাবে তৈরি করা
+function showWelcomeModal() {
+    // সেসন স্টোরেজ চেক করা: আগে পপ-আপ দেখানো হয়ে থাকলে আর দেখাবে না
+    if (sessionStorage.getItem('welcomePopupShown') === 'true') {
+        return;
+    }
+
     if (!document.getElementById('welcomePopupModal')) {
         const popupHTML = `
             <div id="welcomePopupModal" class="welcome-popup-overlay">
@@ -506,23 +510,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.insertAdjacentHTML('beforeend', popupHTML);
     }
 
-    // পপ-আপ শো এবং অটো ক্লোজ লজিক
     const modal = document.getElementById('welcomePopupModal');
     if (modal) {
         setTimeout(() => {
             modal.classList.add('show-welcome');
-        }, 500); // ০.৫ সেকেন্ড পর পপ-আপ ভেসে উঠবে
+            // পপ-আপ দেখানোর পর স্টোরেজে সেভ করে রাখা হলো
+            sessionStorage.setItem('welcomePopupShown', 'true');
+        }, 300);
 
         setTimeout(() => {
             closeWelcomePopup();
-        }, 5000); // নতুন লাইন যোগ হওয়ায় সময় একটু বাড়িয়ে ৫ সেকেন্ড করা হয়েছে
-    }
-});
-
-function closeWelcomePopup() {
-    const modal = document.getElementById('welcomePopupModal');
-    if (modal) {
-        modal.classList.remove('show-welcome');
+        }, 5000);
     }
 }
 
