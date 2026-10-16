@@ -432,3 +432,57 @@ function addToCart(name, price) {
     }
 }
 
+
+// কার্টের আইটেমগুলো স্ক্রিনে রেন্ডার করা (খালি থাকলে মেসেজ ও বাটনের লিংকসহ)
+function renderCartItems() {
+    const container = document.getElementById('cartItemsContainer');
+    const summary = document.getElementById('cartSummary');
+    if (!container) return;
+
+    let cart = getCart();
+
+    if (cart.length === 0) {
+        container.innerHTML = `
+            <div style="text-align:center; padding: 25px 15px;">
+                <p style="color: #666; font-size: 15px; margin-bottom: 6px;">আপনার কার্ট খালি আছে!</p>
+                <p style="color: #0056b3; font-size: 14px; font-weight: 600; margin-bottom: 15px;">কার্ট লিস্ট প্রোডাক্ট অ্যাড করুন</p>
+                <a href="products.html" style="display: inline-block; background-color: #0056b3; color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
+                    <i class="fa-solid fa-box-open"></i> প্রোডাক্ট পেজে যান
+                </a>
+            </div>
+        `;
+        if (summary) summary.style.display = 'none';
+        return;
+    }
+
+    if (summary) summary.style.display = 'block';
+
+    let html = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        let subtotal = item.price * item.qty;
+        total += subtotal;
+        html += `
+            <div class="cart-item-card">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <span class="cart-item-price">৳${item.price} × ${item.qty} = ৳${subtotal}</span>
+                </div>
+                <div class="cart-qty-ctrl">
+                    <button onclick="updateQuantity(${index}, -1)">-</button>
+                    <span>${item.qty}</span>
+                    <button onclick="updateQuantity(${index}, 1)">+</button>
+                    <button class="btn-remove" onclick="removeItem(${index})"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+    document.getElementById('subTotalAmount').innerText = '৳' + total;
+}
+
+
+
+
