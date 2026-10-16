@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>প্রোডাক্ট ক্যাটালগ - আমার পোর্টফোলিও</title>
+  <!-- আপনার পুরোনো স্টাইল ফাইল লিংক করা হলো -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="catalog-extra.css"> <!-- যদি আলাদা সিএসএস রাখতে চান -->
+</head>
+<body>
+
+  <!-- ================= ১. হেডার সেকশন (অপরিবর্তিত থাকবে) ================= -->
+  <header class="site-header">
+    <div class="logo-container">
+      <a href="index.html">আমার লোগো/নাম</a>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">হোম</a>
+      <a href="creativity.html">ক্রিয়েটিভিটি</a>
+      <a href="products.html" class="active">প্রোডাক্টস</a>
+    </nav>
+  </header>
+
+  <!-- ================= ২. মেইন বডি ও প্রোডাক্ট ক্যাটালগ ================= -->
+  <main class="main-content">
+    <section class="catalog-section">
+      <h1 class="section-title">আমাদের আকর্ষণীয় পণ্যসমূহ</h1>
+      <p class="section-subtitle">পছন্দের পণ্যটি বেছে নিন এবং সরাসরি অর্ডার করুন।</p>
+
+      <!-- প্রোডাক্ট কার্ডগুলোর কন্টেইনার -->
+      <div class="product-grid">
+
+        <!-- প্রোডাক্ট ১ -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="img/sample-product.jpg" alt="প্রোডাক্টের নাম" loading="lazy">
+          </div>
+          <div class="product-details">
+            <h3>বাচ্চাদের শিক্ষামূলক বেড টেবিল</h3>
+            <p class="product-price">৳ ৫৫০</p>
+            <!-- সরাসরি হোয়াটসঅ্যাপে অর্ডার পাঠানোর লিংক -->
+            <a href="https://wa.me/8801XXXXXXXXX?text=হ্যালো,%20আমি%20এই%20প্রোডাক্টটি%20কিনতে%20চাই:%20বাচ্চাদের%20শিক্ষামূলক%20বেড%20টেবিল%20(দাম:%20৫৫০%20টাকা)" target="_blank" class="order-btn">
+              🛒 অর্ডার করুন
+            </a>
+          </div>
+        </div>
+
+        <!-- আরও প্রোডাক্ট যোগ করতে চাইলে উপরের কার্ডটি কপি করে নিচে বসাতে পারেন -->
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= ৩. ফুটার সেকশন (অপরিবর্তিত থাকবে) ================= -->
+  <footer class="site-footer">
+    <p>&copy; ২০২৬ সর্বস্বত্ব সংরক্ষিত</p>
+  </footer>
+
+</body>
+</html>
