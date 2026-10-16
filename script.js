@@ -374,3 +374,23 @@ function closeImageZoom() {
     const modal = document.getElementById('imageZoomModal');
     if (modal) modal.classList.remove('show');
 }
+
+// প্রোডাক্ট কার্টে যোগ করা (সতর্কবার্তা সহ)
+function addToCart(name, price) {
+    let cart = getCart();
+    let existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+        existingItem.qty += 1;
+        saveCart(cart);
+        alert(`⚠️ ${name} - এই পছন্দের প্রোডাক্টটি ইতিমধ্যেই আপনার কার্টে যুক্ত করা আছে! (পরিমাণ বাড়ানো হয়েছে)`);
+    } else {
+        cart.push({ name: name, price: price, qty: 1 });
+        saveCart(cart);
+        alert(`✅ সফলভাবে! আপনার পছন্দের প্রোডাক্টটি কার্টে যুক্ত হয়েছে: ${name}`);
+    }
+
+    toggleCartModal(); // কার্টে যোগ করার পর পপ-আপ ওপেন হবে
+}
+
+
