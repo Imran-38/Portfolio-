@@ -526,3 +526,23 @@ function closeWelcomePopup() {
     }
 }
 
+/* ==========================================
+   হেলমেট ফিল্টারিং লজিক (Half Face & Full Face)
+   ========================================== */
+function filterHelmets(category, btnElement) {
+    // সব ফিল্টার বাটনের একটিভ ক্লাস সরিয়ে দেওয়া
+    const buttons = document.querySelectorAll('.filter-btns .filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    btnElement.classList.add('active');
+
+    // ক্যাটাগরি অনুযায়ী প্রোডাক্ট শো/হাইড করা
+    const items = document.querySelectorAll('.catalog-item');
+    items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
