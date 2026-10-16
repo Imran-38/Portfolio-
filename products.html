@@ -1,61 +1,163 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>প্রোডাক্ট ক্যাটালগ - আমার পোর্টফোলিও</title>
-  <!-- আপনার পুরোনো স্টাইল ফাইল লিংক করা হলো -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="catalog-extra.css"> <!-- যদি আলাদা সিএসএস রাখতে চান -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রোডাক্ট ক্যাটালগ | মো: ইমরান হোসেন - RFL Group Sales Portfolio</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="মো: ইমরান হোসেনের পণ্যের ক্যাটালগ। আরএফএল গ্রুপ (RFL Group) প্লাস্টিক, হার্ডওয়্যার ও অন্যান্য সেরা পণ্যসমূহ দেখুন এবং সরাসরি অর্ডার করুন।">
+    <meta name="keywords" content="RFL Products, Md Imran Hossain, RFL Plastics, RFL Hardware, Order RFL Goods">
+    <link rel="canonical" href="https://imran-38.github.io/Portfolio-/products.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/briefcase.png">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
-  <!-- ================= ১. হেডার সেকশন (অপরিবর্তিত থাকবে) ================= -->
-  <header class="site-header">
-    <div class="logo-container">
-      <a href="index.html">আমার লোগো/নাম</a>
-    </div>
-    <nav class="nav-links">
-      <a href="index.html">হোম</a>
-      <a href="creativity.html">ক্রিয়েটিভিটি</a>
-      <a href="products.html" class="active">প্রোডাক্টস</a>
-    </nav>
-  </header>
+    <!-- নেভিগেশন মেনু (হোমপেজের সাথে সামঞ্জস্যপূর্ণ) -->
+    <nav class="navbar">
+        <a href="index.html#home" class="logo">
+            <img src="logo.svg" alt="মো: ইমরান হোসেন লোগো" style="height: 45px; width: auto; vertical-align: middle;">
+        </a>
 
-  <!-- ================= ২. মেইন বডি ও প্রোডাক্ট ক্যাটালগ ================= -->
-  <main class="main-content">
-    <section class="catalog-section">
-      <h1 class="section-title">আমাদের আকর্ষণীয় পণ্যসমূহ</h1>
-      <p class="section-subtitle">পছন্দের পণ্যটি বেছে নিন এবং সরাসরি অর্ডার করুন।</p>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#home">হোম</a></li>
+            <li><a href="index.html#about">পরিচয়</a></li>
+            <li><a href="index.html#skills">দক্ষতা</a></li>
+            <li><a href="products.html" class="active">প্রোডাক্টস</a></li>
+            <li><a href="index.html#territory">সার্ভিস এলাকা</a></li>
+            <li><a href="index.html#route-map">রুট প্ল্যান</a></li>
+            <li><a href="creativity.html">ক্রিয়েটিভিটি</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="index.html#contact">যোগাযোগ</a></li>
+        </ul>
 
-      <!-- প্রোডাক্ট কার্ডগুলোর কন্টেইনার -->
-      <div class="product-grid">
-
-        <!-- প্রোডাক্ট ১ -->
-        <div class="product-card">
-          <div class="product-img-box">
-            <img src="img/sample-product.jpg" alt="প্রোডাক্টের নাম" loading="lazy">
-          </div>
-          <div class="product-details">
-            <h3>বাচ্চাদের শিক্ষামূলক বেড টেবিল</h3>
-            <p class="product-price">৳ ৫৫০</p>
-            <!-- সরাসরি হোয়াটসঅ্যাপে অর্ডার পাঠানোর লিংক -->
-            <a href="https://wa.me/8801XXXXXXXXX?text=হ্যালো,%20আমি%20এই%20প্রোডাক্টটি%20কিনতে%20চাই:%20বাচ্চাদের%20শিক্ষামূলক%20বেড%20টেবিল%20(দাম:%20৫৫০%20টাকা)" target="_blank" class="order-btn">
-              🛒 অর্ডার করুন
-            </a>
-          </div>
+        <div class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
         </div>
+    </nav>
 
-        <!-- আরও প্রোডাক্ট যোগ করতে চাইলে উপরের কার্ডটি কপি করে নিচে বসাতে পারেন -->
-
-      </div>
+    <!-- হিরো / হেডার সেকশন -->
+    <section class="hero creativity-hero">
+        <div class="hero-content">
+            <h1><i class="fa-solid fa-boxes-stacked"></i> প্রোডাক্ট ক্যাটালগ</h1>
+            <p class="subtitle">আপনার পছন্দের পণ্যটি বেছে নিন এবং সরাসরি WhatsApp-এর মাধ্যমে অর্ডার বা ইনকোয়ারি করুন।</p>
+            <a href="index.html" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> মূল পেজে ফিরে যান</a>
+        </div>
     </section>
-  </main>
 
-  <!-- ================= ৩. ফুটার সেকশন (অপরিবর্তিত থাকবে) ================= -->
-  <footer class="site-footer">
-    <p>&copy; ২০২৬ সর্বস্বত্ব সংরক্ষিত</p>
-  </footer>
+    <!-- মূল ক্যাটালগ সেকশন -->
+    <div class="container">
+        <section class="card">
+            <h2><i class="fa-solid fa-layer-group"></i> উপলব্ধ পণ্যসমূহ</h2>
+            
+            <!-- প্রোডাক্ট গ্রিড -->
+            <div class="product-catalog-grid">
+                
+                <!-- প্রোডাক্ট ১ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helme1.png" alt="হেলমেট প্রোডাক্ট ১" loading="lazy">
+                    <div class="catalog-info">
+                        <h3>সেফটি হেলমেট (মডেল ১)</h3>
+                        <p class="cat-price">যোগাযোগ করুন</p>
+                        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20সেফটি%20হেলমেট%20(মডেল%20১)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
+                            <i class="fa-brands fa-whatsapp"></i> অর্ডার / ইনকোয়ারি
+                        </a>
+                    </div>
+                </div>
 
+                <!-- প্রোডাক্ট ২ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helme2.png" alt="হেলমেট প্রোডাক্ট ২" loading="lazy">
+                    <div class="catalog-info">
+                        <h3>সেফটি হেলমেট (মডেল ২)</h3>
+                        <p class="cat-price">যোগাযোগ করুন</p>
+                        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20সেফটি%20হেলমেট%20(মডেল%20২)%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
+                            <i class="fa-brands fa-whatsapp"></i> অর্ডার / ইনকোয়ারি
+                        </a>
+                    </div>
+                </div>
+
+                <!-- প্রোডাক্ট ৩ -->
+                <div class="catalog-item">
+                    <img src="img/product/Product1.png" alt="প্রোডাক্ট ১" loading="lazy">
+                    <div class="catalog-info">
+                        <h3>আরএফএল প্লাস্টিক আইটেম ১</h3>
+                        <p class="cat-price">যোগাযোগ করুন</p>
+                        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20আরএফএল%20প্লাস্টিক%20আইটেম%20১%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
+                            <i class="fa-brands fa-whatsapp"></i> অর্ডার / ইনকোয়ারি
+                        </a>
+                    </div>
+                </div>
+
+                <!-- প্রোডাক্ট ৪ -->
+                <div class="catalog-item">
+                    <img src="img/product/Product2.png" alt="প্রোডাক্ট ২" loading="lazy">
+                    <div class="catalog-info">
+                        <h3>আরএফএল প্লাস্টিক আইটেম ২</h3>
+                        <p class="cat-price">যোগাযোগ করুন</p>
+                        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20আরএফএল%20প্লাস্টিক%20আইটেম%20২%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
+                            <i class="fa-brands fa-whatsapp"></i> অর্ডার / ইনকোয়ারি
+                        </a>
+                    </div>
+                </div>
+
+                <!-- প্রোডাক্ট ৫ -->
+                <div class="catalog-item">
+                    <img src="img/product/Product3.png" alt="প্রোডাক্ট ৩" loading="lazy">
+                    <div class="catalog-info">
+                        <h3>আরএফএল হার্ডওয়্যার আইটেম</h3>
+                        <p class="cat-price">যোগাযোগ করুন</p>
+                        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20আরএফএল%20হার্ডওয়্যার%20আইটেম%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
+                            <i class="fa-brands fa-whatsapp"></i> অর্ডার / ইনকোয়ারি
+                        </a>
+                    </div>
+                </div>
+
+                <!-- প্রোডাক্ট ৬ -->
+                <div class="catalog-item">
+                    <img src="img/product/Product4.png" alt="প্রোডাক্ট ৪" loading="lazy">
+                    <div class="catalog-info">
+                        <h3>বিশেষ ইউটিলিটি প্রোডাক্ট</h3>
+                        <p class="cat-price">যোগাযোগ করুন</p>
+                        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20বিশেষ%20ইউটিলিটি%20প্রোডাক্ট%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="product-btn">
+                            <i class="fa-brands fa-whatsapp"></i> অর্ডার / ইনকোয়ারি
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- ফুটার সেকশন -->
+    <footer>
+        <div class="footer-content">
+            <h3>মো: ইমরান হোসেন</h3>
+            <p>সেলস এক্সিকিউটিভ | প্রাণ-আরএফএল গ্রুপ (PRAN-RFL Group)</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1Q6RJzWzLa/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile">
+                    <i class="fa-brands fa-facebook"></i> ফেসবুক প্রোফাইল
+                </a>
+            </div>
+            <p style="margin-top: 12px;">
+                <a href="index.html" class="footer-home-link" style="color: #ffc107; text-decoration: none;">
+                    <i class="fa-solid fa-house"></i> হোম পেজে ফিরে যান
+                </a>
+            </p>
+        </div>
+        <p class="copyright">© 2026 মো: ইমরান হোসেন | প্রাণ-আরএফএল গ্রুপ</p>
+    </footer>
+
+    <!-- JavaScript Link -->
+    <script src="script.js"></script>
 </body>
 </html>
