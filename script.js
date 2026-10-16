@@ -384,3 +384,153 @@ if (modernCtx) {
         }
     });
 }
+
+// ==========================================
+// Pop-up Cart Modal Logic
+// ==========================================
+
+function toggleCartModal() {
+    const modal = document.getElementById('cartModal');
+    if (modal) {
+        modal.classList.toggle('show');
+        renderCartItems();
+    }
+}
+
+function getCart() {
+    return JSON.parse(localStorage.getItem('myCart')) || [];
+}
+
+function saveCart(cart) {
+    localStorage.setItem('myCart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+function updateCartCount() {
+    const cart = getCart();
+    const count = cart.reduce((total, item) => total + item.qty, 0);
+    const badge = document.getElementById('cartCount');
+    if (badge) {
+        badge.innerText = count;
+    }
+}
+
+function addToCart(name, price) {
+    let cart = getCart();
+    let existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+        existingItem.qty += 1;
+    } else {
+        cart.push({ name: name, price: price, qty: 1 });
+    }
+
+    saveCart(cart);
+    
+    // Automatically open modal pop-up on item addition
+    toggleCartModal();
+}
+
+function updateQuantity(index, change) {
+    let cart = getCart();
+    if (cart[index]) {
+        cart[index].qty += change;
+        if (cart[index].qty <= 0) {
+            cart.splice(index, 1);
+        }
+        saveCart(cart);
+        renderCartItems();
+    }
+}
+
+function removeItem(index) {
+    let cart = getCart();
+    cart.splice(index, 1);
+    saveCart(cart);
+    renderCartItems();
+}
+
+function renderCartItems() {
+    const container = document.getElementById('cartItemsContainer');
+    const summary = document.getElementById('cartSummary');
+    if (!container) return;
+
+    let cart = getCart();
+
+    if (cart.length === 0) {
+        container.innerHTML = `<p style="text-align:center; padding: 20px; color: #777;">আপনার কার্ট খালি আছে!</p>`;
+        if (summary) summary.style.display = 'none';
+        return;
+    }
+
+    if (summary) summary.style.display = 'block';
+
+    let html = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        let subtotal = item.price * item.qty;
+        total += subtotal;
+        html += `
+            <div class="cart-item-card">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <span class="cart-item-price">৳${item.price} × ${item.qty} = ৳${subtotal}</span>
+                </div>
+                <div class="cart-qty-ctrl">
+                    <button onclick="updateQuantity(${index}, -1)">-</button>
+                    <span>${item.qty}</span>
+                    <button onclick="updateQuantity(${index}, 1)">+</button>
+                    <button class="btn-remove" onclick="removeItem(${index})"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+    document.getElementById('totalAmount').innerText = '৳' + total;
+}
+
+function sendWhatsAppOrder(event) {
+    event.preventDefault();
+    let cart = getCart();
+    if (cart.length === 0) {
+        alert('আপনার কার্ট খালি!');
+        return;
+    }
+
+    const name = document.getElementById('custName').value;
+    const phone = document.getElementById('custPhone').value;
+    const address = document.getElementById('custAddress').value;
+    const note = document.getElementById('custNote').value;
+
+    let message = `*নতুন অর্ডার বিস্তারিত (Website Order)*%0A%0A`;
+    message += `*গ্রাহকের তথ্য:*%0A`;
+    message += `• নাম: ${name}%0A`;
+    message += `• মোবাইল: ${phone}%0A`;
+    message += `• ঠিকানা: ${address}%0A`;
+    if (note) message += `• নোট: ${note}%0A`;
+
+    message += `%0A*অর্ডার করা পণ্যসমূহ:*%0A`;
+    let total = 0;
+    cart.forEach((item, i) => {
+        let subtotal = item.price * item.qty;
+        total += subtotal;
+        message += `${i + 1}. ${item.name} - ${item.qty} টি (৳${subtotal})%0A`;
+    });
+
+    message += `%0A*সর্বমোট মূল্য:* ৳${total}`;
+
+    const waUrl = `https://wa.me/8801517851338?text=${message}`;
+    
+    localStorage.removeItem('myCart');
+    updateCartCount();
+    toggleCartModal();
+
+    window.open(waUrl, '_blank');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+});
+
