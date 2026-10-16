@@ -349,18 +349,24 @@
                             </label>
                         </div>
 
-                        <!-- মোবাইল ব্যাংকিং পেমেন্ট বিস্তারিত -->
-                        <div id="mobileBankingDetails" style="display: none; margin-top: 10px; background: #fff3cd; padding: 10px; border-radius: 6px; font-size: 13px;">
-                            <p style="margin: 0 0 6px 0; color: #856404; font-weight: bold;">
-                                <i class="fa-solid fa-mobile-screen"></i> টাকা পাঠানোর নম্বর: <span style="color: #d9534f; font-size: 15px;">01517851338</span>
-                            </p>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 12px;">টাকা পাঠানোর পর যে নম্বর থেকে টাকা পাঠিয়েছেন তা নিচে লিখুন:</p>
-                            <div class="form-group">
-                                <label for="senderPhone">প্রেরক মোবাইল নম্বর (Sender Number) *</label>
-                                <input type="tel" id="senderPhone" placeholder="যে নম্বর থেকে টাকা পাঠিয়েছেন">
-                            </div>
-                        </div>
-                    </div>
+                       <!-- মোবাইল ব্যাংকিং পেমেন্ট বিস্তারিত -->
+<div id="mobileBankingDetails" style="display: none; margin-top: 10px; background: #fff3cd; padding: 12px; border-radius: 8px; font-size: 13px;">
+    <p style="margin: 0 0 6px 0; color: #856404; font-weight: bold;">
+        <i class="fa-solid fa-mobile-screen"></i> টাকা পাঠানোর নম্বর: <span style="color: #d9534f; font-size: 15px;">01517851338</span>
+    </p>
+    <p style="margin: 0 0 8px 0; color: #666; font-size: 12px;">টাকা পাঠানোর পর নিচের তথ্যগুলো সঠিক তথ্য দিন:</p>
+    
+    <div class="form-group">
+        <label for="senderPhone">প্রেরক মোবাইল নম্বর (Sender Number) *</label>
+        <input type="tel" id="senderPhone" placeholder="যে নম্বর থেকে টাকা পাঠিয়েছেন">
+    </div>
+
+    <div class="form-group">
+        <label for="advanceAmount">অগ্রিম পাঠোনো টাকার পরিমাণ (টাকা) *</label>
+        <input type="number" id="advanceAmount" placeholder="যেমন: ২০০" oninput="calculateFinalTotal()">
+    </div>
+</div>
+
 
                     <!-- সর্বমোট হিসেব -->
                     <div class="final-total-box">
