@@ -1553,3 +1553,15 @@ footer .social-links a:hover {
 
 
 
+/* Full Width Cart Button Style */
+.catalog-item img {
+    cursor: pointer; /* ছবি যে ক্লিকেবল তা বোঝাতে */
+}
+
+.btn-full {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #0056b3;
+}
+
