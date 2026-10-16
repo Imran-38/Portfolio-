@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -62,16 +62,23 @@
         </div>
     </section>
 
-    <!-- মূল ক্যাটালগ সেকশন (১০টি সেফটি হেলমেট প্রোডাক্ট) -->
+    <!-- মূল ক্যাটালগ সেকশন (১০টি সেফটি হেলমেট প্রোডাক্ট ও ফিল্টার) -->
     <div class="container">
         <section class="card">
             <h2><i class="fa-solid fa-layer-group"></i> সেফটি হেলমেট কালেকশন</h2>
-            
+
+            <!-- ক্যাটাগরি ফিল্টার বাটন -->
+            <div class="filter-btns" style="margin: 20px 0; text-align: center; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <button class="filter-btn active" onclick="filterHelmets('all', this)">সব হেলমেট</button>
+                <button class="filter-btn" onclick="filterHelmets('half-face', this)">হাফ ফেস হেলমেট</button>
+                <button class="filter-btn" onclick="filterHelmets('full-face', this)">ফুল ফেস হেলমেট</button>
+            </div>
+
             <!-- প্রোডাক্ট গ্রিড -->
             <div class="product-catalog-grid">
-                
-                <!-- প্রোডাক্ট ১ -->
-                <div class="catalog-item">
+
+                <!-- প্রোডাক্ট ১ (Full Face) -->
+                <div class="catalog-item full-face">
                     <img src="img/product/Helmet_1.png" alt="Safemet Full Face Helmet (M) - Black Matt" loading="lazy" onclick="openImageZoom('img/product/Helmet_1.png')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M) - Black Matt</h3>
@@ -85,8 +92,8 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ২ -->
-                <div class="catalog-item">
+                <!-- প্রোডাক্ট ২ (Full Face) -->
+                <div class="catalog-item full-face">
                     <img src="img/product/Helmet_2.png" alt="Safemet Full Face Helmet (M)-Black (Graphics)" loading="lazy" onclick="openImageZoom('img/product/Helmet_2.png')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M)-Black (Graphics)</h3>
@@ -100,8 +107,8 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৩ -->
-                <div class="catalog-item">
+                <!-- প্রোডাক্ট ৩ (Half Face) -->
+                <div class="catalog-item half-face">
                     <img src="img/product/Helmet_3.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openImageZoom('img/product/Helmet_3.png')">
                     <div class="catalog-info">
                         <h3>DragN Pulse Half Face Helmet (L) - Black</h3>
@@ -115,8 +122,8 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৪ -->
-                <div class="catalog-item">
+                <!-- প্রোডাক্ট ৪ (Full Face) -->
+                <div class="catalog-item full-face">
                     <img src="img/product/Helmet_4.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openImageZoom('img/product/Helmet_4.png')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M)-Blue (Graphics)</h3>
@@ -130,8 +137,8 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৫ -->
-                <div class="catalog-item">
+                <!-- প্রোডাক্ট ৫ (Full Face) -->
+                <div class="catalog-item full-face">
                     <img src="img/product/Helmet_5.png" alt="Safemet Full Face Helmet (M)-Red (Graphics)" loading="lazy" onclick="openImageZoom('img/product/Helmet_5.png')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M)-Red (Graphics)</h3>
@@ -145,8 +152,8 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৬ -->
-                <div class="catalog-item">
+                <!-- প্রোডাক্ট ৬ (Half Face) -->
+                <div class="catalog-item half-face">
                     <img src="img/product/Helmet_6.png" alt="Safemet Half Face Helmet (M-57-58) - Black" loading="lazy" onclick="openImageZoom('img/product/Helmet_6.png')">
                     <div class="catalog-info">
                         <h3>Safemet Half Face Helmet (M-57-58) - Black</h3>
@@ -160,8 +167,8 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৭ -->
-                <div class="catalog-item">
+                <!-- প্রোডাক্ট ৭ (Half Face) -->
+                <div class="catalog-item half-face">
                     <img src="img/product/Helmet_7.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openImageZoom('img/product/Helmet_7.png')">
                     <div class="catalog-info">
                         <h3>DragN Pulse Half Face Helmet (L) - Black</h3>
@@ -175,8 +182,8 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৮ -->
-                <div class="catalog-item">
+                <!-- প্রোডাক্ট ৮ (Half Face) -->
+                <div class="catalog-item half-face">
                     <img src="img/product/Helmet_8.png" alt="Safemet Half Face Helmet (M-57-58) - Blue" loading="lazy" onclick="openImageZoom('img/product/Helmet_8.png')">
                     <div class="catalog-info">
                         <h3>Safemet Half Face Helmet (M-57-58) - Blue</h3>
@@ -190,8 +197,8 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৯ -->
-                <div class="catalog-item">
+                <!-- প্রোডাক্ট ৯ (Full Face) -->
+                <div class="catalog-item full-face">
                     <img src="img/product/Helmet_9.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openImageZoom('img/product/Helmet_9.png')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M)-Blue (Graphics)</h3>
@@ -205,8 +212,8 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ১০ -->
-                <div class="catalog-item">
+                <!-- প্রোডাক্ট ১০ (Full Face) -->
+                <div class="catalog-item full-face">
                     <img src="img/product/Helmet_10.png" alt="Safemet Full Face Helmet (M) - Black Matt Red" loading="lazy" onclick="openImageZoom('img/product/Helmet_10.png')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M) - Black Matt Red</h3>
@@ -256,7 +263,7 @@
                 <h3><i class="fa-solid fa-cart-flatbed"></i> আপনার শপিং কার্ট</h3>
                 <span class="close-modal" onclick="toggleCartModal()">&times;</span>
             </div>
-            
+
             <div class="cart-modal-body">
                 <!-- ধাপ ১: কার্ট আইটেম ও কাস্টমার ডিটেইলস -->
                 <div id="checkoutStep1">
@@ -359,6 +366,6 @@
     </div>
 
     <!-- JavaScript Link -->
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>
