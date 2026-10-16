@@ -8,7 +8,8 @@
     <!-- Meta Data -->
     <meta name="description" content="মো: ইমরান হোসেন - আরএফএল (RFL) গ্রুপ সেলস রিপ্রেজেন্টেটিভ। ডিলারশিপ ও প্রোডাক্ট সংক্রান্ত বিস্তারিত তথ্যের জন্য যোগাযোগ করুন।">
     <meta name="keywords" content="RFL Group, Md Imran Hossain, RFL Plastics, RFL Pipe, RFL Dealer, RFL Sales">
-<meta name="google-site-verification" content="vaoA8iWo12dqKnP7YLKYcaJktWSHVcQZTaaa8mjYisA" />
+    <meta name="google-site-verification" content="vaoA8iWo12dqKnP7YLKYcaJktWSHVcQZTaaa8mjYisA" />
+    
     <!-- Canonical Tag -->
     <link rel="canonical" href="https://imran-38.github.io/Portfolio-/">
 
@@ -27,7 +28,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=4">
 
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -70,11 +71,17 @@
             <li><a href="#territory">সার্ভিস এলাকা</a></li>
             <li><a href="#route-map">রুট প্ল্যান</a></li>
             <li><a href="#faq">FAQ</a></li>
-<li><a href="creativity.html">ক্রিয়েটিভিটি</a></li>
-
-            
+            <li><a href="creativity.html">ক্রিয়েটিভিটি</a></li>
             <li><a href="#contact">যোগাযোগ</a></li>
         </ul>
+
+        <!-- হেডার কার্ট আইকন -->
+        <div class="nav-cart-wrapper" onclick="toggleCartModal()">
+            <button class="cart-icon-btn" aria-label="শপিং কার্ট">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartCount" class="cart-badge">0</span>
+            </button>
+        </div>
 
         <div class="menu-btn" id="menuBtn">
             <i class="fa-solid fa-bars"></i>
@@ -90,7 +97,7 @@
             <h1>মো: ইমরান হোসেন</h1>
             <p class="subtitle">আমি একজন <span class="typing-text"></span></p>
             <span class="company-tag"><i class="fa-solid fa-building"></i> RFL Group</span>
-            
+
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> যোগাযোগ করুন</a>
                 <button onclick="copyWebsiteLink()" class="btn btn-secondary"><i class="fa-solid fa-share-nodes"></i> লিংক শেয়ার করুন</button>
@@ -159,12 +166,12 @@
                         <i class="fa-brands fa-whatsapp"></i> ইনকোয়ারি করুন
                     </a>
                 </div>
-                
+
                 <div class="product-card hardware">
                     <h3>RFL All product</h3>
                     <p>আপনার প্রয়োজনীয় সকল মালামাল</p>
-                    <a href="<li><a href="products.html">প্রোডাক্টস</a></li>" target="_blank" class="product-btn">
-                        <i class="fa-brands fa-whatsapp"></i> প্রোডাক্ট দেখুন
+                    <a href="products.html" class="product-btn">
+                        <i class="fa-solid fa-box-open"></i> প্রোডাক্ট দেখুন
                     </a>
                 </div>
             </div>
@@ -228,7 +235,7 @@
         <!-- আধুনিক স্লাইডার ও ফটো গ্যালারি -->
         <section id="gallery" class="card gallery-card">
             <h2><i class="fa-solid fa-wand-magic-sparkles"></i> ফটো গ্যালারি</h2>
-            
+
             <div class="carousel-container">
                 <div class="carousel-slide">
                     <div class="slide-item"><img src="https://i.ibb.co.com/kgH6FYm8/IMG-20260726-170323.jpg" alt="ছবি ১" onclick="openLightbox(0)"></div>
@@ -240,7 +247,7 @@
                 <!-- প্রিমিয়াম কন্ট্রোল বাটন -->
                 <button class="carousel-btn prev-btn" aria-label="Previous"><i class="fa-solid fa-arrow-left-long"></i></button>
                 <button class="carousel-btn next-btn" aria-label="Next"><i class="fa-solid fa-arrow-right-long"></i></button>
-                
+
                 <!-- প্রগ্রেস ডট -->
                 <div class="carousel-dots"></div>
             </div>
@@ -393,36 +400,18 @@
     <footer>
         <div class="footer-content">
             <h3>মো: ইমরান হোসেন</h3>
-            <p>সেলস রিপ্রেজেন্টেটিভ | আরএফএল গ্রুপ</p>
-            <div class="footer-links">
-                <a href="#home">হোম</a> | 
-                <a href="#about">পরিচয়</a> | 
-                <a href="#products">প্রোডাক্টস</a> | 
-                <a href="#faq">FAQ</a> | 
-                <a href="https://www.facebook.com/share/1jXedUWN96/" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-facebook"></i> যোগাযোগ
+            <p>সেলস এক্সিকিউটিভ | আরএফএল গ্রুপ (RFL Group)</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1Q6RJzWzLa/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile">
+                    <i class="fa-brands fa-facebook"></i> ফেসবুক প্রোফাইল
                 </a>
             </div>
         </div>
         <p class="copyright">© 2026 মো: ইমরান হোসেন | সর্বস্বত্ব সংরক্ষিত</p>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" title="উপরে যান">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <!-- ফ্লোটিং হোয়াটসঅ্যাপ ও কল বাটন -->
-    <div class="floating-btn-group">
-        <a href="https://wa.me/8801517851338?text=হ্যালো%20ইমরান%20ভাই,%20আমি%20আপনার%20ওয়েবসাইট%20থেকে%20যোগাযোগ%20করছি।" class="float-btn float-wa" target="_blank" title="WhatsApp Message">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-        <a href="tel:01517851338" class="float-btn float-call" title="Direct Call">
-            <i class="fa-solid fa-phone"></i>
-        </a>
-    </div>
-
-    <!-- Main JavaScript Link -->
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- কার্ট পপ-আপ মোডাল -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3><i class="fa-solid
