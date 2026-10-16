@@ -534,3 +534,217 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 });
 
+
+// ==========================================
+// Pop-up Cart Modal & Multi-step Logic
+// ==========================================
+
+function toggleCartModal() {
+    const modal = document.getElementById('cartModal');
+    if (modal) {
+        modal.classList.toggle('show');
+        goToStep1();
+        renderCartItems();
+    }
+}
+
+function getCart() {
+    return JSON.parse(localStorage.getItem('myCart')) || [];
+}
+
+function saveCart(cart) {
+    localStorage.setItem('myCart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+function updateCartCount() {
+    const cart = getCart();
+    const count = cart.reduce((total, item) => total + item.qty, 0);
+    const badge = document.getElementById('cartCount');
+    if (badge) {
+        badge.innerText = count;
+    }
+}
+
+function addToCart(name, price) {
+    let cart = getCart();
+    let existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+        existingItem.qty += 1;
+    } else {
+        cart.push({ name: name, price: price, qty: 1 });
+    }
+
+    saveCart(cart);
+    toggleCartModal();
+}
+
+function updateQuantity(index, change) {
+    let cart = getCart();
+    if (cart[index]) {
+        cart[index].qty += change;
+        if (cart[index].qty <= 0) {
+            cart.splice(index, 1);
+        }
+        saveCart(cart);
+        renderCartItems();
+    }
+}
+
+function removeItem(index) {
+    let cart = getCart();
+    cart.splice(index, 1);
+    saveCart(cart);
+    renderCartItems();
+}
+
+function renderCartItems() {
+    const container = document.getElementById('cartItemsContainer');
+    const summary = document.getElementById('cartSummary');
+    if (!container) return;
+
+    let cart = getCart();
+
+    if (cart.length === 0) {
+        container.innerHTML = `<p style="text-align:center; padding: 20px; color: #777;">আপনার কার্ট খালি আছে!</p>`;
+        if (summary) summary.style.display = 'none';
+        return;
+    }
+
+    if (summary) summary.style.display = 'block';
+
+    let html = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        let subtotal = item.price * item.qty;
+        total += subtotal;
+        html += `
+            <div class="cart-item-card">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <span class="cart-item-price">৳${item.price} × ${item.qty} = ৳${subtotal}</span>
+                </div>
+                <div class="cart-qty-ctrl">
+                    <button onclick="updateQuantity(${index}, -1)">-</button>
+                    <span>${item.qty}</span>
+                    <button onclick="updateQuantity(${index}, 1)">+</button>
+                    <button class="btn-remove" onclick="removeItem(${index})"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+    document.getElementById('subTotalAmount').innerText = '৳' + total;
+}
+
+// Multi-step Navigation
+function goToStep1() {
+    document.getElementById('checkoutStep1').style.display = 'block';
+    document.getElementById('checkoutStep2').style.display = 'none';
+}
+
+function goToStep2() {
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const address = document.getElementById('custAddress').value.trim();
+
+    if (!name || !phone || !address) {
+        alert('অনুগ্রহ করে নাম, মোবাইল নম্বর এবং সম্পূর্ণ ঠিকানা পূরণ করুন।');
+        return;
+    }
+
+    document.getElementById('checkoutStep1').style.display = 'none';
+    document.getElementById('checkoutStep2').style.display = 'block';
+    calculateFinalTotal();
+}
+
+function togglePaymentDetails() {
+    const payMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    const mbDetails = document.getElementById('mobileBankingDetails');
+    if (payMethod === 'MobileBanking') {
+        mbDetails.style.display = 'block';
+    } else {
+        mbDetails.style.display = 'none';
+    }
+}
+
+function calculateFinalTotal() {
+    let cart = getCart();
+    let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    
+    let selectedDelivery = document.querySelector('input[name="deliveryArea"]:checked');
+    let deliveryCharge = parseInt(selectedDelivery.getAttribute('price')) || 60;
+
+    let grandTotal = subtotal + deliveryCharge;
+
+    document.getElementById('finalSubtotal').innerText = '৳' + subtotal;
+    document.getElementById('finalDelivery').innerText = '৳' + deliveryCharge;
+    document.getElementById('grandTotal').innerText = '৳' + grandTotal;
+}
+
+function sendWhatsAppOrder() {
+    let cart = getCart();
+    if (cart.length === 0) return;
+
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const address = document.getElementById('custAddress').value.trim();
+
+    const deliveryAreaRadio = document.querySelector('input[name="deliveryArea"]:checked');
+    const deliveryAreaName = deliveryAreaRadio.value === 'Khulna Sadar' ? 'খুলনা সদর' : 'খুলনার বাহিরে';
+    const deliveryCharge = parseInt(deliveryAreaRadio.getAttribute('price'));
+
+    const payMethodRadio = document.querySelector('input[name="paymentMethod"]:checked');
+    const payMethodName = payMethodRadio.value === 'COD' ? 'ক্যাশ অন ডেলিভারি (COD)' : 'বিকাশ / নগদ / রকেট';
+
+    let senderPhone = '';
+    if (payMethodRadio.value === 'MobileBanking') {
+        senderPhone = document.getElementById('senderPhone').value.trim();
+        if (!senderPhone) {
+            alert('টাকা পাঠানোর নম্বরটি (Sender Number) প্রদান করুন।');
+            return;
+        }
+    }
+
+    let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    let grandTotal = subtotal + deliveryCharge;
+
+    let message = `*নতুন অর্ডার বিস্তারিত (Website Order)*%0A%0A`;
+    message += `*গ্রাহকের তথ্য:*%0A`;
+    message += `• নাম: ${name}%0A`;
+    message += `• মোবাইল: ${phone}%0A`;
+    message += `• ঠিকানা: ${address}%0A%0A`;
+
+    message += `*অর্ডার করা পণ্যসমূহ:*%0A`;
+    cart.forEach((item, i) => {
+        message += `${i + 1}. ${item.name} - ${item.qty} টি (৳${item.price * item.qty})%0A`;
+    });
+
+    message += `%0A*পেমেন্ট ও ডেলিভারি বিবরণ:*%0A`;
+    message += `• পণ্যমূল্য: ৳${subtotal}%0A`;
+    message += `• ডেলিভারি এরিয়া: ${deliveryAreaName} (৳${deliveryCharge})%0A`;
+    message += `• সর্বমোট প্রদেয়: ৳${grandTotal}%0A`;
+    message += `• পেমেন্ট মেথড: ${payMethodName}%0A`;
+
+    if (senderPhone) {
+        message += `• পেমেন্ট পাঠানো নম্বর: ${senderPhone}%0A`;
+    }
+
+    const waUrl = `https://wa.me/8801517851338?text=${message}`;
+    
+    localStorage.removeItem('myCart');
+    updateCartCount();
+    toggleCartModal();
+
+    window.open(waUrl, '_blank');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+});
+
+
+
