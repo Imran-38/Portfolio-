@@ -24,26 +24,35 @@
 
     <!-- নেভিগেশন মেনু -->
     <nav class="navbar">
-        <a href="index.html#home" class="logo">
-            <img src="logo.svg" alt="মো: ইমরান হোসেন লোগো" style="height: 45px; width: auto; vertical-align: middle;">
-        </a>
+    <a href="index.html#home" class="logo">
+        <img src="logo.svg" alt="মো: ইমরান হোসেন লোগো" style="height: 45px; width: auto; vertical-align: middle;">
+    </a>
 
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#home">হোম</a></li>
-            <li><a href="index.html#about">পরিচয়</a></li>
-            <li><a href="index.html#skills">দক্ষতা</a></li>
-            <li><a href="products.html" class="active">প্রোডাক্টস</a></li>
-            <li><a href="index.html#territory">সার্ভিস এলাকা</a></li>
-            <li><a href="index.html#route-map">রুট প্ল্যান</a></li>
-            <li><a href="creativity.html">ক্রিয়েটিভিটি</a></li>
-            <li><a href="index.html#faq">FAQ</a></li>
-            <li><a href="index.html#contact">যোগাযোগ</a></li>
-        </ul>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home">হোম</a></li>
+        <li><a href="index.html#about">পরিচয়</a></li>
+        <li><a href="index.html#skills">দক্ষতা</a></li>
+        <li><a href="products.html" class="active">প্রোডাক্টস</a></li>
+        <li><a href="index.html#territory">সার্ভিস এলাকা</a></li>
+        <li><a href="index.html#route-map">রুট প্ল্যান</a></li>
+        <li><a href="creativity.html">ক্রিয়েটিভিটি</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="index.html#contact">যোগাযোগ</a></li>
+    </ul>
 
-        <div class="menu-btn" id="menuBtn">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    </nav>
+    <!-- Header Cart Button (Modal Trigger) -->
+    <div class="nav-cart-wrapper" onclick="toggleCartModal()">
+        <button class="cart-icon-btn" aria-label="শপিং কার্ট">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cartCount" class="cart-badge">0</span>
+        </button>
+    </div>
+
+    <div class="menu-btn" id="menuBtn">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+</nav>
+
 
     <!-- হিরো / হেডার সেকশন -->
     <section class="hero creativity-hero">
@@ -267,5 +276,55 @@
 
     <!-- JavaScript Link -->
     <script src="script.js"></script>
+<!-- Cart Pop-up Modal Structure -->
+<div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+        <div class="cart-modal-header">
+            <h3><i class="fa-solid fa-cart-flatbed"></i> আপনার শপিং কার্ট</h3>
+            <span class="close-modal" onclick="toggleCartModal()">&times;</span>
+        </div>
+        
+        <div class="cart-modal-body">
+            <div id="cartItemsContainer">
+                <!-- Cart items JS diye ekhane dynamically load hobe -->
+            </div>
+
+            <div class="cart-summary" id="cartSummary" style="display: none;">
+                <div class="total-row">
+                    <span>সর্বমোট মূল্য:</span>
+                    <span id="totalAmount">৳০</span>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Customer Delivery Form -->
+                <h4><i class="fa-solid fa-truck-ramps"></i> ডেলিভারি তথ্য প্রদান করুন</h4>
+                <form id="orderForm" onsubmit="sendWhatsAppOrder(event)">
+                    <div class="form-group">
+                        <label for="custName">আপনার নাম *</label>
+                        <input type="text" id="custName" required placeholder="যেমন: মো: রহিম হোসেন">
+                    </div>
+                    <div class="form-group">
+                        <label for="custPhone">মোবাইল নম্বর *</label>
+                        <input type="tel" id="custPhone" required placeholder="যেমন: 01700000000">
+                    </div>
+                    <div class="form-group">
+                        <label for="custAddress">সম্পূর্ণ ঠিকানা *</label>
+                        <textarea id="custAddress" rows="2" required placeholder="গ্রাম/রাস্তা, থানা, জেলা"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="custNote">নোট (ঐচ্ছিক)</label>
+                        <input type="text" id="custNote" placeholder="যেমন: বিকেল ৪টার পর কল দিবেন">
+                    </div>
+
+                    <button type="submit" class="btn-whatsapp-order">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp-এ অর্ডার কনফার্ম করুন
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
