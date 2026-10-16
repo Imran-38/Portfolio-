@@ -256,33 +256,29 @@
         <p class="copyright">© 2026 মো: ইমরান হোসেন | প্রাণ-আরএফএল গ্রুপ</p>
     </footer>
 
-    <!-- কার্ট পপ-আপ মোডাল -->
+        <!-- কার্ট ও মর্ডান চেকআউট মোডাল -->
     <div id="cartModal" class="cart-modal">
         <div class="cart-modal-content">
             <div class="cart-modal-header">
-                <h3><i class="fa-solid fa-cart-flatbed"></i> আপনার শপিং কার্ট</h3>
+                <h3><i class="fa-solid fa-cart-shopping"></i> আপনার শপিং কার্ট ও চেকআউট</h3>
                 <span class="close-modal" onclick="toggleCartModal()">&times;</span>
             </div>
 
             <div class="cart-modal-body">
-                <!-- ধাপ ১: কার্ট আইটেম ও কাস্টমার ডিটেইলস -->
-                <div id="checkoutStep1">
-                    <div id="cartItemsContainer">
-                        <!-- Cart items JS দিয়ে এখানে লোড হবে -->
-                    </div>
+                <!-- কার্ট আইটেম লিস্ট -->
+                <div id="cartItemsContainer">
+                    <!-- JS দিয়ে আইটেম এখানে আসবে -->
+                </div>
 
-                    <div class="cart-summary" id="cartSummary" style="display: none;">
-                        <div class="total-row">
-                            <span>পণ্যসমূহের মূল্য:</span>
-                            <span id="subTotalAmount">৳০</span>
-                        </div>
-
-                        <hr class="divider">
-
-                        <h4><i class="fa-solid fa-user"></i> গ্রাহকের ডেলিভারি তথ্য</h4>
+                <!-- সম্পূর্ণ চেকআউট ফর্ম ও সামারি (এক পেজে স্ক্রলেবল) -->
+                <div id="fullCheckoutArea" style="display: none;">
+                    
+                    <!-- গ্রাহকের তথ্য -->
+                    <div class="checkout-section-box">
+                        <h4><i class="fa-solid fa-user-pen text-primary"></i> ১. গ্রাহকের ডেলিভারি তথ্য</h4>
                         <div class="form-group">
                             <label for="custName">আপনার নাম *</label>
-                            <input type="text" id="custName" placeholder="যেমন: মো: রহিম হোসেন">
+                            <input type="text" id="custName" placeholder="যেমন: মো: ইমরান হোসেন">
                         </div>
                         <div class="form-group">
                             <label for="custPhone">মোবাইল নম্বর *</label>
@@ -292,21 +288,11 @@
                             <label for="custAddress">সম্পূর্ণ ঠিকানা *</label>
                             <textarea id="custAddress" rows="2" placeholder="গ্রাম/রাস্তা, থানা, জেলা"></textarea>
                         </div>
-
-                        <button type="button" class="btn-next-step" onclick="goToStep2()">
-                            অর্ডার কনফার্ম করতে সামনে এগিয়ে যান <i class="fa-solid fa-arrow-right"></i>
-                        </button>
                     </div>
-                </div>
 
-                <!-- ধাপ ২: ডেলিভারি চার্জ ও পেমেন্ট অপশন -->
-                <div id="checkoutStep2" style="display: none;">
-                    <button type="button" class="btn-back-step" onclick="goToStep1()">
-                        <i class="fa-solid fa-arrow-left"></i> পেছনে যান
-                    </button>
-
-                    <div class="checkout-box">
-                        <h4><i class="fa-solid fa-truck-fast"></i> ডেলিভারি এরিয়া নির্বাচন করুন</h4>
+                    <!-- ডেলিভারি এরিয়া -->
+                    <div class="checkout-section-box">
+                        <h4><i class="fa-solid fa-truck-fast"></i> ২. ডেলিভারি এরিয়া</h4>
                         <div class="radio-group">
                             <label class="radio-card">
                                 <input type="radio" name="deliveryArea" value="Khulna Sadar" price="60" checked onchange="calculateFinalTotal()">
@@ -314,13 +300,14 @@
                             </label>
                             <label class="radio-card">
                                 <input type="radio" name="deliveryArea" value="Outside Khulna" price="140" onchange="calculateFinalTotal()">
-                                <span>খুলনার বাহিরে (৳১৪০)</span>
+                                <span>খুলনার বাহিরে / সারা বাংলাদেশ (৳১৪০)</span>
                             </label>
                         </div>
                     </div>
 
-                    <div class="checkout-box">
-                        <h4><i class="fa-solid fa-wallet"></i> পেমেন্ট মেথড নির্বাচন করুন</h4>
+                    <!-- পেমেন্ট মেথড -->
+                    <div class="checkout-section-box">
+                        <h4><i class="fa-solid fa-wallet"></i> ৩. পেমেন্ট মেথড</h4>
                         <div class="radio-group">
                             <label class="radio-card">
                                 <input type="radio" name="paymentMethod" value="COD" checked onchange="togglePaymentDetails()">
@@ -332,34 +319,34 @@
                             </label>
                         </div>
 
-                        <!-- মোবাইল ব্যাংকিং পেমেন্ট বিস্তারিত -->
-                        <div id="mobileBankingDetails" style="display: none; margin-top: 10px; background: #fff3cd; padding: 10px; border-radius: 6px; font-size: 13px;">
-                            <p style="margin: 0 0 6px 0; color: #856404; font-weight: bold;">
-                                <i class="fa-solid fa-mobile-screen"></i> টাকা পাঠানোর নম্বর: <span style="color: #d9534f; font-size: 15px;">01517851338</span>
+                        <!-- মোবাইল ব্যাংকিং ডিটেইলস -->
+                        <div id="mobileBankingDetails" style="display: none; margin-top: 12px; background: #fffbeb; padding: 12px; border-radius: 8px; border: 1px solid #fde68a; font-size: 13px;">
+                            <p style="margin: 0 0 6px 0; color: #92400e; font-weight: bold;">
+                                <i class="fa-solid fa-mobile-screen"></i> সেন্ড মানি নম্বর: <span style="color: #b91c1c; font-size: 15px;">01517851338</span>
                             </p>
-                            <p style="margin: 0 0 8px 0; color: #666; font-size: 12px;">টাকা পাঠানোর পর নিচের তথ্যগুলো দিন:</p>
-                            <div class="form-group">
-                                <label for="senderPhone">প্রেরক মোবাইল নম্বর (Sender Number) *</label>
-                                <input type="tel" id="senderPhone" placeholder="যে নম্বর থেকে টাকা পাঠিয়েছেন">
+                            <p style="margin: 0 0 8px 0; color: #78350f; font-size: 12px;">টাকা পাঠিয়ে নিচের তথ্য দিন:</p>
+                            <div class="form-group" style="margin-bottom: 8px;">
+                                <label for="senderPhone">যে নম্বর থেকে টাকা পাঠিয়েছেন *</label>
+                                <input type="tel" id="senderPhone" placeholder="017xxxxxxxx">
                             </div>
-                            <div class="form-group">
-                                <label for="advanceAmount">অগ্রিম পাঠোনো টাকার পরিমাণ (টাকা) *</label>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="advanceAmount">অগ্রিম পাঠানো টাকার পরিমাণ *</label>
                                 <input type="number" id="advanceAmount" placeholder="যেমন: ২০০" oninput="calculateFinalTotal()">
                             </div>
                         </div>
                     </div>
 
-                    <!-- সর্বমোট হিসেব -->
+                    <!-- সর্বমোট হিসাব ও অর্ডার বাটন -->
                     <div class="final-total-box">
-                        <div class="total-row-item"><span>পণ্যের দাম:</span> <span id="finalSubtotal">৳০</span></div>
+                        <div class="total-row-item"><span>পণ্যের মূল্য:</span> <span id="finalSubtotal">৳০</span></div>
                         <div class="total-row-item"><span>ডেলিভারি চার্জ:</span> <span id="finalDelivery">৳৬০</span></div>
-                        <hr class="divider">
                         <div class="total-row-item final-price"><span>সর্বমোট প্রদেয়:</span> <span id="grandTotal">৳০</span></div>
                     </div>
 
                     <button type="button" class="btn-whatsapp-order" onclick="sendWhatsAppOrder()">
-                        <i class="fa-brands fa-whatsapp"></i> অর্ডার কনফার্ম করুন
+                        <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> হোয়াটসঅ্যাপে অর্ডার কনফার্ম করুন
                     </button>
+
                 </div>
             </div>
         </div>
