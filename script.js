@@ -445,7 +445,7 @@ function renderCartItems() {
         container.innerHTML = `
             <div style="text-align:center; padding: 25px 15px;">
                 <p style="color: #666; font-size: 15px; margin-bottom: 6px;">আপনার কার্ট খালি আছে!</p>
-                <p style="color: #0056b3; font-size: 14px; font-weight: 600; margin-bottom: 15px;">কার্ট লিস্ট প্রোডাক্ট অ্যাড করুন</p>
+                <p style="color: #0056b3; font-size: 14px; font-weight: 600; margin-bottom: 15px;">কার্ট লিস্ট প্রোডাক্ট অ্যাড করতে প্রোডাক্ট পেজে যান </p>
                 <a href="products.html" style="display: inline-block; background-color: #0056b3; color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
                     <i class="fa-solid fa-box-open"></i> প্রোডাক্ট পেজে যান
                 </a>
