@@ -7,11 +7,17 @@ function openProductZoom(imgSrc, title, brand, company, price, featuresStr) {
     const modal = document.getElementById('imageZoomModal');
     if (!modal) return;
 
-    document.getElementById('zoomedImg').src = imgSrc;
-    document.getElementById('zoomTitle').innerText = title;
-    document.getElementById('zoomBrand').innerText = brand;
-    document.getElementById('zoomCompany').innerText = company;
-    document.getElementById('zoomPrice').innerText = '৳' + price;
+    const zoomedImg = document.getElementById('zoomedImg');
+    const zoomTitle = document.getElementById('zoomTitle');
+    const zoomBrand = document.getElementById('zoomBrand');
+    const zoomCompany = document.getElementById('zoomCompany');
+    const zoomPrice = document.getElementById('zoomPrice');
+
+    if (zoomedImg) zoomedImg.src = imgSrc;
+    if (zoomTitle) zoomTitle.innerText = title;
+    if (zoomBrand) zoomBrand.innerText = brand;
+    if (zoomCompany) zoomCompany.innerText = company;
+    if (zoomPrice) zoomPrice.innerText = '৳' + price;
 
     // পণ্যের বৈশিষ্ট্যগুলো লিস্ট আকারে তৈরি করা
     const featuresList = document.getElementById('zoomFeatures');
@@ -29,9 +35,9 @@ function openProductZoom(imgSrc, title, brand, company, price, featuresStr) {
     const cartBtn = document.getElementById('zoomCartBtn');
     if (cartBtn) {
         cartBtn.onclick = function() {
-            // main script.js এর addToCart ফাংশন কল করবে
+            // script.js এর addToCart ফাংশন কল করবে
             if (typeof addToCart === 'function') {
-                addToCart(title, price);
+                addToCart(title, Number(price));
             }
             closeImageZoom();
         };
