@@ -1382,3 +1382,51 @@ footer {
     object-fit: cover;
     border: 2px solid #0284c7;
 }
+
+/* পেমেন্ট ও ডেলিভারি অপশনে যাওয়ার বাটনের ডিজাইন */
+.btn-next-step {
+    width: 100%;
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2);
+}
+
+.btn-next-step:hover {
+    background: #0369a1;
+    transform: translateY(-2px);
+}
+
+/* পেছনে যান বাটনের ডিজাইন */
+.btn-back-step {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
+}
+
+.btn-back-step:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
