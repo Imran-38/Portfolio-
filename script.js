@@ -93,7 +93,7 @@ faqItems.forEach(item => {
 
 
 /* ==========================================
-   ৩. ই-কমার্স কার্ট ও মর্ডান চেকআউট সিস্টেম
+   ৩. গ্লোবাল ই-কমার্স কার্ট ও মর্ডান চেকআউট সিস্টেম
    ========================================== */
 
 // কার্ট ডেটা লোকালস্টোরেজ থেকে নেওয়া
@@ -199,8 +199,8 @@ function toggleCartModal() {
 
 // ধাপ ১ (কাস্টমার ডিটেইলস) থেকে ধাপ ২ (পেমেন্ট ও ডেলিভারি)
 function goToStep2() {
-    const name = document.getElementById('custName')?.value.trim();
-    const phone = document.getElementById('custPhone')?.value.trim();
+    const name = (document.getElementById('custNameModal') || document.getElementById('custName'))?.value.trim();
+    const phone = (document.getElementById('custPhoneModal') || document.getElementById('custPhone'))?.value.trim();
     const address = document.getElementById('custAddress')?.value.trim();
 
     if (!name || !phone || !address) {
@@ -247,7 +247,6 @@ function renderCartAndCheckout() {
         return;
     }
 
-    // প্রোডাক্ট থাকলে ফর্ম সেকশনটি দৃশ্যমান হবে
     if (cartSummary) cartSummary.style.display = 'block';
     if (fullCheckout) fullCheckout.style.display = 'block';
 
@@ -278,7 +277,7 @@ function renderCartAndCheckout() {
 function togglePaymentDetails() {
     const payMethod = document.querySelector('input[name="paymentMethod"]:checked');
     if (!payMethod) return;
-    
+
     const mbDetails = document.getElementById('mobileBankingDetails');
     if (payMethod.value === 'MobileBanking') {
         if (mbDetails) mbDetails.style.display = 'block';
@@ -346,8 +345,8 @@ function sendWhatsAppOrder() {
     let cart = getCart();
     if (cart.length === 0) return;
 
-    const name = document.getElementById('custName')?.value.trim();
-    const phone = document.getElementById('custPhone')?.value.trim();
+    const name = (document.getElementById('custNameModal') || document.getElementById('custName'))?.value.trim();
+    const phone = (document.getElementById('custPhoneModal') || document.getElementById('custPhone'))?.value.trim();
     const address = document.getElementById('custAddress')?.value.trim();
 
     if (!name || !phone || !address) {
@@ -416,23 +415,33 @@ function sendWhatsAppOrder() {
     window.open(waUrl, '_blank');
 }
 
+
 /* ==========================================
-   ৪. ইমেজ জুম ও ফিল্টার
+   ৪. কন্টাক্ট সেকশনের হোয়াটসঅ্যাপ ফর্ম হ্যান্ডলিং
    ========================================== */
-function openImageZoom(src) {
-    const modal = document.getElementById('imageZoomModal');
-    const img = document.getElementById('zoomedImg');
-    if (modal && img) {
-        img.src = src;
-        modal.style.display = 'flex';
-    }
+const whatsappForm = document.getElementById('whatsappForm');
+if (whatsappForm) {
+    whatsappForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const cName = document.getElementById('contactCustName')?.value.trim();
+        const cPhone = document.getElementById('contactCustPhone')?.value.trim();
+        const cMsg = document.getElementById('contactCustMsg')?.value.trim();
+
+        if (cName && cPhone && cMsg) {
+            let directMsg = `*ইনকোয়ারি বার্তা (Website Contact Form)*%0A%0A`;
+            directMsg += `• নাম: ${cName}%0A`;
+            directMsg += `• ফোন: ${cPhone}%0A`;
+            directMsg += `• মেসেজ: ${cMsg}`;
+
+            window.open(`https://wa.me/8801517851338?text=${directMsg}`, '_blank');
+        }
+    });
 }
 
-function closeImageZoom() {
-    const modal = document.getElementById('imageZoomModal');
-    if (modal) modal.style.display = 'none';
-}
 
+/* ==========================================
+   ৫. ওয়েলকাম পপআপ
+   ========================================== */
 function showWelcomeModal() {
     if (sessionStorage.getItem('welcomePopupShown') === 'true') return;
 
@@ -479,33 +488,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', showWelcomeModal);
-// মোডালের ভেতরের 'কার্টে যোগ করুন' বাটনে ক্লিক ইভেন্ট সেট করা
-    const cartBtn = document.getElementById('zoomCartBtn');
-    if (cartBtn) {
-        cartBtn.onclick = function() {
-            // script.js এর addToCart ফাংশন কল করবে
-            if (typeof addToCart === 'function') {
-                addToCart(title, Number(price));
-            }
-            closeImageZoom();
-        };
-    }
-
-    modal.style.display = 'flex';
-}
-
-// মোডাল বন্ধ করার ফাংশন
-function closeImageZoom() {
-    const modal = document.getElementById('imageZoomModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// মোডালের বাইরে কোথাও ক্লিক করলে যেন পপ-আপ বন্ধ হয়ে যায়
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('imageZoomModal');
-    if (event.target === modal) {
-        closeImageZoom();
-    }
-});
