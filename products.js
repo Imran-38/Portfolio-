@@ -133,6 +133,35 @@ function filterCategory(category) {
         }
     });
 }
+// মূল ক্যাটাগরি ফিল্টার
+function filterCategory(category) {
+    const items = document.querySelectorAll('.catalog-item');
+    const buttons = document.querySelectorAll('.filter-btn');
+    const subContainer = document.getElementById('helmetSubCatContainer');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
+
+    // শুধুমাত্র 'helmet' এ ক্লিক করলেই সাব-ক্যাটাগরি বাটনগুলো দেখাবে, অন্যথায় লুকানো থাকবে
+    if (subContainer) {
+        if (category === 'helmet') {
+            subContainer.style.display = 'flex';
+        } else {
+            subContainer.style.display = 'none';
+        }
+    }
+
+    // প্রোডাক্ট ফিল্টারিং লজিক
+    items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
 
 // হেলমেটের সাব-ক্যাটাগরি ফিল্টার (ফুল ফেস, হাফ ফেস, গ্রাফিক্স)
 function filterSubCategory(subCat) {
