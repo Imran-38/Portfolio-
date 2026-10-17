@@ -107,3 +107,49 @@ function closeProductModal() {
     const modal = document.getElementById('productDetailsModal');
     if (modal) modal.style.display = 'none';
 }
+// মূল ক্যাটাগরি ফিল্টার
+function filterCategory(category) {
+    const items = document.querySelectorAll('.catalog-item');
+    const buttons = document.querySelectorAll('.filter-btn');
+    const subContainer = document.getElementById('helmetSubCatContainer');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
+
+    // হেলমেট সিলেক্ট করলে সাব-ক্যাটাগরি বাটনগুলো অন হবে
+    if (category === 'helmet' || category === 'all') {
+        if (subContainer) subContainer.style.display = 'flex';
+    } else {
+        if (subContainer) subContainer.style.display = 'none';
+    }
+
+    items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+// হেলমেটের সাব-ক্যাটাগরি ফিল্টার (ফুল ফেস, হাফ ফেস, গ্রাফিক্স)
+function filterSubCategory(subCat) {
+    const items = document.querySelectorAll('.catalog-item[data-category="helmet"]');
+    const subButtons = document.querySelectorAll('.sub-filter-btn');
+
+    subButtons.forEach(btn => btn.classList.remove('active'));
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
+
+    items.forEach(item => {
+        const itemSub = item.getAttribute('data-subcat') || '';
+        if (subCat === 'all-helmet' || itemSub.includes(subCat)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
