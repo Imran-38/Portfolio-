@@ -60,3 +60,50 @@ window.addEventListener('click', function(event) {
         closeImageZoom();
     }
 });
+
+
+// ক্যাটাগরি ফিল্টার ফাংশন
+function filterCategory(category) {
+    const items = document.querySelectorAll('.catalog-item');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+// প্রোডাক্টের ছবিতে ক্লিক করলে ডিটেইলস মোডাল ওপেন করার ফাংশন
+function openProductModal(title, category, oldPrice, newPrice, imgSrc, description) {
+    const modal = document.getElementById('productDetailsModal');
+    if (!modal) return;
+
+    document.getElementById('modalProductImg').src = imgSrc;
+    document.getElementById('modalProductTitle').innerText = title;
+    document.getElementById('modalProductCategory').innerText = category.toUpperCase();
+    document.getElementById('modalProductOldPrice').innerText = '৳' + oldPrice;
+    document.getElementById('modalProductPrice').innerText = '৳' + newPrice;
+    document.getElementById('modalProductDesc').innerText = description;
+
+    // কার্ট বাটনের অনক্লিক ইভেন্ট সেট করা
+    const cartBtn = document.getElementById('modalAddToCartBtn');
+    if (cartBtn) {
+        cartBtn.onclick = function() {
+            addToCart(title, Number(newPrice));
+            closeProductModal();
+        };
+    }
+
+    modal.style.display = 'flex';
+}
+
+function closeProductModal() {
+    const modal = document.getElementById('productDetailsModal');
+    if (modal) modal.style.display = 'none';
+}
