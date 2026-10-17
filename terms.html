@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শর্তাবলী ও সার্ভিস নীতিমালা | মো: ইমরান হোসেন - RFL Sales Executive</title>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- কমন ও পেজ স্পেসিফিক সিএসএস -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="terms.css">
+</head>
+<body>
+
+    <!-- হেডার নেভিগেশন -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-store"></i> ইমরান হোসেন <span>(RFL Sales Executive)</span>
+            </a>
+            <button class="menu-toggle" id="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">হোম</a>
+                <a href="products.html">প্রোডাক্টস</a>
+                <a href="terms.html" class="active">শর্তাবলী</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- হিরো ব্যানার সেকশন -->
+    <section class="terms-hero">
+        <div class="terms-hero-content">
+            <span class="terms-badge"><i class="fa-solid fa-shield-halved"></i> বিজনেস পলিসি</span>
+            <h1>শর্তাবলী ও সেবা নীতিমালা</h1>
+            <p>আমাদের পণ্য ও সেবাসমূহ সুশৃঙ্খলভাবে পরিচালনার জন্য নির্দিষ্ট কিছু নির্দেশিকা।</p>
+            <span class="last-updated"><i class="fa-regular fa-clock"></i> সর্বশেষ পরিমার্জন: অক্টোবর ২০২৬</span>
+        </div>
+    </section>
+
+    <!-- মূল কনটেন্ট সেকশন -->
+    <main class="terms-wrapper">
+        <!-- কুইক নেভিগেশন বাটনসমূহ -->
+        <div class="terms-nav-pills">
+            <button class="pill-btn active" data-target="section-general">সাধারণ শর্ত</button>
+            <button class="pill-btn" data-target="section-order">অর্ডার ও স্টক</button>
+            <button class="pill-btn" data-target="section-delivery">ডেলিভারি চার্জ</button>
+            <button class="pill-btn" data-target="section-payment">পেমেন্ট মেথড</button>
+            <button class="pill-btn" data-target="section-return">রিটার্ন পলিসি</button>
+        </div>
+
+        <div class="terms-grid">
+            <!-- বামপাশের কনটেন্ট কার্ডসমূহ -->
+            <div class="terms-content">
+
+                <div class="policy-card" id="section-general">
+                    <div class="policy-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="policy-details">
+                        <h2>১. সাধারণ সেবা নীতি</h2>
+                        <p>আমাদের পোর্টফোলিও ওয়েবসাইট ব্রাউজ বা সরাসরি অর্ডারের মাধ্যমে আপনি আমাদের ব্যবসার প্রতিটি নীতিমালার সাথে একমত পোষণ করছেন। ক্যাটালগে প্রদর্শিত সকল পণ্য আরএফএল (RFL) এর অরিজিনাল ও গুণমানসম্পন্ন পণ্য।</p>
+                    </div>
+                </div>
+
+                <div class="policy-card" id="section-order">
+                    <div class="policy-icon"><i class="fa-solid fa-box-archive"></i></div>
+                    <div class="policy-details">
+                        <h2>২. অর্ডার প্রক্রিয়া ও কনফার্মেশন</h2>
+                        <ul>
+                            <li>ওয়েবসাইট বা হোয়াটসঅ্যাপ মারফতে প্রাপ্ত অর্ডার আমাদের প্রতিনিধি সরাসরি কল অথবা মেসেজ দিয়ে নিশ্চিত করবেন।</li>
+                            <li>স্টক অপ্রতুলতার অনাকাঙ্ক্ষিত পরিস্থিতিতে অর্ডার ডেলিভারিতে বিলম্ব বা বাতিল হলে গ্রাহককে সঙ্গে সঙ্গে জানানো হবে।</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-card" id="section-delivery">
+                    <div class="policy-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <div class="policy-details">
+                        <h2>৩. ডেলিভারি এলাকা ও খরচ</h2>
+                        <div class="delivery-rates">
+                            <div class="rate-box">
+                                <h4><i class="fa-solid fa-location-dot"></i> খুলনা সদর ও ফুলতলা</h4>
+                                <span class="rate">৳৬০</span>
+                                <small>সাধারণত ২৪-৪৮ ঘণ্টার মধ্যে হোম ডেলিভারি</small>
+                            </div>
+                            <div class="rate-box">
+                                <h4><i class="fa-solid fa-map-location-dot"></i> খুলনার বাহিরে (সারাদেশ)</h4>
+                                <span class="rate">৳১৫০</span>
+                                <small>কুরিয়ারের মাধ্যমে হোম/পয়েন্ট ডেলিভারি</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="policy-card" id="section-payment">
+                    <div class="policy-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <div class="policy-details">
+                        <h2>৪. মূল্য পরিশোধ ও পেমেন্ট</h2>
+                        <ul>
+                            <li>ক্যাশ অন ডেলিভারি (COD) সুবিধায় পণ্য হাতে পেয়ে মূল্য পরিশোধ করতে পারবেন।</li>
+                            <li>বিকাশ/নগদ/রকেটের মতো মোবাইল ব্যাংকিং অপশনের মাধ্যমেও নিরাপদভাবে মূল্য জমা নেওয়া হয়।</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-card" id="section-return">
+                    <div class="policy-icon"><i class="fa-solid fa-arrow-rotate-left"></i></div>
+                    <div class="policy-details">
+                        <h2>৫. পরিবর্তন ও রিটার্ন নীতি</h2>
+                        <ul>
+                            <li>ডেলিভারিম্যানের সামনেই পণ্য ঠিকঠাক আছে কিনা যাচাই করে বুঝে নেওয়ার অনুরোধ রইলো।</li>
+                            <li>ত্রুটিপূর্ণ বা ক্ষতিগ্রস্ত প্রোডাক্ট হলে তাৎক্ষণিক ডেলিভারিম্যানকে ফেরত দিন অথবা ২৪ ঘণ্টার মধ্যে ছবিসহ আমাদের অবহিত করুন।</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ডানপাশের হেল্পডেস্ক সাইডবার -->
+            <aside class="terms-sidebar">
+                <div class="support-card">
+                    <div class="support-header">
+                        <i class="fa-solid fa-headset"></i>
+                        <h3>সরাসরি সহায়তা</h3>
+                    </div>
+                    <p>নীতিমালা সম্পর্কিত কোনো প্রশ্ন বা পাইকারি ক্রয়ের জন্য সরাসরি যোগাযোগ করুন:</p>
+                    <a href="https://wa.me/8801517851338" target="_blank" class="contact-pill wa-pill">
+                        <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপ সাপোর্ট
+                    </a>
+                    <a href="tel:01517851338" class="contact-pill call-pill">
+                        <i class="fa-solid fa-phone"></i> ০১৫১৭-৮৫১৩৩৮
+                    </a>
+                </div>
+
+                <div class="action-card">
+                    <a href="products.html" class="btn-catalog">
+                        <i class="fa-solid fa-store"></i> প্রোডাক্ট ক্যাটালগ দেখুন
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- জাভাস্ক্রিপ্ট ফাইল লোড -->
+    <script src="script.js"></script>
+    <script src="terms.js"></script>
+</body>
+</html>
