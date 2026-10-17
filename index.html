@@ -73,7 +73,7 @@
             <li><a href="#contact">যোগাযোগ</a></li>
         </ul>
 
-        <!-- হেডার কার্ট আইকন (Script.js এর জন্য প্রয়োজনীয়) -->
+        <!-- হেডার কার্ট আইকন -->
         <div class="nav-cart-wrapper" onclick="toggleCartModal()">
             <button class="cart-icon-btn" aria-label="শপিং কার্ট">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -201,7 +201,7 @@
             </div>
         </section>
 
-        <!-- আধুনিক স্লাইডার ও ফটো গ্যালারি -->
+        <!-- ফটো গ্যালারি -->
         <section id="gallery" class="card gallery-card">
             <h2><i class="fa-solid fa-wand-magic-sparkles"></i> ফটো গ্যালারি</h2>
             <div class="carousel-container">
@@ -211,15 +211,13 @@
                     <div class="slide-item"><img src="https://i.ibb.co.com/M5VZcc1y/IMG-20260716-184437.jpg" alt="ছবি ৩" onclick="openLightbox(2)"></div>
                     <div class="slide-item"><img src="https://i.ibb.co.com/20G7wFK7/IMG-20260630-183035.jpg" alt="ছবি ৪" onclick="openLightbox(3)"></div>
                 </div>
-                <!-- প্রিমিয়াম কন্ট্রোল বাটন -->
                 <button class="carousel-btn prev-btn" aria-label="Previous"><i class="fa-solid fa-arrow-left-long"></i></button>
                 <button class="carousel-btn next-btn" aria-label="Next"><i class="fa-solid fa-arrow-right-long"></i></button>
-                <!-- প্রগ্রেস ডট -->
                 <div class="carousel-dots"></div>
             </div>
         </section>
 
-        <!-- ফুল-স্ক্রিন পপ-আপ লাইটবক্স (Lightbox Modal) -->
+        <!-- ফুল-স্ক্রিন লাইটবক্স -->
         <div id="lightboxModal" class="lightbox-modal">
             <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
             <button class="lightbox-nav lb-prev" onclick="changeLbSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
@@ -230,7 +228,7 @@
             <button class="lightbox-nav lb-next" onclick="changeLbSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
 
-        <!-- আল্ট্রা-মডার্ন সেলস চার্ট সেকশন -->
+        <!-- সেলস চার্ট সেকশন -->
         <section id="sales-analytics" class="card modern-chart-card">
             <div class="chart-header">
                 <div>
@@ -240,7 +238,6 @@
                 <span class="live-status-tag"><span class="pulse-dot"></span> আপডেট ডাটা</span>
             </div>
 
-            <!-- প্রফেশনাল স্ট্যাটাস কার্ডস -->
             <div class="modern-stats-grid">
                 <div class="m-stat-card">
                     <span class="m-stat-label">২০২৪ মোট বিক্রি</span>
@@ -259,20 +256,18 @@
                 </div>
             </div>
 
-            <!-- আল্ট্রা-মডার্ন চার্ট কন্টেইনার -->
             <div class="modern-chart-wrapper">
                 <canvas id="modernSalesChart"></canvas>
             </div>
         </section>
 
-        <!-- আল্ট্রা-মডার্ন রুট প্ল্যান সেকশন -->
+        <!-- রুট প্ল্যান সেকশন -->
         <section id="route-map" class="card main-route-card">
             <div class="route-header-area">
                 <h2><i class="fa-solid fa-map-location-dot"></i> কভারেজ এরিয়া ও রুট প্ল্যান</h2>
                 <p class="route-subtitle">ফুলতলা বেইজ | ফিল্ড ভিজিট ও সার্ভিস শিডিউল</p>
             </div>
 
-            <!-- কভারেজ এরিয়া ট্যাগসমূহ -->
             <div class="location-tags-wrapper">
                 <span class="loc-badge"><i class="fa-solid fa-location-dot"></i> ফুলতলা</span>
                 <span class="loc-badge"><i class="fa-solid fa-location-dot"></i> নোয়াপাড়া</span>
@@ -287,7 +282,6 @@
                 <span class="loc-badge"><i class="fa-solid fa-location-dot"></i> খড়লিয়া বাজার</span>
             </div>
 
-            <!-- ডে-বাই-ডে রুট কার্ডস -->
             <div class="route-cards-container">
                 <div class="day-route-card">
                     <div class="card-top-bar">
@@ -333,7 +327,6 @@
                 </div>
             </div>
 
-            <!-- নোট বার -->
             <div class="route-footer-note">
                 <i class="fa-solid fa-phone-volume"></i>
                 <span><strong>জরুরি প্রয়োজনে:</strong> রুটের বাইরে যেকোনো তথ্যের জন্য সরাসরি কল বা ফেসবুকে যোগাযোগ করুন।</span>
@@ -345,33 +338,31 @@
             <h2><i class="fa-solid fa-envelope"></i> মেসেজ পাঠান (WhatsApp)</h2>
             <form id="whatsappForm">
                 <div class="form-group">
-                    <input type="text" id="custName" placeholder="আপনার নাম" required>
+                    <input type="text" id="contactCustName" placeholder="আপনার নাম" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" id="custPhone" placeholder="আপনার ফোন নম্বর" required>
+                    <input type="tel" id="contactCustPhone" placeholder="আপনার ফোন নম্বর" required>
                 </div>
                 <div class="form-group">
-                    <textarea id="custMsg" rows="4" placeholder="আপনার মেসেজ বা বিষয়..." required></textarea>
+                    <textarea id="contactCustMsg" rows="4" placeholder="আপনার মেসেজ বা বিষয়..." required></textarea>
                 </div>
                 <button type="submit" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে মেসেজ পাঠান</button>
             </form>
         </section>
     </div>
 
-    <!-- কার্ট পপ-আপ মোডাল (Script.js এর সাথে সিংক করা) -->
+    <!-- কার্ট পপ-আপ মোডাল -->
     <div id="cartModal" class="cart-modal">
         <div class="cart-modal-content">
             <div class="cart-modal-header">
                 <h3><i class="fa-solid fa-cart-flatbed"></i> আপনার শপিং কার্ট</h3>
                 <span class="close-modal" onclick="toggleCartModal()">&times;</span>
             </div>
-            
+
             <div class="cart-modal-body">
                 <!-- ধাপ ১: কার্ট আইটেম ও কাস্টমার ডিটেইলস -->
                 <div id="checkoutStep1">
-                    <div id="cartItemsContainer">
-                        <!-- Cart items JS দিয়ে এখানে লোড হবে -->
-                    </div>
+                    <div id="cartItemsContainer"></div>
 
                     <div class="cart-summary" id="cartSummary" style="display: none;">
                         <div class="total-row">
@@ -434,7 +425,6 @@
                             </label>
                         </div>
 
-                        <!-- মোবাইল ব্যাংকিং পেমেন্ট বিস্তারিত -->
                         <div id="mobileBankingDetails" style="display: none; margin-top: 10px; background: #fff3cd; padding: 10px; border-radius: 6px; font-size: 13px;">
                             <p style="margin: 0 0 6px 0; color: #856404; font-weight: bold;">
                                 <i class="fa-solid fa-mobile-screen"></i> টাকা পাঠানোর নম্বর: <span style="color: #d9534f; font-size: 15px;">01517851338</span>
@@ -451,7 +441,6 @@
                         </div>
                     </div>
 
-                    <!-- সর্বমোট হিসেব -->
                     <div class="final-total-box">
                         <div class="total-row-item"><span>পণ্যের দাম:</span> <span id="finalSubtotal">৳০</span></div>
                         <div class="total-row-item"><span>ডেলিভারি চার্জ:</span> <span id="finalDelivery">৳৬০</span></div>
