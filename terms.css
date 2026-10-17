@@ -1,0 +1,250 @@
+/* ==========================================
+   Terms & Conditions Page Custom Styles
+   ========================================== */
+
+/* হিরো সেকশন */
+.terms-hero {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    padding: 60px 20px 80px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.terms-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.terms-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.terms-hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.terms-hero p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.last-updated {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* কন্টেনারের মূল লেআউট */
+.terms-wrapper {
+    max-width: 1100px;
+    margin: -40px auto 60px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 5;
+}
+
+/* নেভিগেশন পিল বাটনসমূহ */
+.terms-nav-pills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.pill-btn {
+    border: none;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.pill-btn:hover, .pill-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+/* পলিসি কার্ড ডিজাইন */
+.terms-grid {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 25px;
+}
+
+.policy-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f5f9;
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.policy-card:hover {
+    transform: translateY(-3px);
+    border-color: #e2e8f0;
+}
+
+.policy-icon {
+    width: 48px;
+    height: 48px;
+    background: #e0f2fe;
+    color: #0284c7;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.policy-details h2 {
+    font-size: 18px;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.policy-details p, .policy-details li {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.7;
+}
+
+.policy-details ul {
+    padding-left: 18px;
+    margin-top: 6px;
+}
+
+/* ডেলিভারি রেট বক্স */
+.delivery-rates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.rate-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.rate-box h4 {
+    font-size: 13px;
+    color: #334155;
+    margin-bottom: 4px;
+}
+
+.rate-box .rate {
+    font-size: 20px;
+    font-weight: 700;
+    color: #16a34a;
+    display: block;
+}
+
+.rate-box small {
+    font-size: 11px;
+    color: #64748b;
+}
+
+/* সাইডবার কার্ডসমূহ */
+.support-card {
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f5f9;
+}
+
+.support-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0284c7;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.support-card p {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.contact-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.wa-pill { background: #25d366; color: #ffffff; }
+.call-pill { background: #0284c7; color: #ffffff; }
+
+.btn-catalog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* রেসপন্সিভ ভিউ (মোবাইল ও ট্যাবলেট) */
+@media (max-width: 768px) {
+    .terms-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .delivery-rates {
+        grid-template-columns: 1fr;
+    }
+
+    .policy-card {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .terms-hero h1 {
+        font-size: 24px;
+    }
+}
