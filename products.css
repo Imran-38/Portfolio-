@@ -299,4 +299,143 @@
         max-height: 200px;
     }
 }
+/* ==========================================
+   ১. প্রিমিয়াম ক্যাটাগরি ফিল্টার ডিজাইন ও স্পেসিং
+   ========================================== */
+.category-filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 30px auto 20px auto; /* হিরো সেকশন থেকে গ্যাপ বজায় রাখা */
+    padding: 12px 20px;
+    background: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    max-width: 90%;
+    position: relative;
+    z-index: 10;
+}
+
+/* ক্যাটাগরি ফিল্টার বাটন প্রিমিয়াম স্টাইল */
+.filter-btn {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   ২. প্রোডাক্ট কার্ড ও ইমেজের সমান সাইজ নির্ধারণ
+   ========================================== */
+.product-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.catalog-item {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.catalog-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* প্রতিটি প্রোডাক্টের ছবির সাইজ সমান ও ফুল ভিউ করা */
+.catalog-item img {
+    width: 100%;
+    height: 230px; /* সব ছবির উচ্চতা একই থাকবে */
+    object-fit: contain; /* ছবি না কেটে পুরোটা দেখাবে */
+    background-color: #f8fafc;
+    padding: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.catalog-item img:hover {
+    transform: scale(1.03);
+}
+
+/* ==========================================
+   ৩. প্রোডাক্ট ক্লিক জুম মোডাল (Full View Image)
+   ========================================== */
+.product-zoom-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.product-zoom-content {
+    background: #ffffff;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: modalPop 0.3s ease-out;
+    position: relative;
+}
+
+@keyframes modalPop {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* মোডালের ভেতরের ছবি সম্পূর্ণ ও পরিষ্কার দেখানো */
+.zoom-img-container {
+    width: 100%;
+    height: 300px;
+    background: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.zoom-img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 
