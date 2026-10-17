@@ -64,27 +64,32 @@
     </section>
 
 
-<!-- Category Filter Buttons -->
-
+<!-- ক্যাটাগরি ফিল্টার বাটনসমূহ -->
 <div class="category-filter-container">
     <button class="filter-btn active" onclick="filterCategory('all')"><i class="fa-solid fa-border-all"></i> সব প্রোডাক্ট</button>
-    <button class="filter-btn" onclick="filterCategory('helmet')"><i class="fa-solid fa-helmet-safety"></i> হেলমেট</button>
-    <button class="filter-btn" onclick="filterCategory('rack')"><i class="fa-solid fa-list-check"></i> রেখ </button>
+    <button class="filter-btn" id="helmetMainBtn" onclick="filterCategory('helmet')"><i class="fa-solid fa-helmet-safety"></i> হেলমেট</button>
+    <button class="filter-btn" onclick="filterCategory('rack')"><i class="fa-solid fa-list-check"></i> র্যাক</button>
     <button class="filter-btn" onclick="filterCategory('heaterjug')"><i class="fa-solid fa-bolt"></i> হিটার জগ</button>
     <button class="filter-btn" onclick="filterCategory('jug')"><i class="fa-solid fa-glass-water"></i> জগ</button>
 </div>
 
+<!-- হেলমেটের সাব-ক্যাটাগরি বাটনসমূহ -->
+<div class="sub-category-container" id="helmetSubCatContainer" style="display: none;">
+    <button class="sub-filter-btn active" onclick="filterSubCategory('all-helmet')">সব হেলমেট</button>
+    <button class="sub-filter-btn" onclick="filterSubCategory('full-face')">ফুল ফেস</button>
+    <button class="sub-filter-btn" onclick="filterSubCategory('half-face')">হাফ ফেস</button>
+    <button class="sub-filter-btn" onclick="filterSubCategory('graphics')">গ্রাফিক্স</button>
+</div>
 
 <!-- মূল ক্যাটালগ সেকশন -->
 <div class="container">
     <section class="card">
         <h2><i class="fa-solid fa-layer-group"></i> অল প্রোডাক্ট কালেকশন</h2>
         
-        <!-- প্রোডাক্ট গ্রিড -->
         <div class="product-catalog-grid" id="catalogGrid">
             
-            <!-- ==================== ১. সেফটি হেলমেট কালেকশন (১০ টি) ==================== -->
-            <div class="catalog-item" data-category="helmet">
+            <!-- ১. হেলমেট ১ -->
+            <div class="catalog-item" data-category="helmet" data-subcat="full-face">
                 <img src="img/product/Helmet_1.png" alt="Safemet Full Face Helmet (M) - Black Matt" loading="lazy" onclick="openProductZoom('img/product/Helmet_1.png', 'Safemet Full Face Helmet (M) – Black Matt', 'Safemate', 'RFL', 1850, 'ম্যাট ব্ল্যাক কালারের স্টাইলিশ ফুল ফেস হেলমেট।|মাথা ও মুখের সুরক্ষায় উপযোগী ডিজাইন।|দৈনন্দিন মোটরসাইকেল চালানোর জন্য মানানসই।')">
                 <div class="catalog-info">
                     <h3>Safemet Full Face Helmet (M) - Black Matt</h3>
@@ -98,7 +103,8 @@
                 </div>
             </div>
 
-            <div class="catalog-item" data-category="helmet">
+            <!-- ২. হেলমেট ২ -->
+            <div class="catalog-item" data-category="helmet" data-subcat="full-face graphics">
                 <img src="img/product/Helmet_2.png" alt="Safemet Full Face Helmet (M)-Black (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_2.png', 'Safemet Full Face Helmet (M)-Black (Graphics)', 'Safemate', 'RFL', 2150, 'আকর্ষণীয় গ্রাফিক্স ডিজাইন সহ ফুল ফেস হেলমেট।|উন্নত মানের সেফটি ম্যাটেরিয়াল দ্বারা তৈরি।|দীর্ঘ ভ্রমণের জন্য অত্যন্ত আরামদায়ক।')">
                 <div class="catalog-info">
                     <h3>Safemet Full Face Helmet (M)-Black (Graphics)</h3>
@@ -112,7 +118,8 @@
                 </div>
             </div>
 
-            <div class="catalog-item" data-category="helmet">
+            <!-- ৩. হেলমেট ৩ -->
+            <div class="catalog-item" data-category="helmet" data-subcat="half-face">
                 <img src="img/product/Helmet_3.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_3.png', 'DragN Pulse Half Face Helmet (L) - Black', 'DragN', 'RFL', 1600, 'হালকা ও স্টাইলিশ হাফ ফেস ডিজাইন।|সহজে বাতাস চলাচলের সুব্যবস্থা।|শহরের রাইডিংয়ের জন্য পারফেক্ট।')">
                 <div class="catalog-info">
                     <h3>DragN Pulse Half Face Helmet (L) - Black</h3>
@@ -126,7 +133,8 @@
                 </div>
             </div>
 
-            <div class="catalog-item" data-category="helmet">
+            <!-- ৪. হেলমেট ৪ -->
+            <div class="catalog-item" data-category="helmet" data-subcat="full-face graphics">
                 <img src="img/product/Helmet_4.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_4.png', 'Safemet Full Face Helmet (M)-Blue (Graphics)', 'Safemate', 'RFL', 2150, 'ব্লু গ্রাফিক্সের প্রিমিয়াম লুক।|শক্তিশালী স্ক্র্যাচ-প্রতিরোধী ভাইজার।|মজবুত স্ট্র্যাপ ও ইজি লক সিস্টেম।')">
                 <div class="catalog-info">
                     <h3>Safemet Full Face Helmet (M)-Blue (Graphics)</h3>
@@ -140,7 +148,8 @@
                 </div>
             </div>
 
-            <div class="catalog-item" data-category="helmet">
+            <!-- ৫. হেলমেট ৫ -->
+            <div class="catalog-item" data-category="helmet" data-subcat="full-face graphics">
                 <img src="img/product/Helmet_5.png" alt="Safemet Full Face Helmet (M)-Red (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_5.png', 'Safemet Full Face Helmet (M)-Red (Graphics)', 'Safemate', 'RFL', 2150, 'রেড গ্রাফিক্সের নজরকাড়া স্পোর্টি ডিজাইন।|উচ্চ আঘাত সহনশীল আউটার শেল।|সহজে পরিষ্কারযোগ্য ইনার প্যাডিং।')">
                 <div class="catalog-info">
                     <h3>Safemet Full Face Helmet (M)-Red (Graphics)</h3>
@@ -154,7 +163,8 @@
                 </div>
             </div>
 
-            <div class="catalog-item" data-category="helmet">
+            <!-- ৬. হেলমেট ৬ -->
+            <div class="catalog-item" data-category="helmet" data-subcat="half-face">
                 <img src="img/product/Helmet_6.png" alt="Safemet Half Face Helmet (M-57-58) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_6.png', 'Safemet Half Face Helmet (M-57-58) - Black', 'Safemate', 'RFL', 1350, 'কমপ্যাক্ট ও কম ওজনের হাফ ফেস হেলমেট।|M সাইজ (৫৭-৫৮ সেমি)।|প্রতিদিনের ব্যবহারের জন্য টেকসই।')">
                 <div class="catalog-info">
                     <h3>Safemet Half Face Helmet (M-57-58) - Black</h3>
@@ -168,7 +178,8 @@
                 </div>
             </div>
 
-            <div class="catalog-item" data-category="helmet">
+            <!-- ৭. হেলমেট ৭ -->
+            <div class="catalog-item" data-category="helmet" data-subcat="half-face">
                 <img src="img/product/Helmet_7.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_7.png', 'DragN Pulse Half Face Helmet (L) - Black', 'DragN', 'RFL', 1600, 'প্রিমিয়াম ফিনিশিং সহ হাফ ফেস ডিজাইন।|সহজে খোলার জন্য কুইক-রিলিজ বাকল।|উচ্চ সুরক্ষামূল মানসম্পন্ন।')">
                 <div class="catalog-info">
                     <h3>DragN Pulse Half Face Helmet (L) - Black</h3>
@@ -182,7 +193,8 @@
                 </div>
             </div>
 
-            <div class="catalog-item" data-category="helmet">
+            <!-- ৮. হেলমেট ৮ -->
+            <div class="catalog-item" data-category="helmet" data-subcat="half-face">
                 <img src="img/product/Helmet_8.png" alt="Safemet Half Face Helmet (M-57-58) - Blue" loading="lazy" onclick="openProductZoom('img/product/Helmet_8.png', 'Safemet Half Face Helmet (M-57-58) - Blue', 'Safemate', 'RFL', 1350, 'আকর্ষণীয় নীল কালারের হাফ ফেস হেলমেট।|হালকা ওজন ও কমফোর্টেবল প্যাডিং।|সহজে ব্যবহারে সুবিধাজনক।')">
                 <div class="catalog-info">
                     <h3>Safemet Half Face Helmet (M-57-58) - Blue</h3>
@@ -196,7 +208,8 @@
                 </div>
             </div>
 
-            <div class="catalog-item" data-category="helmet">
+            <!-- ৯. হেলমেট ৯ -->
+            <div class="catalog-item" data-category="helmet" data-subcat="full-face graphics">
                 <img src="img/product/Helmet_9.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_9.png', 'Safemet Full Face Helmet (M)-Blue (Graphics)', 'Safemate', 'RFL', 2150, 'স্পোর্টি ব্লু গ্রাফিক্স লুক।|সম্পূর্ণ মাথা ও থুতনির সর্বোচ্চ সুরক্ষা।|হাইওয়ে ও লং রাইডের জন্য পারফেক্ট।')">
                 <div class="catalog-info">
                     <h3>Safemet Full Face Helmet (M)-Blue (Graphics)</h3>
@@ -210,7 +223,8 @@
                 </div>
             </div>
 
-            <div class="catalog-item" data-category="helmet">
+            <!-- ১০. হেলমেট ১০ -->
+            <div class="catalog-item" data-category="helmet" data-subcat="full-face">
                 <img src="img/product/Helmet_10.png" alt="Safemet Full Face Helmet (M) - Black Matt Red" loading="lazy" onclick="openProductZoom('img/product/Helmet_10.png', 'Safemet Full Face Helmet (M) - Black Matt Red', 'Safemate', 'RFL', 1850, 'ম্যাট ব্ল্যাক ও রেড কম্বিনেশনের স্টাইলিশ ডিজাইন।|উন্নত ভেন্টিলেশন এয়ার ফ্লো সিস্টেম।|রাইডারদের পছন্দের অন্যতম সেরা হেলমেট।')">
                 <div class="catalog-info">
                     <h3>Safemet Full Face Helmet (M) - Black Matt Red</h3>
@@ -224,8 +238,7 @@
                 </div>
             </div>
 
-
-            <!-- ==================== ২. র্যাক ক্যাটাগরি ==================== -->
+            <!-- ১১. র্যাক (লাল) -->
             <div class="catalog-item" data-category="rack">
                 <img src="img/product/Rackred.png" alt="Rack (Red)" loading="lazy" onclick="openProductZoom('img/product/Rackred.png', 'Rack (Red)', 'RFL', 'RFL', 750, 'উচ্চ মানের ও টেকসই মাল্টিপারপাস প্লাস্টিক র্যাক।|ঘর ও অফিস গুছিয়ে রাখার জন্য অত্যন্ত উপযোগী।|আকর্ষণীয় লাল কালার ডিজাইন।')">
                 <div class="catalog-info">
@@ -240,6 +253,7 @@
                 </div>
             </div>
 
+            <!-- ১২. র্যাক (ব্লু) -->
             <div class="catalog-item" data-category="rack">
                 <img src="img/product/Rackblue.png" alt="Rack (Blue)" loading="lazy" onclick="openProductZoom('img/product/Rackblue.png', 'Rack (Blue)', 'RFL', 'RFL', 750, 'আকর্ষণীয় ব্লু কালারের শক্ত ও টেকসই মাল্টিপারপাস র্যাক।|ঘর ও অফিস সহজে গুছিয়ে রাখুন।|মজবুত প্লাস্টিক ম্যাটেরিয়াল।')">
                 <div class="catalog-info">
@@ -254,8 +268,7 @@
                 </div>
             </div>
 
-
-            <!-- ==================== ৩. হিটার জগ ক্যাটাগরি ==================== -->
+            <!-- ১৩. হিটার জগ (১L) -->
             <div class="catalog-item" data-category="heaterjug">
                 <img src="img/product/1lheater.png" alt="Heater Jug - 1L" loading="lazy" onclick="openProductZoom('img/product/1lheater.png', 'Heater Jug - 1L', 'RFL', 'RFL', 220, 'দ্রুত পানি গরম করার জন্য ১ লিটার ক্যাপাসিটির ইলেকট্রিক হিটার জগ।|বিদ্যুৎ সাশ্রয়ী ও নিরাপদ।|সহজে বহনযোগ্য সাইজ।')">
                 <div class="catalog-info">
@@ -270,6 +283,7 @@
                 </div>
             </div>
 
+            <!-- ১৪. হিটার জগ (১.৮L) -->
             <div class="catalog-item" data-category="heaterjug">
                 <img src="img/product/1.8heaterjug.png" alt="Heater Jug - 1.8L" loading="lazy" onclick="openProductZoom('img/product/1.8heaterjug.png', 'Heater Jug - 1.8L', 'RFL', 'RFL', 320, '১.৮ লিটার ক্যাপাসিটির টেকসই ও বিদ্যুৎ সাশ্রয়ী ইলেকট্রিক হিটার জগ।|দ্রুত ওয়াটার হিটিং প্রসেস।|সহজে ব্যবহারের সুবিধা।')">
                 <div class="catalog-info">
@@ -284,6 +298,7 @@
                 </div>
             </div>
 
+            <!-- ১৫. হিটার জগ (২.৫L) -->
             <div class="catalog-item" data-category="heaterjug">
                 <img src="img/product/2.5heaterjug.png" alt="Heater Jug - 2.5L" loading="lazy" onclick="openProductZoom('img/product/2.5heaterjug.png', 'Heater Jug - 2.5L', 'RFL', 'RFL', 350, 'বড় পরিবারের জন্য ২.৫ লিটার ক্যাপাসিটির প্রিমিয়াম হিটার জগ।|দ্রুত গরম পানি তৈরি করে।|উচ্চ নিরাপত্তা যুক্ত।')">
                 <div class="catalog-info">
@@ -298,8 +313,7 @@
                 </div>
             </div>
 
-
-            <!-- ==================== ৪. জগ ক্যাটাগরি ==================== -->
+            <!-- ১৬. রসি জগ -->
             <div class="catalog-item" data-category="jug">
                 <img src="img/product/Rosijug.png" alt="Rosi Jug" loading="lazy" onclick="openProductZoom('img/product/Rosijug.png', 'Rosi Jug', 'RFL', 'RFL', 350, 'আকর্ষণীয় ডিজাইন ও ফুড গ্রেড প্লাস্টিক দিয়ে তৈরি রসি জগ।|দৈনন্দিন ব্যবহারের জন্য পারফেক্ট।|সহজে পরিষ্কার করা যায়।')">
                 <div class="catalog-info">
