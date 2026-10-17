@@ -96,12 +96,10 @@ faqItems.forEach(item => {
    ৩. গ্লোবাল ই-কমার্স কার্ট ও মর্ডান চেকআউট সিস্টেম
    ========================================== */
 
-// কার্ট ডেটা লোকালস্টোরেজ থেকে নেওয়া
 function getCart() {
     return JSON.parse(localStorage.getItem('myCart')) || [];
 }
 
-// কার্ট সেভ করা ও ব্যাজ কাউন্ট আপডেট করা
 function saveCart(cart) {
     localStorage.setItem('myCart', JSON.stringify(cart));
     updateCartCount();
@@ -116,7 +114,6 @@ function updateCartCount() {
     }
 }
 
-// কাস্টম টোস্ট নোটিফিকেশন দেখানোর ফাংশন
 function showToast(message, type = 'success') {
     const existingToast = document.getElementById('customToastMessage');
     if (existingToast) existingToast.remove();
@@ -147,7 +144,6 @@ function showToast(message, type = 'success') {
     }, 3000);
 }
 
-// প্রোডাক্ট কার্টে যোগ করা
 function addToCart(name, price) {
     let cart = getCart();
     let existingItem = cart.find(item => item.name === name);
@@ -162,7 +158,6 @@ function addToCart(name, price) {
     }
 }
 
-// কার্টের পণ্যের পরিমাণ বাড়ানো বা কমানো
 function updateQuantity(index, change) {
     let cart = getCart();
     if (cart[index]) {
@@ -175,7 +170,6 @@ function updateQuantity(index, change) {
     }
 }
 
-// কার্ট থেকে আইটেম ডিলিট করা
 function removeItem(index) {
     let cart = getCart();
     cart.splice(index, 1);
@@ -183,7 +177,6 @@ function removeItem(index) {
     renderCartAndCheckout();
 }
 
-// কার্ট পপ-আপ মোডাল ওপেন/ক্লোজ করা
 function toggleCartModal() {
     const modal = document.getElementById('cartModal');
     if (modal) {
@@ -191,13 +184,12 @@ function toggleCartModal() {
             modal.style.display = 'none';
         } else {
             modal.style.display = 'flex';
-            goToStep1(); // মোডাল খোলার সময় সর্বদা ১ম ধাপ দেখাবে
+            goToStep1();
             renderCartAndCheckout();
         }
     }
 }
 
-// ধাপ ১ (কাস্টমার ডিটেইলস) থেকে ধাপ ২ (পেমেন্ট ও ডেলিভারি)
 function goToStep2() {
     const name = (document.getElementById('custNameModal') || document.getElementById('custName'))?.value.trim();
     const phone = (document.getElementById('custPhoneModal') || document.getElementById('custPhone'))?.value.trim();
@@ -223,7 +215,6 @@ function goToStep1() {
     if (step2) step2.style.display = 'none';
 }
 
-// কার্টের আইটেমগুলো স্ক্রিনে রেন্ডার করা ও কাস্টমার ফর্ম ভিজিবল করা
 function renderCartAndCheckout() {
     const container = document.getElementById('cartItemsContainer');
     const cartSummary = document.getElementById('cartSummary');
@@ -273,7 +264,6 @@ function renderCartAndCheckout() {
     calculateFinalTotal();
 }
 
-// পেমেন্ট মেথড চেঞ্জ হলে মোবাইল ব্যাংকিং ফিল্ড দেখানো/লুকানো
 function togglePaymentDetails() {
     const payMethod = document.querySelector('input[name="paymentMethod"]:checked');
     if (!payMethod) return;
@@ -289,7 +279,6 @@ function togglePaymentDetails() {
     calculateFinalTotal();
 }
 
-// সর্বমোট বিল, ডেলিভারি চার্জ, অগ্রিম ও বাকি টাকার হিসাব করা
 function calculateFinalTotal() {
     let cart = getCart();
     let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
@@ -340,7 +329,6 @@ function calculateFinalTotal() {
     }
 }
 
-// WhatsApp-এ সমস্ত ডিটেইলস সহ অর্ডার পাঠানো
 function sendWhatsAppOrder() {
     let cart = getCart();
     if (cart.length === 0) return;
@@ -483,35 +471,35 @@ function closeWelcomePopup() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount();
-});
-
-window.addEventListener('load', showWelcomeModal);
 
 /* ==========================================
-   ৬. Modern Sales Chart Rendering (Chart.js)
+   ৬. Modern Sales Chart Rendering (3-Year Comparison)
    ========================================== */
 document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+
     const chartCtx = document.getElementById('modernSalesChart');
     if (chartCtx) {
         new Chart(chartCtx, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'],
+                labels: ['২০২৪ সাল', '২০২৫ সাল', '২০২৬ (আগস্ট পর্যন্ত)'],
                 datasets: [{
-                    label: '২০২৬ সালের মাসিক বিক্রি',
-                    data: [450, 520, 610, 580, 700, 750, 820, 720, 0, 0, 0, 0],
-                    borderColor: '#0284c7',
-                    backgroundColor: 'rgba(2, 132, 199, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#0284c7',
-                    pointBorderColor: '#ffffff',
-                    pointBorderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 7
+                    label: 'মোট বিক্রি (ইউনিট/মেমো)',
+                    data: [3441, 6600, 5150],
+                    backgroundColor: [
+                        'rgba(148, 163, 184, 0.7)',
+                        'rgba(2, 132, 199, 0.85)',
+                        'rgba(14, 165, 233, 0.75)'
+                    ],
+                    borderColor: [
+                        '#64748b',
+                        '#0284c7',
+                        '#0ea5e9'
+                    ],
+                    borderWidth: 2,
+                    borderRadius: 8,
+                    barThickness: 45
                 }]
             },
             options: {
@@ -538,7 +526,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     x: {
                         grid: { display: false },
-                        ticks: { font: { family: 'Hind Siliguri' } }
+                        ticks: { font: { family: 'Hind Siliguri', weight: 'bold' } }
                     }
                 }
             }
@@ -583,7 +571,6 @@ if (prevBtn) {
     });
 }
 
-// Dots creation
 const dotsContainer = document.querySelector('.carousel-dots');
 if (dotsContainer) {
     dotsContainer.innerHTML = '';
@@ -610,7 +597,6 @@ function updateDots() {
     });
 }
 
-// Lightbox Functions
 function openLightbox(index) {
     currentSlideIndex = index;
     const modal = document.getElementById('lightboxModal');
@@ -644,3 +630,4 @@ function changeLbSlide(direction) {
     }
 }
 
+window.addEventListener('load', showWelcomeModal);
