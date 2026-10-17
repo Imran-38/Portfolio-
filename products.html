@@ -63,6 +63,16 @@
         </div>
     </section>
 
+
+<!-- Categroy Filter Buttons ক্যাটাগরি বাটন-->
+<div class="category-filter-container">
+    <button class="filter-btn active" onclick="filterCategory('all')">Sob Product</button>
+    <button class="filter-btn" onclick="filterCategory('helmet')">Helmet</button>
+    <button class="filter-btn" onclick="filterCategory('rack')">Rack</button>
+    <button class="filter-btn" onclick="filterCategory('heaterjug')">Heater Jug</button>
+    <button class="filter-btn" onclick="filterCategory('jug')">Jug</button>
+</div>
+
     <!-- মূল ক্যাটালগ সেকশন (১০টি সেফটি হেলমেট প্রোডাক্ট) -->
     <div class="container">
         <section class="card">
@@ -224,6 +234,54 @@
             </div>
         </section>
     </div>
+
+
+
+
+
+<!-- Rack Category -->
+<div class="catalog-item" data-category="rack">
+    <img src="img/product/Rackred.png" alt="Rack (Red)" onclick="openProductModal('Rack (Red)', 'rack', '890', '750', 'img/product/Rackred.png', 'Khup changlya quality cha aani durable multipurpose plastic rack. Ghar aani office sathi changla ahe.')">
+    <div class="catalog-details">
+        <span class="category-badge">Rack</span>
+        <h3>Rack (Red)</h3>
+        <p class="price"><span class="old-price">৳890</span> ৳750</p>
+        <button class="add-to-cart-btn" onclick="addToCart('Rack (Red)', 750)"><i class="fa-solid fa-cart-shopping"></i> Cart Madhye Add Kara</button>
+    </div>
+</div>
+
+<div class="catalog-item" data-category="rack">
+    <img src="img/product/Rackblue.png" alt="Rack (Blue)" onclick="openProductModal('Rack (Blue)', 'rack', '890', '750', 'img/product/Rackblue.png', 'Attractive Blue color cha majboot aani durable multipurpose rack.')">
+    <div class="catalog-details">
+        <span class="category-badge">Rack</span>
+        <h3>Rack (Blue)</h3>
+        <p class="price"><span class="old-price">৳890</span> ৳750</p>
+        <button class="add-to-cart-btn" onclick="addToCart('Rack (Blue)', 750)"><i class="fa-solid fa-cart-shopping"></i> Cart Madhye Add Kara</button>
+    </div>
+</div>
+
+<!-- Heater Jug Category -->
+<div class="catalog-item" data-category="heaterjug">
+    <img src="img/product/1lheater.png" alt="Heater Jug - 1L" onclick="openProductModal('Heater Jug - 1L', 'heaterjug', '250', '220', 'img/product/1lheater.png', 'Fast pani garam karnya sathi 1 Liter capacity cha Electric Heater Jug.')">
+    <div class="catalog-details">
+        <span class="category-badge">Heater Jug</span>
+        <h3>Heater Jug - 1L</h3>
+        <p class="price"><span class="old-price">৳250</span> ৳220</p>
+        <button class="add-to-cart-btn" onclick="addToCart('Heater Jug - 1L', 220)"><i class="fa-solid fa-cart-shopping"></i> Cart Madhye Add Kara</button>
+    </div>
+</div>
+
+<div class="catalog-item" data-category="heaterjug">
+    <img src="img/product/1.8heaterjug.png" alt="Heater Jug - 1.8L" onclick="openProductModal('Heater Jug - 1.8L', 'heaterjug', '350', '320', 'img/product/1.8heaterjug.png', '1.8 Liter capacity cha durable aani power saving Electric Heater Jug.')">
+    <div class="catalog-details">
+        <span class="category-badge">Heater Jug</span>
+        <h3>Heater Jug - 1.8L</h3>
+        <p class="price"><span class="old-price">৳350</span> ৳3
+
+
+
+
+
 
     <!-- অ্যাডভান্সড প্রোডাক্ট ডিটেইলস ও জুম পপ-আপ মোডাল -->
     <div id="imageZoomModal" class="product-zoom-modal">
