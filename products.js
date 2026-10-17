@@ -31,4 +31,32 @@ function openProductZoom(imgSrc, title, brand, company, price, featuresStr) {
         });
     }
 
-    
+    // মোডালের ভেতরের 'কার্টে যোগ করুন' বাটনে ক্লিক ইভেন্ট সেট করা
+    const cartBtn = document.getElementById('zoomCartBtn');
+    if (cartBtn) {
+        cartBtn.onclick = function() {
+            if (typeof addToCart === 'function') {
+                addToCart(title, Number(price));
+            }
+            closeImageZoom();
+        };
+    }
+
+    modal.style.display = 'flex';
+}
+
+// মোডাল বন্ধ করার ফাংশন
+function closeImageZoom() {
+    const modal = document.getElementById('imageZoomModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// মোডালের বাইরে কোথাও ক্লিক করলে যেন পপ-আপ বন্ধ হয়ে যায়
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('imageZoomModal');
+    if (event.target === modal) {
+        closeImageZoom();
+    }
+});
