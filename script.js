@@ -96,7 +96,7 @@ faqItems.forEach(item => {
    ৩. ই-কমার্স কার্ট ও মর্ডান সিঙ্গেল-পেজ চেকআউট সিস্টেম
    ========================================== */
 
-// কার্ট ডেটা লোকালস্টোরেজ থেকে নেওয়া
+// কার্ট ডেটা লোকালস্টোরেজ থেকে নেওয়া (myCart নাম স্ট্যান্ডার্ড রাখা হলো)
 function getCart() {
     return JSON.parse(localStorage.getItem('myCart')) || [];
 }
@@ -155,7 +155,7 @@ function addToCart(name, price) {
     if (existingItem) {
         showToast(`⚠️ এই পছন্দের প্রোডাক্টটি ইতিমধ্যেই কার্টে আছে!`, 'exists');
     } else {
-        cart.push({ name: name, price: price, qty: 1 });
+        cart.push({ name: name, price: Number(price), qty: 1 });
         saveCart(cart);
         showToast(`✅ সফলভাবে কার্টে যুক্ত হয়েছে: ${name}`, 'success');
         toggleCartModal();
@@ -199,7 +199,7 @@ function toggleCartModal() {
 // কার্টের আইটেমগুলো স্ক্রিনে রেন্ডার করা ও চেকআউট সামারি আপডেট করা
 function renderCartAndCheckout() {
     const container = document.getElementById('cartItemsContainer');
-    const checkoutArea = document.getElementById('fullCheckoutArea');
+    const checkoutArea = document.getElementById('fullCheckoutArea') || document.getElementById('cartSummary');
     if (!container) return;
 
     let cart = getCart();
@@ -224,16 +224,16 @@ function renderCartAndCheckout() {
     cart.forEach((item, index) => {
         let subtotal = item.price * item.qty;
         html += `
-            <div class="cart-item-card">
+            <div class="cart-item-card" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding: 10px 0; margin-bottom: 8px;">
                 <div class="cart-item-info">
-                    <h4>${item.name}</h4>
-                    <span class="cart-item-price">৳${item.price} × ${item.qty} = ৳${subtotal}</span>
+                    <h4 style="margin: 0; font-size: 14px; color: #1e293b;">${item.name}</h4>
+                    <span class="cart-item-price" style="font-size: 13px; color: #e11d48; font-weight: 600;">৳${item.price} × ${item.qty} = ৳${subtotal}</span>
                 </div>
-                <div class="cart-qty-ctrl">
-                    <button onclick="updateQuantity(${index}, -1)">-</button>
+                <div class="cart-qty-ctrl" style="display: flex; align-items: center; gap: 8px;">
+                    <button onclick="updateQuantity(${index}, -1)" style="padding: 2px 8px; cursor: pointer;">-</button>
                     <span>${item.qty}</span>
-                    <button onclick="updateQuantity(${index}, 1)">+</button>
-                    <button class="btn-remove" onclick="removeItem(${index})"><i class="fa-solid fa-trash"></i></button>
+                    <button onclick="updateQuantity(${index}, 1)" style="padding: 2px 8px; cursor: pointer;">+</button>
+                    <button class="btn-remove" onclick="removeItem(${index})" style="background:none; border:none; color:#ef4444; cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
                 </div>
             </div>
         `;
@@ -245,12 +245,14 @@ function renderCartAndCheckout() {
 
 // পেমেন্ট মেথড চেঞ্জ হলে মোবাইল ব্যাংকিং ফিল্ড দেখানো/লুকানো
 function togglePaymentDetails() {
-    const payMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    const payMethod = document.querySelector('input[name="paymentMethod"]:checked');
+    if (!payMethod) return;
+    
     const mbDetails = document.getElementById('mobileBankingDetails');
-    if (payMethod === 'MobileBanking') {
-        mbDetails.style.display = 'block';
+    if (payMethod.value === 'MobileBanking') {
+        if (mbDetails) mbDetails.style.display = 'block';
     } else {
-        mbDetails.style.display = 'none';
+        if (mbDetails) mbDetails.style.display = 'none';
         const advInput = document.getElementById('advanceAmount');
         if (advInput) advInput.value = '';
     }
@@ -467,7 +469,7 @@ function filterHelmets(category, btnElement) {
     });
 }
 
-// পেজ লোড হওয়ার সাথে সাথে কার্ট কাউন্ট ও পপ-আপ কল করা
+// পেজ লোড হওয়ার সাথে সাথে কার্ট কাউন্ট কল করা
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 });
