@@ -64,221 +64,257 @@
     </section>
 
 
-<!-- Categroy Filter Buttons ক্যাটাগরি বাটন-->
+<!-- Category Filter Buttons -->
 <div class="category-filter-container">
-    <button class="filter-btn active" onclick="filterCategory('all')">Sob Product</button>
-    <button class="filter-btn" onclick="filterCategory('helmet')">Helmet</button>
-    <button class="filter-btn" onclick="filterCategory('rack')">Rack</button>
-    <button class="filter-btn" onclick="filterCategory('heaterjug')">Heater Jug</button>
-    <button class="filter-btn" onclick="filterCategory('jug')">Jug</button>
+    <button class="filter-btn active" onclick="filterCategory('all')">সব প্রোডাক্ট</button>
+    <button class="filter-btn" onclick="filterCategory('helmet')">হেলমেট</button>
+    <button class="filter-btn" onclick="filterCategory('rack')">র্যাক</button>
+    <button class="filter-btn" onclick="filterCategory('heaterjug')">হিটার জগ</button>
+    <button class="filter-btn" onclick="filterCategory('jug')">জগ</button>
 </div>
 
-    <!-- মূল ক্যাটালগ সেকশন (১০টি সেফটি হেলমেট প্রোডাক্ট) -->
-    <div class="container">
-        <section class="card">
-            <h2><i class="fa-solid fa-layer-group"></i> সেফটি হেলমেট কালেকশন</h2>
+<!-- মূল ক্যাটালগ সেকশন -->
+<div class="container">
+    <section class="card">
+        <h2><i class="fa-solid fa-layer-group"></i> অল প্রোডাক্ট কালেকশন</h2>
+        
+        <!-- প্রোডাক্ট গ্রিড -->
+        <div class="product-catalog-grid" id="catalogGrid">
             
-            <!-- প্রোডাক্ট গ্রিড -->
-            <div class="product-catalog-grid">
-                
-                <!-- প্রোডাক্ট ১ -->
-                <div class="catalog-item">
-                    <img src="img/product/Helmet_1.png" alt="Safemet Full Face Helmet (M) - Black Matt" loading="lazy" onclick="openProductZoom('img/product/Helmet_1.png', 'Safemet Full Face Helmet (M) – Black Matt', 'Safemate', 'RFL', 1850, 'ম্যাট ব্ল্যাক কালারের স্টাইলিশ ফুল ফেস হেলমেট।|মাথা ও মুখের সুরক্ষায় উপযোগী ডিজাইন।|দৈনন্দিন মোটরসাইকেল চালানোর জন্য মানানসই।')">
-                    <div class="catalog-info">
-                        <h3>Safemet Full Face Helmet (M) - Black Matt</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳২২৫০</span>
-                            <span class="sales-price">৳১৮৫০</span>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M) - Black Matt', 1850)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                        </div>
+            <!-- ==================== ১. সেফটি হেলমেট কালেকশন (১০ টি) ==================== -->
+            <div class="catalog-item" data-category="helmet">
+                <img src="img/product/Helmet_1.png" alt="Safemet Full Face Helmet (M) - Black Matt" loading="lazy" onclick="openProductZoom('img/product/Helmet_1.png', 'Safemet Full Face Helmet (M) – Black Matt', 'Safemate', 'RFL', 1850, 'ম্যাট ব্ল্যাক কালারের স্টাইলিশ ফুল ফেস হেলমেট।|মাথা ও মুখের সুরক্ষায় উপযোগী ডিজাইন।|দৈনন্দিন মোটরসাইকেল চালানোর জন্য মানানসই।')">
+                <div class="catalog-info">
+                    <h3>Safemet Full Face Helmet (M) - Black Matt</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳২২৫০</span>
+                        <span class="sales-price">৳১৮৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M) - Black Matt', 1850)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
                     </div>
                 </div>
-
-                <!-- প্রোডাক্ট ২ -->
-                <div class="catalog-item">
-                    <img src="img/product/Helmet_2.png" alt="Safemet Full Face Helmet (M)-Black (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_2.png', 'Safemet Full Face Helmet (M)-Black (Graphics)', 'Safemate', 'RFL', 2150, 'আকর্ষণীয় গ্রাফিক্স ডিজাইন সহ ফুল ফেস হেলমেট।|উন্নত মানের সেফটি ম্যাটেরিয়াল দ্বারা তৈরি।|দীর্ঘ ভ্রমণের জন্য অত্যন্ত আরামদায়ক।')">
-                    <div class="catalog-info">
-                        <h3>Safemet Full Face Helmet (M)-Black (Graphics)</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳২২৫০</span>
-                            <span class="sales-price">৳২১৫০</span>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M)-Black (Graphics)', 2150)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- প্রোডাক্ট ৩ -->
-                <div class="catalog-item">
-                    <img src="img/product/Helmet_3.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_3.png', 'DragN Pulse Half Face Helmet (L) - Black', 'DragN', 'RFL', 1600, 'হালকা ও স্টাইলিশ হাফ ফেস ডিজাইন।|সহজে বাতাস চলাচলের সুব্যবস্থা।|শহরের রাইডিংয়ের জন্য পারফেক্ট।')">
-                    <div class="catalog-info">
-                        <h3>DragN Pulse Half Face Helmet (L) - Black</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳১৯৫০</span>
-                            <span class="sales-price">৳১৬০০</span>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn-cart btn-full" onclick="addToCart('DragN Pulse Half Face Helmet (L) - Black', 1600)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- প্রোডাক্ট ৪ -->
-                <div class="catalog-item">
-                    <img src="img/product/Helmet_4.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_4.png', 'Safemet Full Face Helmet (M)-Blue (Graphics)', 'Safemate', 'RFL', 2150, 'ব্লু গ্রাফিক্সের প্রিমিয়াম লুক।|শক্তিশালী স্ক্র্যাচ-প্রতিরোধী ভাইজার।|মজবুত স্ট্র্যাপ ও ইজি লক সিস্টেম।')">
-                    <div class="catalog-info">
-                        <h3>Safemet Full Face Helmet (M)-Blue (Graphics)</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳২২৫০</span>
-                            <span class="sales-price">৳২১৫০</span>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M)-Blue (Graphics)', 2150)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- প্রোডাক্ট ৫ -->
-                <div class="catalog-item">
-                    <img src="img/product/Helmet_5.png" alt="Safemet Full Face Helmet (M)-Red (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_5.png', 'Safemet Full Face Helmet (M)-Red (Graphics)', 'Safemate', 'RFL', 2150, 'রেড গ্রাফিক্সের নজরকাড়া স্পোর্টি ডিজাইন।|উচ্চ আঘাত সহনশীল আউটার শেল।|সহজে পরিষ্কারযোগ্য ইনার প্যাডিং।')">
-                    <div class="catalog-info">
-                        <h3>Safemet Full Face Helmet (M)-Red (Graphics)</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳২২৫০</span>
-                            <span class="sales-price">৳২১৫০</span>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M)-Red (Graphics)', 2150)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- প্রোডাক্ট ৬ -->
-                <div class="catalog-item">
-                    <img src="img/product/Helmet_6.png" alt="Safemet Half Face Helmet (M-57-58) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_6.png', 'Safemet Half Face Helmet (M-57-58) - Black', 'Safemate', 'RFL', 1350, 'কমপ্যাক্ট ও কম ওজনের হাফ ফেস হেলমেট।|M সাইজ (৫৭-৫৮ সেমি)।|প্রতিদিনের ব্যবহারের জন্য টেকসই।')">
-                    <div class="catalog-info">
-                        <h3>Safemet Half Face Helmet (M-57-58) - Black</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳১৫৪০</span>
-                            <span class="sales-price">৳১৩৫০</span>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn-cart btn-full" onclick="addToCart('Safemet Half Face Helmet (M-57-58) - Black', 1350)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- প্রোডাক্ট ৭ -->
-                <div class="catalog-item">
-                    <img src="img/product/Helmet_7.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_7.png', 'DragN Pulse Half Face Helmet (L) - Black', 'DragN', 'RFL', 1600, 'প্রিমিয়াম ফিনিশিং সহ হাফ ফেস ডিজাইন।|সহজে খোলার জন্য কুইক-রিলিজ বাকল।|উচ্চ সুরক্ষামূল মানসম্পন্ন।')">
-                    <div class="catalog-info">
-                        <h3>DragN Pulse Half Face Helmet (L) - Black</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳১৯৫০</span>
-                            <span class="sales-price">৳১৬০০</span>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn-cart btn-full" onclick="addToCart('DragN Pulse Half Face Helmet (L) - Black', 1600)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- প্রোডাক্ট ৮ -->
-                <div class="catalog-item">
-                    <img src="img/product/Helmet_8.png" alt="Safemet Half Face Helmet (M-57-58) - Blue" loading="lazy" onclick="openProductZoom('img/product/Helmet_8.png', 'Safemet Half Face Helmet (M-57-58) - Blue', 'Safemate', 'RFL', 1350, 'আকর্ষণীয় নীল কালারের হাফ ফেস হেলমেট।|হালকা ওজন ও কমফোর্টেবল প্যাডিং।|সহজে ব্যবহারে সুবিধাজনক।')">
-                    <div class="catalog-info">
-                        <h3>Safemet Half Face Helmet (M-57-58) - Blue</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳১৫৪০</span>
-                            <span class="sales-price">৳১৩৫০</span>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn-cart btn-full" onclick="addToCart('Safemet Half Face Helmet (M-57-58) - Blue', 1350)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- প্রোডাক্ট ৯ -->
-                <div class="catalog-item">
-                    <img src="img/product/Helmet_9.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_9.png', 'Safemet Full Face Helmet (M)-Blue (Graphics)', 'Safemate', 'RFL', 2150, 'স্পোর্টি ব্লু গ্রাফিক্স লুক।|সম্পূর্ণ মাথা ও থুতনির সর্বোচ্চ সুরক্ষা।|হাইওয়ে ও লং রাইডের জন্য পারফেক্ট।')">
-                    <div class="catalog-info">
-                        <h3>Safemet Full Face Helmet (M)-Blue (Graphics)</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳২২৫০</span>
-                            <span class="sales-price">৳২১৫০</span>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M)-Blue (Graphics)', 2150)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- প্রোডাক্ট ১০ -->
-                <div class="catalog-item">
-                    <img src="img/product/Helmet_10.png" alt="Safemet Full Face Helmet (M) - Black Matt Red" loading="lazy" onclick="openProductZoom('img/product/Helmet_10.png', 'Safemet Full Face Helmet (M) - Black Matt Red', 'Safemate', 'RFL', 1850, 'ম্যাট ব্ল্যাক ও রেড কম্বিনেশনের স্টাইলিশ ডিজাইন।|উন্নত ভেন্টিলেশন এয়ার ফ্লো সিস্টেম।|রাইডারদের পছন্দের অন্যতম সেরা হেলমেট।')">
-                    <div class="catalog-info">
-                        <h3>Safemet Full Face Helmet (M) - Black Matt Red</h3>
-                        <div class="price-box">
-                            <span class="regular-price">৳২২৫০</span>
-                            <span class="sales-price">৳১৮৫০</span>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M) - Black Matt Red', 1850)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </section>
-    </div>
+
+            <div class="catalog-item" data-category="helmet">
+                <img src="img/product/Helmet_2.png" alt="Safemet Full Face Helmet (M)-Black (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_2.png', 'Safemet Full Face Helmet (M)-Black (Graphics)', 'Safemate', 'RFL', 2150, 'আকর্ষণীয় গ্রাফিক্স ডিজাইন সহ ফুল ফেস হেলমেট।|উন্নত মানের সেফটি ম্যাটেরিয়াল দ্বারা তৈরি।|দীর্ঘ ভ্রমণের জন্য অত্যন্ত আরামদায়ক।')">
+                <div class="catalog-info">
+                    <h3>Safemet Full Face Helmet (M)-Black (Graphics)</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳২২৫০</span>
+                        <span class="sales-price">৳২১৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M)-Black (Graphics)', 2150)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-category="helmet">
+                <img src="img/product/Helmet_3.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_3.png', 'DragN Pulse Half Face Helmet (L) - Black', 'DragN', 'RFL', 1600, 'হালকা ও স্টাইলিশ হাফ ফেস ডিজাইন।|সহজে বাতাস চলাচলের সুব্যবস্থা।|শহরের রাইডিংয়ের জন্য পারফেক্ট।')">
+                <div class="catalog-info">
+                    <h3>DragN Pulse Half Face Helmet (L) - Black</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳১৯৫০</span>
+                        <span class="sales-price">৳১৬০০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('DragN Pulse Half Face Helmet (L) - Black', 1600)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-category="helmet">
+                <img src="img/product/Helmet_4.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_4.png', 'Safemet Full Face Helmet (M)-Blue (Graphics)', 'Safemate', 'RFL', 2150, 'ব্লু গ্রাফিক্সের প্রিমিয়াম লুক।|শক্তিশালী স্ক্র্যাচ-প্রতিরোধী ভাইজার।|মজবুত স্ট্র্যাপ ও ইজি লক সিস্টেম।')">
+                <div class="catalog-info">
+                    <h3>Safemet Full Face Helmet (M)-Blue (Graphics)</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳২২৫০</span>
+                        <span class="sales-price">৳২১৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M)-Blue (Graphics)', 2150)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-category="helmet">
+                <img src="img/product/Helmet_5.png" alt="Safemet Full Face Helmet (M)-Red (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_5.png', 'Safemet Full Face Helmet (M)-Red (Graphics)', 'Safemate', 'RFL', 2150, 'রেড গ্রাফিক্সের নজরকাড়া স্পোর্টি ডিজাইন।|উচ্চ আঘাত সহনশীল আউটার শেল।|সহজে পরিষ্কারযোগ্য ইনার প্যাডিং।')">
+                <div class="catalog-info">
+                    <h3>Safemet Full Face Helmet (M)-Red (Graphics)</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳২২৫০</span>
+                        <span class="sales-price">৳২১৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M)-Red (Graphics)', 2150)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-category="helmet">
+                <img src="img/product/Helmet_6.png" alt="Safemet Half Face Helmet (M-57-58) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_6.png', 'Safemet Half Face Helmet (M-57-58) - Black', 'Safemate', 'RFL', 1350, 'কমপ্যাক্ট ও কম ওজনের হাফ ফেস হেলমেট।|M সাইজ (৫৭-৫৮ সেমি)।|প্রতিদিনের ব্যবহারের জন্য টেকসই।')">
+                <div class="catalog-info">
+                    <h3>Safemet Half Face Helmet (M-57-58) - Black</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳১৫৪০</span>
+                        <span class="sales-price">৳১৩৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Safemet Half Face Helmet (M-57-58) - Black', 1350)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-category="helmet">
+                <img src="img/product/Helmet_7.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_7.png', 'DragN Pulse Half Face Helmet (L) - Black', 'DragN', 'RFL', 1600, 'প্রিমিয়াম ফিনিশিং সহ হাফ ফেস ডিজাইন।|সহজে খোলার জন্য কুইক-রিলিজ বাকল।|উচ্চ সুরক্ষামূল মানসম্পন্ন।')">
+                <div class="catalog-info">
+                    <h3>DragN Pulse Half Face Helmet (L) - Black</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳১৯৫০</span>
+                        <span class="sales-price">৳১৬০০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('DragN Pulse Half Face Helmet (L) - Black', 1600)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-category="helmet">
+                <img src="img/product/Helmet_8.png" alt="Safemet Half Face Helmet (M-57-58) - Blue" loading="lazy" onclick="openProductZoom('img/product/Helmet_8.png', 'Safemet Half Face Helmet (M-57-58) - Blue', 'Safemate', 'RFL', 1350, 'আকর্ষণীয় নীল কালারের হাফ ফেস হেলমেট।|হালকা ওজন ও কমফোর্টেবল প্যাডিং।|সহজে ব্যবহারে সুবিধাজনক।')">
+                <div class="catalog-info">
+                    <h3>Safemet Half Face Helmet (M-57-58) - Blue</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳১৫৪০</span>
+                        <span class="sales-price">৳১৩৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Safemet Half Face Helmet (M-57-58) - Blue', 1350)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-category="helmet">
+                <img src="img/product/Helmet_9.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_9.png', 'Safemet Full Face Helmet (M)-Blue (Graphics)', 'Safemate', 'RFL', 2150, 'স্পোর্টি ব্লু গ্রাফিক্স লুক।|সম্পূর্ণ মাথা ও থুতনির সর্বোচ্চ সুরক্ষা।|হাইওয়ে ও লং রাইডের জন্য পারফেক্ট।')">
+                <div class="catalog-info">
+                    <h3>Safemet Full Face Helmet (M)-Blue (Graphics)</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳২২৫০</span>
+                        <span class="sales-price">৳২১৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M)-Blue (Graphics)', 2150)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-category="helmet">
+                <img src="img/product/Helmet_10.png" alt="Safemet Full Face Helmet (M) - Black Matt Red" loading="lazy" onclick="openProductZoom('img/product/Helmet_10.png', 'Safemet Full Face Helmet (M) - Black Matt Red', 'Safemate', 'RFL', 1850, 'ম্যাট ব্ল্যাক ও রেড কম্বিনেশনের স্টাইলিশ ডিজাইন।|উন্নত ভেন্টিলেশন এয়ার ফ্লো সিস্টেম।|রাইডারদের পছন্দের অন্যতম সেরা হেলমেট।')">
+                <div class="catalog-info">
+                    <h3>Safemet Full Face Helmet (M) - Black Matt Red</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳২২৫০</span>
+                        <span class="sales-price">৳১৮৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Safemet Full Face Helmet (M) - Black Matt Red', 1850)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
 
 
+            <!-- ==================== ২. র্যাক ক্যাটাগরি ==================== -->
+            <div class="catalog-item" data-category="rack">
+                <img src="img/product/Rackred.png" alt="Rack (Red)" loading="lazy" onclick="openProductZoom('img/product/Rackred.png', 'Rack (Red)', 'RFL', 'RFL', 750, 'উচ্চ মানের ও টেকসই মাল্টিপারপাস প্লাস্টিক র্যাক।|ঘর ও অফিস গুছিয়ে রাখার জন্য অত্যন্ত উপযোগী।|আকর্ষণীয় লাল কালার ডিজাইন।')">
+                <div class="catalog-info">
+                    <h3>Rack (Red)</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳৮৯০</span>
+                        <span class="sales-price">৳৭৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Rack (Red)', 750)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-category="rack">
+                <img src="img/product/Rackblue.png" alt="Rack (Blue)" loading="lazy" onclick="openProductZoom('img/product/Rackblue.png', 'Rack (Blue)', 'RFL', 'RFL', 750, 'আকর্ষণীয় ব্লু কালারের শক্ত ও টেকসই মাল্টিপারপাস র্যাক।|ঘর ও অফিস সহজে গুছিয়ে রাখুন।|মজবুত প্লাস্টিক ম্যাটেরিয়াল।')">
+                <div class="catalog-info">
+                    <h3>Rack (Blue)</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳৮৯০</span>
+                        <span class="sales-price">৳৭৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Rack (Blue)', 750)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
 
 
+            <!-- ==================== ৩. হিটার জগ ক্যাটাগরি ==================== -->
+            <div class="catalog-item" data-category="heaterjug">
+                <img src="img/product/1lheater.png" alt="Heater Jug - 1L" loading="lazy" onclick="openProductZoom('img/product/1lheater.png', 'Heater Jug - 1L', 'RFL', 'RFL', 220, 'দ্রুত পানি গরম করার জন্য ১ লিটার ক্যাপাসিটির ইলেকট্রিক হিটার জগ।|বিদ্যুৎ সাশ্রয়ী ও নিরাপদ।|সহজে বহনযোগ্য সাইজ।')">
+                <div class="catalog-info">
+                    <h3>Heater Jug - 1L</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳২৫০</span>
+                        <span class="sales-price">৳২২০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Heater Jug - 1L', 220)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
 
-<!-- Rack Category -->
-<div class="catalog-item" data-category="rack">
-    <img src="img/product/Rackred.png" alt="Rack (Red)" onclick="openProductModal('Rack (Red)', 'rack', '890', '750', 'img/product/Rackred.png', 'Khup changlya quality cha aani durable multipurpose plastic rack. Ghar aani office sathi changla ahe.')">
-    <div class="catalog-details">
-        <span class="category-badge">Rack</span>
-        <h3>Rack (Red)</h3>
-        <p class="price"><span class="old-price">৳890</span> ৳750</p>
-        <button class="add-to-cart-btn" onclick="addToCart('Rack (Red)', 750)"><i class="fa-solid fa-cart-shopping"></i> Cart Madhye Add Kara</button>
-    </div>
+            <div class="catalog-item" data-category="heaterjug">
+                <img src="img/product/1.8heaterjug.png" alt="Heater Jug - 1.8L" loading="lazy" onclick="openProductZoom('img/product/1.8heaterjug.png', 'Heater Jug - 1.8L', 'RFL', 'RFL', 320, '১.৮ লিটার ক্যাপাসিটির টেকসই ও বিদ্যুৎ সাশ্রয়ী ইলেকট্রিক হিটার জগ।|দ্রুত ওয়াটার হিটিং প্রসেস।|সহজে ব্যবহারের সুবিধা।')">
+                <div class="catalog-info">
+                    <h3>Heater Jug - 1.8L</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳৩৫০</span>
+                        <span class="sales-price">৳৩২০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Heater Jug - 1.8L', 320)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-category="heaterjug">
+                <img src="img/product/2.5heaterjug.png" alt="Heater Jug - 2.5L" loading="lazy" onclick="openProductZoom('img/product/2.5heaterjug.png', 'Heater Jug - 2.5L', 'RFL', 'RFL', 350, 'বড় পরিবারের জন্য ২.৫ লিটার ক্যাপাসিটির প্রিমিয়াম হিটার জগ।|দ্রুত গরম পানি তৈরি করে।|উচ্চ নিরাপত্তা যুক্ত।')">
+                <div class="catalog-info">
+                    <h3>Heater Jug - 2.5L</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳৪০০</span>
+                        <span class="sales-price">৳৩৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Heater Jug - 2.5L', 350)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ==================== ৪. জগ ক্যাটাগরি ==================== -->
+            <div class="catalog-item" data-category="jug">
+                <img src="img/product/Rosijug.png" alt="Rosi Jug" loading="lazy" onclick="openProductZoom('img/product/Rosijug.png', 'Rosi Jug', 'RFL', 'RFL', 350, 'আকর্ষণীয় ডিজাইন ও ফুড গ্রেড প্লাস্টিক দিয়ে তৈরি রসি জগ।|দৈনন্দিন ব্যবহারের জন্য পারফেক্ট।|সহজে পরিষ্কার করা যায়।')">
+                <div class="catalog-info">
+                    <h3>Rosi Jug</h3>
+                    <div class="price-box">
+                        <span class="regular-price">৳৪৩০</span>
+                        <span class="sales-price">৳৩৫০</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-cart btn-full" onclick="addToCart('Rosi Jug', 350)"><i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 </div>
-
-<div class="catalog-item" data-category="rack">
-    <img src="img/product/Rackblue.png" alt="Rack (Blue)" onclick="openProductModal('Rack (Blue)', 'rack', '890', '750', 'img/product/Rackblue.png', 'Attractive Blue color cha majboot aani durable multipurpose rack.')">
-    <div class="catalog-details">
-        <span class="category-badge">Rack</span>
-        <h3>Rack (Blue)</h3>
-        <p class="price"><span class="old-price">৳890</span> ৳750</p>
-        <button class="add-to-cart-btn" onclick="addToCart('Rack (Blue)', 750)"><i class="fa-solid fa-cart-shopping"></i> Cart Madhye Add Kara</button>
-    </div>
-</div>
-
-<!-- Heater Jug Category -->
-<div class="catalog-item" data-category="heaterjug">
-    <img src="img/product/1lheater.png" alt="Heater Jug - 1L" onclick="openProductModal('Heater Jug - 1L', 'heaterjug', '250', '220', 'img/product/1lheater.png', 'Fast pani garam karnya sathi 1 Liter capacity cha Electric Heater Jug.')">
-    <div class="catalog-details">
-        <span class="category-badge">Heater Jug</span>
-        <h3>Heater Jug - 1L</h3>
-        <p class="price"><span class="old-price">৳250</span> ৳220</p>
-        <button class="add-to-cart-btn" onclick="addToCart('Heater Jug - 1L', 220)"><i class="fa-solid fa-cart-shopping"></i> Cart Madhye Add Kara</button>
-    </div>
-</div>
-
-<div class="catalog-item" data-category="heaterjug">
-    <img src="img/product/1.8heaterjug.png" alt="Heater Jug - 1.8L" onclick="openProductModal('Heater Jug - 1.8L', 'heaterjug', '350', '320', 'img/product/1.8heaterjug.png', '1.8 Liter capacity cha durable aani power saving Electric Heater Jug.')">
-    <div class="catalog-details">
-        <span class="category-badge">Heater Jug</span>
-        <h3>Heater Jug - 1.8L</h3>
-        <p class="price"><span class="old-price">৳350</span> ৳3
-
-
 
 
 
