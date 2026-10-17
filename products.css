@@ -439,3 +439,76 @@
     object-fit: contain;
 }
 
+/* ==========================================
+   ১. সাব-ক্যাটাগরি বাটন ডিজাইন (হেলমেটের জন্য)
+   ========================================== */
+.sub-category-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: -10px auto 25px auto;
+    padding: 8px 15px;
+    background: #f8fafc;
+    border-radius: 30px;
+    max-width: 85%;
+}
+
+.sub-filter-btn {
+    background: #ffffff;
+    color: #0284c7;
+    border: 1px solid #cbd5e1;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sub-filter-btn.active, .sub-filter-btn:hover {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+}
+
+/* ==========================================
+   ২. প্রোডাক্ট কার্ড ও ইমেজের সঠিক লার্জ সাইজ
+   ========================================== */
+.product-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.catalog-item {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* প্রোডাক্ট লিস্টের ছবির সাইজ বড় ও সম্পূর্ণ ভিউ */
+.catalog-item img {
+    width: 100%;
+    height: 280px; /* উচ্চতা বাড়িয়ে বড় করা হয়েছে */
+    object-fit: cover; /* ছবি পুরো কার্ড জুড়ে স্পষ্টভাবে দেখাবে */
+    cursor: pointer;
+    background: #f8fafc;
+}
+
+/* ==========================================
+   ৩. ক্লিক পপআপ / জুম মোডালে ছবি বড় দেখানো
+   ========================================== */
+.zoom-modal-body img, #zoomImg, #modalProductImg {
+    max-width: 100% !important;
+    max-height: 450px !important; /* মোডালে ছবি অনেক বড় দেখাবে */
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block;
+    margin: 0 auto;
+}
+
