@@ -93,10 +93,10 @@ faqItems.forEach(item => {
 
 
 /* ==========================================
-   ৩. ই-কমার্স কার্ট ও মর্ডান সিঙ্গেল-পেজ চেকআউট সিস্টেম
+   ৩. ই-কমার্স কার্ট ও মর্ডান চেকআউট সিস্টেম
    ========================================== */
 
-// কার্ট ডেটা লোকালস্টোরেজ থেকে নেওয়া (myCart নাম স্ট্যান্ডার্ড রাখা হলো)
+// কার্ট ডেটা লোকালস্টোরেজ থেকে নেওয়া
 function getCart() {
     return JSON.parse(localStorage.getItem('myCart')) || [];
 }
@@ -147,7 +147,7 @@ function showToast(message, type = 'success') {
     }, 3000);
 }
 
-// প্রোডাক্ট কার্টে যোগ করা (ডুপ্লিকেট রোধ ও টোস্ট নোটিফিকেশন সহ)
+// প্রোডাক্ট কার্টে যোগ করা
 function addToCart(name, price) {
     let cart = getCart();
     let existingItem = cart.find(item => item.name === name);
@@ -191,15 +191,43 @@ function toggleCartModal() {
             modal.style.display = 'none';
         } else {
             modal.style.display = 'flex';
+            goToStep1(); // মোডাল খোলার সময় সর্বদা ১ম ধাপ দেখাবে
             renderCartAndCheckout();
         }
     }
 }
 
-// কার্টের আইটেমগুলো স্ক্রিনে রেন্ডার করা ও চেকআউট সামারি আপডেট করা
+// ধাপ ১ (কাস্টমার ডিটেইলস) থেকে ধাপ ২ (পেমেন্ট ও ডেলিভারি)
+function goToStep2() {
+    const name = document.getElementById('custName')?.value.trim();
+    const phone = document.getElementById('custPhone')?.value.trim();
+    const address = document.getElementById('custAddress')?.value.trim();
+
+    if (!name || !phone || !address) {
+        alert('অনুগ্রহ করে আপনার নাম, মোবাইল নম্বর এবং সম্পূর্ণ ডেলিভারি ঠিকানা দিন।');
+        return;
+    }
+
+    const step1 = document.getElementById('checkoutStep1');
+    const step2 = document.getElementById('checkoutStep2');
+
+    if (step1) step1.style.display = 'none';
+    if (step2) step2.style.display = 'block';
+}
+
+function goToStep1() {
+    const step1 = document.getElementById('checkoutStep1');
+    const step2 = document.getElementById('checkoutStep2');
+
+    if (step1) step1.style.display = 'block';
+    if (step2) step2.style.display = 'none';
+}
+
+// কার্টের আইটেমগুলো স্ক্রিনে রেন্ডার করা ও কাস্টমার ফর্ম ভিজিবল করা
 function renderCartAndCheckout() {
     const container = document.getElementById('cartItemsContainer');
-    const checkoutArea = document.getElementById('fullCheckoutArea') || document.getElementById('cartSummary');
+    const cartSummary = document.getElementById('cartSummary');
+    const fullCheckout = document.getElementById('fullCheckoutArea');
     if (!container) return;
 
     let cart = getCart();
@@ -214,26 +242,29 @@ function renderCartAndCheckout() {
                 </a>
             </div>
         `;
-        if (checkoutArea) checkoutArea.style.display = 'none';
+        if (cartSummary) cartSummary.style.display = 'none';
+        if (fullCheckout) fullCheckout.style.display = 'none';
         return;
     }
 
-    if (checkoutArea) checkoutArea.style.display = 'block';
+    // প্রোডাক্ট থাকলে ফর্ম সেকশনটি দৃশ্যমান হবে
+    if (cartSummary) cartSummary.style.display = 'block';
+    if (fullCheckout) fullCheckout.style.display = 'block';
 
     let html = '';
     cart.forEach((item, index) => {
         let subtotal = item.price * item.qty;
         html += `
-            <div class="cart-item-card" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding: 10px 0; margin-bottom: 8px;">
+            <div class="cart-item-card" style="display: flex; justify-content: space-between; align-items: center; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; margin-bottom: 10px; background: #fff;">
                 <div class="cart-item-info">
-                    <h4 style="margin: 0; font-size: 14px; color: #1e293b;">${item.name}</h4>
-                    <span class="cart-item-price" style="font-size: 13px; color: #e11d48; font-weight: 600;">৳${item.price} × ${item.qty} = ৳${subtotal}</span>
+                    <h4 style="margin: 0 0 5px 0; font-size: 14px; color: #1e293b; font-weight: bold;">${item.name}</h4>
+                    <span class="cart-item-price" style="font-size: 13px; color: #16a34a; font-weight: 600;">৳${item.price} × ${item.qty} = ৳${subtotal}</span>
                 </div>
-                <div class="cart-qty-ctrl" style="display: flex; align-items: center; gap: 8px;">
-                    <button onclick="updateQuantity(${index}, -1)" style="padding: 2px 8px; cursor: pointer;">-</button>
-                    <span>${item.qty}</span>
-                    <button onclick="updateQuantity(${index}, 1)" style="padding: 2px 8px; cursor: pointer;">+</button>
-                    <button class="btn-remove" onclick="removeItem(${index})" style="background:none; border:none; color:#ef4444; cursor:pointer;"><i class="fa-solid fa-trash"></i></button>
+                <div class="cart-qty-ctrl" style="display: flex; align-items: center; gap: 6px;">
+                    <button onclick="updateQuantity(${index}, -1)" style="padding: 2px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #f1f5f9; cursor: pointer; font-weight: bold;">-</button>
+                    <span style="font-size: 14px; font-weight: bold;">${item.qty}</span>
+                    <button onclick="updateQuantity(${index}, 1)" style="padding: 2px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #f1f5f9; cursor: pointer; font-weight: bold;">+</button>
+                    <button class="btn-remove" onclick="removeItem(${index})" style="background: #fee2e2; border: none; color: #ef4444; padding: 6px 8px; border-radius: 4px; cursor: pointer; margin-left: 4px;"><i class="fa-solid fa-trash"></i></button>
                 </div>
             </div>
         `;
@@ -315,9 +346,9 @@ function sendWhatsAppOrder() {
     let cart = getCart();
     if (cart.length === 0) return;
 
-    const name = document.getElementById('custName').value.trim();
-    const phone = document.getElementById('custPhone').value.trim();
-    const address = document.getElementById('custAddress').value.trim();
+    const name = document.getElementById('custName')?.value.trim();
+    const phone = document.getElementById('custPhone')?.value.trim();
+    const address = document.getElementById('custAddress')?.value.trim();
 
     if (!name || !phone || !address) {
         alert('দয়া করে আপনার নাম, মোবাইল নম্বর এবং সম্পূর্ণ ডেলিভারি ঠিকানা পূরণ করুন!');
@@ -325,18 +356,18 @@ function sendWhatsAppOrder() {
     }
 
     const deliveryAreaRadio = document.querySelector('input[name="deliveryArea"]:checked');
-    const deliveryAreaName = deliveryAreaRadio.value === 'Khulna Sadar' ? 'খুলনা সদর' : 'খুলনার বাহিরে';
-    const deliveryCharge = parseInt(deliveryAreaRadio.getAttribute('price'));
+    const deliveryAreaName = deliveryAreaRadio ? (deliveryAreaRadio.value === 'Khulna Sadar' ? 'খুলনা সদর' : 'খুলনার বাহিরে') : 'খুলনা সদর';
+    const deliveryCharge = deliveryAreaRadio ? parseInt(deliveryAreaRadio.getAttribute('price')) : 60;
 
     const payMethodRadio = document.querySelector('input[name="paymentMethod"]:checked');
-    const payMethodName = payMethodRadio.value === 'COD' ? 'ক্যাশ অন ডেলিভারি (COD)' : 'বিকাশ / নগদ / রকেট';
+    const payMethodName = payMethodRadio ? (payMethodRadio.value === 'COD' ? 'ক্যাশ অন ডেলিভারি (COD)' : 'বিকাশ / নগদ / রকেট') : 'COD';
 
     let senderPhone = '';
     let advanceAmount = 0;
 
-    if (payMethodRadio.value === 'MobileBanking') {
-        senderPhone = document.getElementById('senderPhone').value.trim();
-        advanceAmount = parseInt(document.getElementById('advanceAmount').value) || 0;
+    if (payMethodRadio && payMethodRadio.value === 'MobileBanking') {
+        senderPhone = document.getElementById('senderPhone')?.value.trim();
+        advanceAmount = parseInt(document.getElementById('advanceAmount')?.value) || 0;
 
         if (!senderPhone) {
             alert('যে নম্বর থেকে টাকা পাঠিয়েছেন সেই প্রেরক নম্বরটি (Sender Number) দিন।');
@@ -370,7 +401,7 @@ function sendWhatsAppOrder() {
     message += `• সর্বমোট বিল: ৳${grandTotal}%0A`;
     message += `• পেমেন্ট মেথড: ${payMethodName}%0A`;
 
-    if (payMethodRadio.value === 'MobileBanking') {
+    if (payMethodRadio && payMethodRadio.value === 'MobileBanking') {
         message += `• পেমেন্ট পাঠানো নম্বর: ${senderPhone}%0A`;
         message += `• অগ্রিম পরিশোধিত: ৳${advanceAmount}%0A`;
         message += `• *বাকি প্রদেয় (COD): ৳${dueAmount}*%0A`;
@@ -385,9 +416,8 @@ function sendWhatsAppOrder() {
     window.open(waUrl, '_blank');
 }
 
-
 /* ==========================================
-   ৪. ইমেজ জুম পপ-আপ মোডাল
+   ৪. ইমেজ জুম ও ফিল্টার
    ========================================== */
 function openImageZoom(src) {
     const modal = document.getElementById('imageZoomModal');
@@ -403,14 +433,8 @@ function closeImageZoom() {
     if (modal) modal.style.display = 'none';
 }
 
-
-/* ==========================================
-   ৫. ডাইনামিক স্বাগতম পপ-আপ (প্রতি সেসনে ১ বার)
-   ========================================== */
 function showWelcomeModal() {
-    if (sessionStorage.getItem('welcomePopupShown') === 'true') {
-        return;
-    }
+    if (sessionStorage.getItem('welcomePopupShown') === 'true') return;
 
     if (!document.getElementById('welcomePopupModal')) {
         const popupHTML = `
@@ -450,26 +474,6 @@ function closeWelcomePopup() {
     }
 }
 
-
-/* ==========================================
-   ৬. হেলমেট ফিল্টারিং লজিক (Half Face & Full Face)
-   ========================================== */
-function filterHelmets(category, btnElement) {
-    const buttons = document.querySelectorAll('.filter-btns .filter-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    btnElement.classList.add('active');
-
-    const items = document.querySelectorAll('.catalog-item');
-    items.forEach(item => {
-        if (category === 'all' || item.classList.contains(category)) {
-            item.style.display = 'flex';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-}
-
-// পেজ লোড হওয়ার সাথে সাথে কার্ট কাউন্ট কল করা
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 });
