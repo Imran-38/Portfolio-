@@ -298,3 +298,28 @@
         max-height: 200px;
     }
 }
+
+/* পেমেন্ট ও ডেলিভারি অপশনে যাওয়ার বাটনের ডিজাইন */
+.btn-next-step {
+    width: 100%;
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2);
+}
+
+.btn-next-step:hover {
+    background: #0369a1;
+    transform: translateY(-2px);
+}
