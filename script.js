@@ -488,3 +488,159 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', showWelcomeModal);
+
+/* ==========================================
+   ৬. Modern Sales Chart Rendering (Chart.js)
+   ========================================== */
+document.addEventListener('DOMContentLoaded', function() {
+    const chartCtx = document.getElementById('modernSalesChart');
+    if (chartCtx) {
+        new Chart(chartCtx, {
+            type: 'line',
+            data: {
+                labels: ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'],
+                datasets: [{
+                    label: '২০২৬ সালের মাসিক বিক্রি',
+                    data: [450, 520, 610, 580, 700, 750, 820, 720, 0, 0, 0, 0],
+                    borderColor: '#0284c7',
+                    backgroundColor: 'rgba(2, 132, 199, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#0284c7',
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            font: {
+                                family: 'Hind Siliguri',
+                                size: 13,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#f1f5f9' },
+                        ticks: { font: { family: 'Hind Siliguri' } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: 'Hind Siliguri' } }
+                    }
+                }
+            }
+        });
+    }
+});
+
+
+/* ==========================================
+   ৭. Photo Gallery Carousel & Lightbox Logic
+   ========================================== */
+let currentSlideIndex = 0;
+const galleryImages = [
+    "https://i.ibb.co.com/kgH6FYm8/IMG-20260726-170323.jpg",
+    "https://i.ibb.co.com/yck3bRym/IMG-20260717-185850.jpg",
+    "https://i.ibb.co.com/M5VZcc1y/IMG-20260716-184437.jpg",
+    "https://i.ibb.co.com/20G7wFK7/IMG-20260630-183035.jpg"
+];
+
+function updateCarousel() {
+    const slideContainer = document.querySelector('.carousel-slide');
+    if (slideContainer) {
+        slideContainer.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+    }
+    updateDots();
+}
+
+const nextBtn = document.querySelector('.next-btn');
+const prevBtn = document.querySelector('.prev-btn');
+
+if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+        currentSlideIndex = (currentSlideIndex + 1) % galleryImages.length;
+        updateCarousel();
+    });
+}
+
+if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+        currentSlideIndex = (currentSlideIndex - 1 + galleryImages.length) % galleryImages.length;
+        updateCarousel();
+    });
+}
+
+// Dots creation
+const dotsContainer = document.querySelector('.carousel-dots');
+if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    galleryImages.forEach((_, idx) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            currentSlideIndex = idx;
+            updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+    });
+}
+
+function updateDots() {
+    const dots = document.querySelectorAll('.carousel-dots .dot');
+    dots.forEach((dot, idx) => {
+        if (idx === currentSlideIndex) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+// Lightbox Functions
+function openLightbox(index) {
+    currentSlideIndex = index;
+    const modal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const counter = document.getElementById('lightboxCounter');
+
+    if (modal && lightboxImg) {
+        lightboxImg.src = galleryImages[currentSlideIndex];
+        if (counter) counter.innerText = `${currentSlideIndex + 1} / ${galleryImages.length}`;
+        modal.classList.add('show');
+    }
+}
+
+function closeLightbox() {
+    const modal = document.getElementById('lightboxModal');
+    if (modal) {
+        modal.classList.remove('show');
+    }
+}
+
+function changeLbSlide(direction) {
+    currentSlideIndex = (currentSlideIndex + direction + galleryImages.length) % galleryImages.length;
+    const lightboxImg = document.getElementById('lightboxImg');
+    const counter = document.getElementById('lightboxCounter');
+
+    if (lightboxImg) {
+        lightboxImg.src = galleryImages[currentSlideIndex];
+    }
+    if (counter) {
+        counter.innerText = `${currentSlideIndex + 1} / ${galleryImages.length}`;
+    }
+}
+
