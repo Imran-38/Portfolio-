@@ -19,7 +19,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css?v=5">
-<link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="products.css?v=5">
 </head>
 <body>
 
@@ -63,24 +63,17 @@
         </div>
     </section>
 
-    <!-- মূল ক্যাটালগ সেকশন (১০টি সেফটি হেলমেট প্রোডাক্ট ও ফিল্টার) -->
+    <!-- মূল ক্যাটালগ সেকশন (১০টি সেফটি হেলমেট প্রোডাক্ট) -->
     <div class="container">
         <section class="card">
             <h2><i class="fa-solid fa-layer-group"></i> সেফটি হেলমেট কালেকশন</h2>
-
-            <!-- ক্যাটাগরি ফিল্টার বাটন -->
-            <div class="filter-btns" style="margin: 20px 0; text-align: center; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                <button class="filter-btn active" onclick="filterHelmets('all', this)">সব হেলমেট</button>
-                <button class="filter-btn" onclick="filterHelmets('half-face', this)">হাফ ফেস হেলমেট</button>
-                <button class="filter-btn" onclick="filterHelmets('full-face', this)">ফুল ফেস হেলমেট</button>
-            </div>
-
+            
             <!-- প্রোডাক্ট গ্রিড -->
             <div class="product-catalog-grid">
-
-                <!-- প্রোডাক্ট ১ (Full Face) -->
-                <div class="catalog-item full-face">
-                    <img src="img/product/Helmet_1.png" alt="Safemet Full Face Helmet (M) - Black Matt" loading="lazy" onclick="openImageZoom('img/product/Helmet_1.png')">
+                
+                <!-- প্রোডাক্ট ১ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helmet_1.png" alt="Safemet Full Face Helmet (M) - Black Matt" loading="lazy" onclick="openProductZoom('img/product/Helmet_1.png', 'Safemet Full Face Helmet (M) – Black Matt', 'Safemate', 'RFL', 1850, 'ম্যাট ব্ল্যাক কালারের স্টাইলিশ ফুল ফেস হেলমেট।|মাথা ও মুখের সুরক্ষায় উপযোগী ডিজাইন।|দৈনন্দিন মোটরসাইকেল চালানোর জন্য মানানসই।')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M) - Black Matt</h3>
                         <div class="price-box">
@@ -93,9 +86,9 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ২ (Full Face) -->
-                <div class="catalog-item full-face">
-                    <img src="img/product/Helmet_2.png" alt="Safemet Full Face Helmet (M)-Black (Graphics)" loading="lazy" onclick="openImageZoom('img/product/Helmet_2.png')">
+                <!-- প্রোডাক্ট ২ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helmet_2.png" alt="Safemet Full Face Helmet (M)-Black (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_2.png', 'Safemet Full Face Helmet (M)-Black (Graphics)', 'Safemate', 'RFL', 2150, 'আকর্ষণীয় গ্রাফিক্স ডিজাইন সহ ফুল ফেস হেলমেট।|উন্নত মানের সেফটি ম্যাটেরিয়াল দ্বারা তৈরি।|দীর্ঘ ভ্রমণের জন্য অত্যন্ত আরামদায়ক।')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M)-Black (Graphics)</h3>
                         <div class="price-box">
@@ -108,9 +101,9 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৩ (Half Face) -->
-                <div class="catalog-item half-face">
-                    <img src="img/product/Helmet_3.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openImageZoom('img/product/Helmet_3.png')">
+                <!-- প্রোডাক্ট ৩ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helmet_3.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_3.png', 'DragN Pulse Half Face Helmet (L) - Black', 'DragN', 'RFL', 1600, 'হালকা ও স্টাইলিশ হাফ ফেস ডিজাইন।|সহজে বাতাস চলাচলের সুব্যবস্থা।|শহরের রাইডিংয়ের জন্য পারফেক্ট।')">
                     <div class="catalog-info">
                         <h3>DragN Pulse Half Face Helmet (L) - Black</h3>
                         <div class="price-box">
@@ -123,9 +116,9 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৪ (Full Face) -->
-                <div class="catalog-item full-face">
-                    <img src="img/product/Helmet_4.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openImageZoom('img/product/Helmet_4.png')">
+                <!-- প্রোডাক্ট ৪ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helmet_4.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_4.png', 'Safemet Full Face Helmet (M)-Blue (Graphics)', 'Safemate', 'RFL', 2150, 'ব্লু গ্রাফিক্সের প্রিমিয়াম লুক।|শক্তিশালী স্ক্র্যাচ-প্রতিরোধী ভাইজার।|মজবুত স্ট্র্যাপ ও ইজি লক সিস্টেম।')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M)-Blue (Graphics)</h3>
                         <div class="price-box">
@@ -138,9 +131,9 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৫ (Full Face) -->
-                <div class="catalog-item full-face">
-                    <img src="img/product/Helmet_5.png" alt="Safemet Full Face Helmet (M)-Red (Graphics)" loading="lazy" onclick="openImageZoom('img/product/Helmet_5.png')">
+                <!-- প্রোডাক্ট ৫ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helmet_5.png" alt="Safemet Full Face Helmet (M)-Red (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_5.png', 'Safemet Full Face Helmet (M)-Red (Graphics)', 'Safemate', 'RFL', 2150, 'রেড গ্রাফিক্সের নজরকাড়া স্পোর্টি ডিজাইন।|উচ্চ আঘাত সহনশীল আউটার শেল।|সহজে পরিষ্কারযোগ্য ইনার প্যাডিং।')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M)-Red (Graphics)</h3>
                         <div class="price-box">
@@ -153,9 +146,9 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৬ (Half Face) -->
-                <div class="catalog-item half-face">
-                    <img src="img/product/Helmet_6.png" alt="Safemet Half Face Helmet (M-57-58) - Black" loading="lazy" onclick="openImageZoom('img/product/Helmet_6.png')">
+                <!-- প্রোডাক্ট ৬ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helmet_6.png" alt="Safemet Half Face Helmet (M-57-58) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_6.png', 'Safemet Half Face Helmet (M-57-58) - Black', 'Safemate', 'RFL', 1350, 'কমপ্যাক্ট ও কম ওজনের হাফ ফেস হেলমেট।|M সাইজ (৫৭-৫৮ সেমি)।|প্রতিদিনের ব্যবহারের জন্য টেকসই।')">
                     <div class="catalog-info">
                         <h3>Safemet Half Face Helmet (M-57-58) - Black</h3>
                         <div class="price-box">
@@ -168,9 +161,9 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৭ (Half Face) -->
-                <div class="catalog-item half-face">
-                    <img src="img/product/Helmet_7.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openImageZoom('img/product/Helmet_7.png')">
+                <!-- প্রোডাক্ট ৭ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helmet_7.png" alt="DragN Pulse Half Face Helmet (L) - Black" loading="lazy" onclick="openProductZoom('img/product/Helmet_7.png', 'DragN Pulse Half Face Helmet (L) - Black', 'DragN', 'RFL', 1600, 'প্রিমিয়াম ফিনিশিং সহ হাফ ফেস ডিজাইন।|সহজে খোলার জন্য কুইক-রিলিজ বাকল।|উচ্চ সুরক্ষামূল মানসম্পন্ন।')">
                     <div class="catalog-info">
                         <h3>DragN Pulse Half Face Helmet (L) - Black</h3>
                         <div class="price-box">
@@ -183,9 +176,9 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৮ (Half Face) -->
-                <div class="catalog-item half-face">
-                    <img src="img/product/Helmet_8.png" alt="Safemet Half Face Helmet (M-57-58) - Blue" loading="lazy" onclick="openImageZoom('img/product/Helmet_8.png')">
+                <!-- প্রোডাক্ট ৮ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helmet_8.png" alt="Safemet Half Face Helmet (M-57-58) - Blue" loading="lazy" onclick="openProductZoom('img/product/Helmet_8.png', 'Safemet Half Face Helmet (M-57-58) - Blue', 'Safemate', 'RFL', 1350, 'আকর্ষণীয় নীল কালারের হাফ ফেস হেলমেট।|হালকা ওজন ও কমফোর্টেবল প্যাডিং।|সহজে ব্যবহারে সুবিধাজনক।')">
                     <div class="catalog-info">
                         <h3>Safemet Half Face Helmet (M-57-58) - Blue</h3>
                         <div class="price-box">
@@ -198,9 +191,9 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ৯ (Full Face) -->
-                <div class="catalog-item full-face">
-                    <img src="img/product/Helmet_9.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openImageZoom('img/product/Helmet_9.png')">
+                <!-- প্রোডাক্ট ৯ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helmet_9.png" alt="Safemet Full Face Helmet (M)-Blue (Graphics)" loading="lazy" onclick="openProductZoom('img/product/Helmet_9.png', 'Safemet Full Face Helmet (M)-Blue (Graphics)', 'Safemate', 'RFL', 2150, 'স্পোর্টি ব্লু গ্রাফিক্স লুক।|সম্পূর্ণ মাথা ও থুতনির সর্বোচ্চ সুরক্ষা।|হাইওয়ে ও লং রাইডের জন্য পারফেক্ট।')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M)-Blue (Graphics)</h3>
                         <div class="price-box">
@@ -213,9 +206,9 @@
                     </div>
                 </div>
 
-                <!-- প্রোডাক্ট ১০ (Full Face) -->
-                <div class="catalog-item full-face">
-                    <img src="img/product/Helmet_10.png" alt="Safemet Full Face Helmet (M) - Black Matt Red" loading="lazy" onclick="openImageZoom('img/product/Helmet_10.png')">
+                <!-- প্রোডাক্ট ১০ -->
+                <div class="catalog-item">
+                    <img src="img/product/Helmet_10.png" alt="Safemet Full Face Helmet (M) - Black Matt Red" loading="lazy" onclick="openProductZoom('img/product/Helmet_10.png', 'Safemet Full Face Helmet (M) - Black Matt Red', 'Safemate', 'RFL', 1850, 'ম্যাট ব্ল্যাক ও রেড কম্বিনেশনের স্টাইলিশ ডিজাইন।|উন্নত ভেন্টিলেশন এয়ার ফ্লো সিস্টেম।|রাইডারদের পছন্দের অন্যতম সেরা হেলমেট।')">
                     <div class="catalog-info">
                         <h3>Safemet Full Face Helmet (M) - Black Matt Red</h3>
                         <div class="price-box">
@@ -232,10 +225,35 @@
         </section>
     </div>
 
-    <!-- ইমেজ জুম পপ-আপ মোডাল -->
-    <div id="imageZoomModal" class="cart-modal" onclick="closeImageZoom()">
-        <span class="close-modal" style="position: absolute; top: 20px; right: 25px; font-size: 35px;">&times;</span>
-        <img id="zoomedImg" src="" style="max-width: 90%; max-height: 85vh; border-radius: 8px; box-shadow: 0 5px 25px rgba(255,255,255,0.2);">
+    <!-- অ্যাডভান্সড প্রোডাক্ট ডিটেইলস ও জুম পপ-আপ মোডাল -->
+    <div id="imageZoomModal" class="product-zoom-modal">
+        <div class="product-zoom-card">
+            <span class="close-modal-btn" onclick="closeImageZoom()">&times;</span>
+            <div class="product-zoom-body">
+                <div class="product-zoom-img-box">
+                    <img id="zoomedImg" src="" alt="Product Detail Image">
+                </div>
+                <div class="product-zoom-details">
+                    <h3 id="zoomTitle">প্রোডাক্টের নাম</h3>
+                    <p class="meta-info"><strong>ব্র্যান্ড:</strong> <span id="zoomBrand">Safemate</span> | <strong>কোম্পানি:</strong> <span id="zoomCompany">RFL</span></p>
+                    <div class="zoom-price-box">
+                        <span class="zoom-price-label">সেল প্রাইস:</span>
+                        <span class="zoom-price-value" id="zoomPrice">৳০</span>
+                    </div>
+                    <div class="zoom-features-box">
+                        <h4><i class="fa-solid fa-list-check"></i> পণ্যের বৈশিষ্ট্য:</h4>
+                        <ul id="zoomFeatures">
+                            <!-- JS দিয়ে লোড হবে -->
+                        </ul>
+                    </div>
+                    <div class="zoom-action">
+                        <button id="zoomCartBtn" class="btn-cart btn-full">
+                            <i class="fa-solid fa-cart-plus"></i> কার্টে যোগ করুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- ফুটার সেকশন -->
@@ -257,29 +275,33 @@
         <p class="copyright">© 2026 মো: ইমরান হোসেন | প্রাণ-আরএফএল গ্রুপ</p>
     </footer>
 
-        <!-- কার্ট ও মর্ডান চেকআউট মোডাল -->
+    <!-- কার্ট পপ-আপ মোডাল -->
     <div id="cartModal" class="cart-modal">
         <div class="cart-modal-content">
             <div class="cart-modal-header">
-                <h3><i class="fa-solid fa-cart-shopping"></i> আপনার শপিং কার্ট ও চেকআউট</h3>
+                <h3><i class="fa-solid fa-cart-flatbed"></i> আপনার শপিং কার্ট</h3>
                 <span class="close-modal" onclick="toggleCartModal()">&times;</span>
             </div>
-
+            
             <div class="cart-modal-body">
-                <!-- কার্ট আইটেম লিস্ট -->
-                <div id="cartItemsContainer">
-                    <!-- JS দিয়ে আইটেম এখানে আসবে -->
-                </div>
+                <!-- ধাপ ১: কার্ট আইটেম ও কাস্টমার ডিটেইলস -->
+                <div id="checkoutStep1">
+                    <div id="cartItemsContainer">
+                        <!-- Cart items JS দিয়ে এখানে লোড হবে -->
+                    </div>
 
-                <!-- সম্পূর্ণ চেকআউট ফর্ম ও সামারি (এক পেজে স্ক্রলেবল) -->
-                <div id="fullCheckoutArea" style="display: none;">
-                    
-                    <!-- গ্রাহকের তথ্য -->
-                    <div class="checkout-section-box">
-                        <h4><i class="fa-solid fa-user-pen text-primary"></i> ১. গ্রাহকের ডেলিভারি তথ্য</h4>
+                    <div class="cart-summary" id="cartSummary" style="display: none;">
+                        <div class="total-row">
+                            <span>পণ্যসমূহের মূল্য:</span>
+                            <span id="subTotalAmount">৳০</span>
+                        </div>
+
+                        <hr class="divider">
+
+                        <h4><i class="fa-solid fa-user"></i> গ্রাহকের ডেলিভারি তথ্য</h4>
                         <div class="form-group">
                             <label for="custName">আপনার নাম *</label>
-                            <input type="text" id="custName" placeholder="যেমন: মো: ইমরান হোসেন">
+                            <input type="text" id="custName" placeholder="যেমন: মো: রহিম হোসেন">
                         </div>
                         <div class="form-group">
                             <label for="custPhone">মোবাইল নম্বর *</label>
@@ -289,11 +311,21 @@
                             <label for="custAddress">সম্পূর্ণ ঠিকানা *</label>
                             <textarea id="custAddress" rows="2" placeholder="গ্রাম/রাস্তা, থানা, জেলা"></textarea>
                         </div>
-                    </div>
 
-                    <!-- ডেলিভারি এরিয়া -->
-                    <div class="checkout-section-box">
-                        <h4><i class="fa-solid fa-truck-fast"></i> ২. ডেলিভারি এরিয়া</h4>
+                        <button type="button" class="btn-next-step" onclick="goToStep2()">
+                            পেমেন্ট ও ডেলিভারি অপশনে যান <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ধাপ ২: ডেলিভারি চার্জ ও পেমেন্ট অপশন -->
+                <div id="checkoutStep2" style="display: none;">
+                    <button type="button" class="btn-back-step" onclick="goToStep1()">
+                        <i class="fa-solid fa-arrow-left"></i> পেছনে যান
+                    </button>
+
+                    <div class="checkout-box">
+                        <h4><i class="fa-solid fa-truck-fast"></i> ডেলিভারি এরিয়া নির্বাচন করুন</h4>
                         <div class="radio-group">
                             <label class="radio-card">
                                 <input type="radio" name="deliveryArea" value="Khulna Sadar" price="60" checked onchange="calculateFinalTotal()">
@@ -301,14 +333,13 @@
                             </label>
                             <label class="radio-card">
                                 <input type="radio" name="deliveryArea" value="Outside Khulna" price="140" onchange="calculateFinalTotal()">
-                                <span>খুলনার বাহিরে / সারা বাংলাদেশ (৳১৪০)</span>
+                                <span>খুলনার বাহিরে (৳১৪০)</span>
                             </label>
                         </div>
                     </div>
 
-                    <!-- পেমেন্ট মেথড -->
-                    <div class="checkout-section-box">
-                        <h4><i class="fa-solid fa-wallet"></i> ৩. পেমেন্ট মেথড</h4>
+                    <div class="checkout-box">
+                        <h4><i class="fa-solid fa-wallet"></i> পেমেন্ট মেথড নির্বাচন করুন</h4>
                         <div class="radio-group">
                             <label class="radio-card">
                                 <input type="radio" name="paymentMethod" value="COD" checked onchange="togglePaymentDetails()">
@@ -320,34 +351,34 @@
                             </label>
                         </div>
 
-                        <!-- মোবাইল ব্যাংকিং ডিটেইলস -->
-                        <div id="mobileBankingDetails" style="display: none; margin-top: 12px; background: #fffbeb; padding: 12px; border-radius: 8px; border: 1px solid #fde68a; font-size: 13px;">
-                            <p style="margin: 0 0 6px 0; color: #92400e; font-weight: bold;">
-                                <i class="fa-solid fa-mobile-screen"></i> সেন্ড মানি নম্বর: <span style="color: #b91c1c; font-size: 15px;">01517851338</span>
+                        <!-- মোবাইল ব্যাংকিং পেমেন্ট বিস্তারিত -->
+                        <div id="mobileBankingDetails" style="display: none; margin-top: 10px; background: #fff3cd; padding: 10px; border-radius: 6px; font-size: 13px;">
+                            <p style="margin: 0 0 6px 0; color: #856404; font-weight: bold;">
+                                <i class="fa-solid fa-mobile-screen"></i> টাকা পাঠানোর নম্বর: <span style="color: #d9534f; font-size: 15px;">01517851338</span>
                             </p>
-                            <p style="margin: 0 0 8px 0; color: #78350f; font-size: 12px;">টাকা পাঠিয়ে নিচের তথ্য দিন:</p>
-                            <div class="form-group" style="margin-bottom: 8px;">
-                                <label for="senderPhone">যে নম্বর থেকে টাকা পাঠিয়েছেন *</label>
-                                <input type="tel" id="senderPhone" placeholder="017xxxxxxxx">
+                            <p style="margin: 0 0 8px 0; color: #666; font-size: 12px;">টাকা পাঠানোর পর নিচের তথ্যগুলো দিন:</p>
+                            <div class="form-group">
+                                <label for="senderPhone">প্রেরক মোবাইল নম্বর (Sender Number) *</label>
+                                <input type="tel" id="senderPhone" placeholder="যে নম্বর থেকে টাকা পাঠিয়েছেন">
                             </div>
-                            <div class="form-group" style="margin-bottom: 0;">
-                                <label for="advanceAmount">অগ্রিম পাঠানো টাকার পরিমাণ *</label>
+                            <div class="form-group">
+                                <label for="advanceAmount">অগ্রিম পাঠোনো টাকার পরিমাণ (টাকা) *</label>
                                 <input type="number" id="advanceAmount" placeholder="যেমন: ২০০" oninput="calculateFinalTotal()">
                             </div>
                         </div>
                     </div>
 
-                    <!-- সর্বমোট হিসাব ও অর্ডার বাটন -->
+                    <!-- সর্বমোট হিসেব -->
                     <div class="final-total-box">
-                        <div class="total-row-item"><span>পণ্যের মূল্য:</span> <span id="finalSubtotal">৳০</span></div>
+                        <div class="total-row-item"><span>পণ্যের দাম:</span> <span id="finalSubtotal">৳০</span></div>
                         <div class="total-row-item"><span>ডেলিভারি চার্জ:</span> <span id="finalDelivery">৳৬০</span></div>
+                        <hr class="divider">
                         <div class="total-row-item final-price"><span>সর্বমোট প্রদেয়:</span> <span id="grandTotal">৳০</span></div>
                     </div>
 
                     <button type="button" class="btn-whatsapp-order" onclick="sendWhatsAppOrder()">
-                        <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> হোয়াটসঅ্যাপে অর্ডার কনফার্ম করুন
+                        <i class="fa-brands fa-whatsapp"></i> অর্ডার কনফার্ম করুন
                     </button>
-
                 </div>
             </div>
         </div>
@@ -355,6 +386,47 @@
 
     <!-- JavaScript Link -->
     <script src="script.js?v=5"></script>
-<script src="products.js"></script>
+
+    <!-- প্রোডাক্ট জুমের স্ক্রিপ্ট -->
+    <script>
+        function openProductZoom(imgSrc, title, brand, company, price, featuresStr) {
+            document.getElementById('zoomedImg').src = imgSrc;
+            document.getElementById('zoomTitle').innerText = title;
+            document.getElementById('zoomBrand').innerText = brand;
+            document.getElementById('zoomCompany').innerText = company;
+            document.getElementById('zoomPrice').innerText = '৳' + price;
+
+            // ফিচার লিস্ট তৈরি
+            const featuresList = document.getElementById('zoomFeatures');
+            featuresList.innerHTML = '';
+            const features = featuresStr.split('|');
+            features.forEach(feat => {
+                const li = document.createElement('li');
+                li.innerText = feat;
+                featuresList.appendChild(li);
+            });
+
+            // কার্ট বাটন কানেক্ট
+            const cartBtn = document.getElementById('zoomCartBtn');
+            cartBtn.onclick = function() {
+                addToCart(title, price);
+                closeImageZoom();
+            };
+
+            document.getElementById('imageZoomModal').style.display = 'flex';
+        }
+
+        function closeImageZoom() {
+            document.getElementById('imageZoomModal').style.display = 'none';
+        }
+
+        // মোডালের বাইরে ক্লিক করলে বন্ধ হবে
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageZoomModal');
+            if (event.target === modal) {
+                closeImageZoom();
+            }
+        }
+    </script>
 </body>
 </html>
